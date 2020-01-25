@@ -1,12 +1,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 #define CXX "g++"
+
 #include <bits/stdc++.h>
 using namespace std;
 using lint = long long;
 
-#define call_from_test
 #include "../../library/datastructure/segmenttree.cpp"
-#undef call_from_test
 
 int main() {
     int n, q;
