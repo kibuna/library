@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/segmenttree.test.cpp
+# :heavy_check_mark: test/datastructure/segmenttree.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/segmenttree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 00:21:29+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/segmenttree.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-01-26 01:04:37+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
@@ -78,7 +78,7 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yosupo/segmenttree.test.cpp"
+#line 1 "test/datastructure/segmenttree.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 #define CXX "g++"
 
@@ -86,7 +86,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/yosupo/../../library/datastructure/segmenttree.cpp"
+#line 1 "test/datastructure/../../library/datastructure/segmenttree.cpp"
 // 0-indexed bottom up Segment Tree
 // UNIT is the identity element of operation func
 template <typename T = int>
@@ -145,7 +145,7 @@ struct SegmentTree {
     }
 };
 
-#line 9 "test/yosupo/segmenttree.test.cpp"
+#line 9 "test/datastructure/segmenttree.test.cpp"
 
 int main() {
     int n, q;

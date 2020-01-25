@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/yosupo/unionfind.test.cpp
+# :heavy_check_mark: test/datastructure/unionfind.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/unionfind.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 00:21:29+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/unionfind.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-01-26 01:04:37+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
@@ -75,13 +75,13 @@ signed main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yosupo/unionfind.test.cpp"
+#line 1 "test/datastructure/unionfind.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 
 #include <bits/stdc++.h>
 using namespace std;
 
-#line 1 "test/yosupo/../../library/datastructure/unionfind.cpp"
+#line 1 "test/datastructure/../../library/datastructure/unionfind.cpp"
 struct UnionFind {
     vector<int> rank, parent, size;
 
@@ -114,7 +114,7 @@ struct UnionFind {
     }
     int getSize(int x) { return size[root(x)]; }
 };
-#line 7 "test/yosupo/unionfind.test.cpp"
+#line 7 "test/datastructure/unionfind.test.cpp"
 
 signed main() {
     int n, q;

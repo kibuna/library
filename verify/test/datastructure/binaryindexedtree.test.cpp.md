@@ -25,13 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/yosupo/pointaddrangesum.cpp
+# :x: test/datastructure/binaryindexedtree.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#0b58406058f6619a0f31a172defc0230">test/yosupo</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/pointaddrangesum.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 00:21:29+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/binaryindexedtree.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-01-26 01:06:08+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/point_add_range_sum">https://judge.yosupo.jp/problem/point_add_range_sum</a>
@@ -39,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :warning: <a href="../../library/datastructure/binaryindexedtree.cpp.html">library/datastructure/binaryindexedtree.cpp</a>
+* :x: <a href="../../../library/library/datastructure/binaryindexedtree.cpp.html">library/datastructure/binaryindexedtree.cpp</a>
 
 
 ## Code
@@ -63,7 +62,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
-    BinaryIndexedTree bit(a);
+    BinaryIndexedTree<lint> bit(a);
     for (int i = 0; i < q; ++i) {
         int t, l, r;
         cin >> t >> l >> r;
@@ -80,7 +79,7 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/yosupo/pointaddrangesum.cpp"
+#line 1 "test/datastructure/binaryindexedtree.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #define CXX "g++"
 
@@ -88,7 +87,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/yosupo/../../library/datastructure/binaryindexedtree.cpp"
+#line 1 "test/datastructure/../../library/datastructure/binaryindexedtree.cpp"
 // Binary Indexed Tree / Fenwick tree
 // calculate partial sum in O(logN)
 // update single datum in O(logN)
@@ -100,7 +99,7 @@ struct BinaryIndexedTree {
     vector<T> bit;
     BinaryIndexedTree(int n_, T init = 0) : n(n_), bit(n_ + 1, init) {}
     BinaryIndexedTree(vector<T> init) : n(init.size() + 1), bit(init.size() + 1) {
-        for (int i = 1; i < init.size() + 1; ++i) {
+        for (int i = 1; i < (int)init.size() + 1; ++i) {
             bit[i] = init[i - 1];
         }
     }
@@ -148,7 +147,7 @@ struct BinaryIndexedTree {
     }
     T query(int l, int r) { return sum(r - 1) - sum(l - 1); }
 };
-#line 9 "test/yosupo/pointaddrangesum.cpp"
+#line 9 "test/datastructure/binaryindexedtree.test.cpp"
 
 int main() {
     int n, q;
@@ -157,7 +156,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
-    BinaryIndexedTree bit(a);
+    BinaryIndexedTree<lint> bit(a);
     for (int i = 0; i < q; ++i) {
         int t, l, r;
         cin >> t >> l >> r;

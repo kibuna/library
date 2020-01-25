@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: library/datastructure/binaryindexedtree.cpp
+# :x: library/datastructure/binaryindexedtree.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#94df14f08811b32e8e383a2a55f0c6c5">library/datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/datastructure/binaryindexedtree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 00:21:29+09:00
+    - Last commit date: 2020-01-26 01:06:08+09:00
 
 
 
 
-## Required by
+## Verified with
 
-* :warning: <a href="../../test/yosupo/pointaddrangesum.cpp.html">test/yosupo/pointaddrangesum.cpp</a>
+* :x: <a href="../../../verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
 
 
 ## Code
@@ -57,7 +57,7 @@ struct BinaryIndexedTree {
     vector<T> bit;
     BinaryIndexedTree(int n_, T init = 0) : n(n_), bit(n_ + 1, init) {}
     BinaryIndexedTree(vector<T> init) : n(init.size() + 1), bit(init.size() + 1) {
-        for (int i = 1; i < init.size() + 1; ++i) {
+        for (int i = 1; i < (int)init.size() + 1; ++i) {
             bit[i] = init[i - 1];
         }
     }
@@ -124,7 +124,7 @@ struct BinaryIndexedTree {
     vector<T> bit;
     BinaryIndexedTree(int n_, T init = 0) : n(n_), bit(n_ + 1, init) {}
     BinaryIndexedTree(vector<T> init) : n(init.size() + 1), bit(init.size() + 1) {
-        for (int i = 1; i < init.size() + 1; ++i) {
+        for (int i = 1; i < (int)init.size() + 1; ++i) {
             bit[i] = init[i - 1];
         }
     }
