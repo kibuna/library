@@ -14,7 +14,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
-    BinaryIndexedTree bit(a);
+    BinaryIndexedTree<lint> bit(a);
     for (int i = 0; i < q; ++i) {
         int t, l, r;
         cin >> t >> l >> r;
