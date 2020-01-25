@@ -1,0 +1,3 @@
+[submodule "autolibrary"]
+	path = autolibrary
+	url = https://github.com/ngtkana/autolibrary.git
