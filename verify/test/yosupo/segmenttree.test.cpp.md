@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/segmenttree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-25 23:38:43+09:00
+    - Last commit date: 2020-01-26 00:21:29+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
@@ -48,13 +48,12 @@ layout: default
 ```cpp
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 #define CXX "g++"
+
 #include <bits/stdc++.h>
 using namespace std;
 using lint = long long;
 
-#define call_from_test
 #include "../../library/datastructure/segmenttree.cpp"
-#undef call_from_test
 
 int main() {
     int n, q;
@@ -82,11 +81,11 @@ int main() {
 #line 1 "test/yosupo/segmenttree.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 #define CXX "g++"
+
 #include <bits/stdc++.h>
 using namespace std;
 using lint = long long;
 
-#define call_from_test
 #line 1 "test/yosupo/../../library/datastructure/segmenttree.cpp"
 // 0-indexed bottom up Segment Tree
 // UNIT is the identity element of operation func
@@ -147,7 +146,6 @@ struct SegmentTree {
 };
 
 #line 9 "test/yosupo/segmenttree.test.cpp"
-#undef call_from_test
 
 int main() {
     int n, q;

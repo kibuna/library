@@ -38,8 +38,16 @@ layout: default
 
 ### library/datastructure
 
+* :warning: <a href="library/library/datastructure/binaryindexedtree.cpp.html">library/datastructure/binaryindexedtree.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/segmenttree.cpp.html">library/datastructure/segmenttree.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/unionfind.cpp.html">library/datastructure/unionfind.cpp</a>
+
+
+<div id="0b58406058f6619a0f31a172defc0230"></div>
+
+### test/yosupo
+
+* :warning: <a href="library/test/yosupo/pointaddrangesum.cpp.html">test/yosupo/pointaddrangesum.cpp</a>
 
 
 ## Verify Files

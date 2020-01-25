@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/yosupo/unionfind.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-25 23:38:43+09:00
+    - Last commit date: 2020-01-26 00:21:29+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/unionfind">https://judge.yosupo.jp/problem/unionfind</a>
@@ -51,9 +51,7 @@ layout: default
 #include <bits/stdc++.h>
 using namespace std;
 
-#define call_from_test
 #include "../../library/datastructure/unionfind.cpp"
-#undef call_from_test
 
 signed main() {
     int n, q;
@@ -83,7 +81,6 @@ signed main() {
 #include <bits/stdc++.h>
 using namespace std;
 
-#define call_from_test
 #line 1 "test/yosupo/../../library/datastructure/unionfind.cpp"
 struct UnionFind {
     vector<int> rank, parent, size;
@@ -117,8 +114,7 @@ struct UnionFind {
     }
     int getSize(int x) { return size[root(x)]; }
 };
-#line 8 "test/yosupo/unionfind.test.cpp"
-#undef call_from_test
+#line 7 "test/yosupo/unionfind.test.cpp"
 
 signed main() {
     int n, q;
