@@ -9,7 +9,7 @@ struct BinaryIndexedTree {
     vector<T> bit;
     BinaryIndexedTree(int n_, T init = 0) : n(n_), bit(n_ + 1, init) {}
     BinaryIndexedTree(vector<T> init) : n(init.size() + 1), bit(init.size() + 1) {
-        for (int i = 1; i < init.size() + 1; ++i) {
+        for (int i = 1; i < (int)init.size() + 1; ++i) {
             bit[i] = init[i - 1];
         }
     }
