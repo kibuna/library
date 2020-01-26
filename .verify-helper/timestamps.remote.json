@@ -1,6 +1,9 @@
 {
+"test/algebra/gcd.test.cpp": "2020-01-27 00:09:13 +0900",
+"test/algebra/mint_pow.test.cpp": "2020-01-27 00:09:13 +0900",
+"test/algebra/primefactors.test.cpp": "2020-01-27 00:09:13 +0900",
 "test/datastructure/binaryindexedtree.test.cpp": "2020-01-26 16:04:30 +0900",
-"test/datastructure/segmenttree.test.cpp": "2020-01-26 01:04:37 +0900",
+"test/datastructure/segmenttree.test.cpp": "2020-01-27 00:06:22 +0900",
 "test/datastructure/unionfind.test.cpp": "2020-01-26 01:04:37 +0900",
-"test/tree/lca.test.cpp": "2020-01-26 18:42:10 +0900"
+"test/tree/lca.test.cpp": "2020-01-27 00:06:22 +0900"
 }
