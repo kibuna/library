@@ -7,15 +7,19 @@ template <typename T = int>
 struct BinaryIndexedTree {
     int n;
     vector<T> bit;
-    BinaryIndexedTree(int n_, T init = 0) : n(n_), bit(n_ + 1, init) {}
-    BinaryIndexedTree(vector<T> init) : n(init.size() + 1), bit(init.size() + 1) {
-        for (int i = 1; i < (int)init.size() + 1; ++i) {
+    BinaryIndexedTree(int n_) : n(n_), bit(n_ + 1, 0) {}
+    BinaryIndexedTree(vector<T> const &init) : n(init.size()), bit(init.size() + 1, 0) {
+        for (int i = 1; i <= n; ++i) {
             bit[i] = init[i - 1];
+        }
+        for (int i = 1; i <= n; ++i) {
+            if (i + (i & -i) <= n)
+                bit[i + (i & -i)] += bit[i];
         }
     }
     T sum(int i) {
         i++;
-        T s = bit[0];
+        T s = 0;
         for (int x = i; x > 0; x -= (x & -x))
             s += bit[x];
         return s;
