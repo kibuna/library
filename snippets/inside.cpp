@@ -1,0 +1,1 @@
+auto inside = [&](int y, int x) { return 0 <= y && y < h && 0 <= x && x < w; };
