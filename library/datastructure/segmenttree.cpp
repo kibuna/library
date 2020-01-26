@@ -43,16 +43,15 @@ struct SegmentTree {
     T query(int l, int r) {
         l += n - 1;
         r += n - 1;
-        T ret = UNIT;
+        T retl = UNIT, retr = UNIT;
         while (l < r) {
             if ((l & 1) == 0)
-                ret = func(ret, dat[l]);
+                retl = func(retl, dat[l]);
             if ((r & 1) == 0)
-                ret = func(ret, dat[r - 1]);
+                retr = func(dat[r - 1], retr);
             l = l / 2;
             r = (r - 1) / 2;
         }
-        return ret;
+        return func(retl, retr);
     }
 };
-
