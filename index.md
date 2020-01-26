@@ -38,14 +38,14 @@ layout: default
 
 ### library/datastructure
 
-* :x: <a href="library/library/datastructure/binaryindexedtree.cpp.html">library/datastructure/binaryindexedtree.cpp</a>
+* :heavy_check_mark: <a href="library/library/datastructure/binaryindexedtree.cpp.html">library/datastructure/binaryindexedtree.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/segmenttree.cpp.html">library/datastructure/segmenttree.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/unionfind.cpp.html">library/datastructure/unionfind.cpp</a>
 
 
 ## Verify Files
 
-* :x: <a href="verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/segmenttree.test.cpp.html">test/datastructure/segmenttree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/unionfind.test.cpp.html">test/datastructure/unionfind.test.cpp</a>
 

@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: library/datastructure/binaryindexedtree.cpp
+# :heavy_check_mark: library/datastructure/binaryindexedtree.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#94df14f08811b32e8e383a2a55f0c6c5">library/datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/datastructure/binaryindexedtree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 01:06:08+09:00
+    - Last commit date: 2020-01-26 16:04:30+09:00
 
 
 
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
 
 
 ## Code
@@ -55,15 +55,19 @@ template <typename T = int>
 struct BinaryIndexedTree {
     int n;
     vector<T> bit;
-    BinaryIndexedTree(int n_, T init = 0) : n(n_), bit(n_ + 1, init) {}
-    BinaryIndexedTree(vector<T> init) : n(init.size() + 1), bit(init.size() + 1) {
-        for (int i = 1; i < (int)init.size() + 1; ++i) {
+    BinaryIndexedTree(int n_) : n(n_), bit(n_ + 1, 0) {}
+    BinaryIndexedTree(vector<T> const &init) : n(init.size()), bit(init.size() + 1, 0) {
+        for (int i = 1; i <= n; ++i) {
             bit[i] = init[i - 1];
+        }
+        for (int i = 1; i <= n; ++i) {
+            if (i + (i & -i) <= n)
+                bit[i + (i & -i)] += bit[i];
         }
     }
     T sum(int i) {
         i++;
-        T s = bit[0];
+        T s = 0;
         for (int x = i; x > 0; x -= (x & -x))
             s += bit[x];
         return s;
@@ -122,15 +126,19 @@ template <typename T = int>
 struct BinaryIndexedTree {
     int n;
     vector<T> bit;
-    BinaryIndexedTree(int n_, T init = 0) : n(n_), bit(n_ + 1, init) {}
-    BinaryIndexedTree(vector<T> init) : n(init.size() + 1), bit(init.size() + 1) {
-        for (int i = 1; i < (int)init.size() + 1; ++i) {
+    BinaryIndexedTree(int n_) : n(n_), bit(n_ + 1, 0) {}
+    BinaryIndexedTree(vector<T> const &init) : n(init.size()), bit(init.size() + 1, 0) {
+        for (int i = 1; i <= n; ++i) {
             bit[i] = init[i - 1];
+        }
+        for (int i = 1; i <= n; ++i) {
+            if (i + (i & -i) <= n)
+                bit[i + (i & -i)] += bit[i];
         }
     }
     T sum(int i) {
         i++;
-        T s = bit[0];
+        T s = 0;
         for (int x = i; x > 0; x -= (x & -x))
             s += bit[x];
         return s;

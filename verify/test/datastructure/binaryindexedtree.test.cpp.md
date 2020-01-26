@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/datastructure/binaryindexedtree.test.cpp
+# :heavy_check_mark: test/datastructure/binaryindexedtree.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/binaryindexedtree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 01:06:08+09:00
+    - Last commit date: 2020-01-26 16:04:30+09:00
 
 
 * see: <a href="https://judge.yosupo.jp/problem/point_add_range_sum">https://judge.yosupo.jp/problem/point_add_range_sum</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../../library/library/datastructure/binaryindexedtree.cpp.html">library/datastructure/binaryindexedtree.cpp</a>
+* :heavy_check_mark: <a href="../../../library/library/datastructure/binaryindexedtree.cpp.html">library/datastructure/binaryindexedtree.cpp</a>
 
 
 ## Code
@@ -47,7 +47,6 @@ layout: default
 {% raw %}
 ```cpp
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
-#define CXX "g++"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -58,21 +57,24 @@ using lint = long long;
 int main() {
     int n, q;
     cin >> n >> q;
-    vector<lint> a(n);
+    vector<lint> a(n, 0);
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
     BinaryIndexedTree<lint> bit(a);
+    vector<int> t(q), l(q), r(q);
     for (int i = 0; i < q; ++i) {
-        int t, l, r;
-        cin >> t >> l >> r;
-        if (t)
-            cout << bit.query(l, r) << "\n";
-        else
-            bit.add(l, r);
+        cin >> t[i] >> l[i] >> r[i];
+    }
+    for (int i = 0; i < q; ++i) {
+        if (t[i] == 1)
+            cout << bit.query(l[i], r[i]) << endl;
+        else if (t[i] == 0)
+            bit.add(l[i], r[i]);
     }
     return 0;
 }
+
 ```
 {% endraw %}
 
@@ -81,7 +83,6 @@ int main() {
 ```cpp
 #line 1 "test/datastructure/binaryindexedtree.test.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
-#define CXX "g++"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -97,15 +98,19 @@ template <typename T = int>
 struct BinaryIndexedTree {
     int n;
     vector<T> bit;
-    BinaryIndexedTree(int n_, T init = 0) : n(n_), bit(n_ + 1, init) {}
-    BinaryIndexedTree(vector<T> init) : n(init.size() + 1), bit(init.size() + 1) {
-        for (int i = 1; i < (int)init.size() + 1; ++i) {
+    BinaryIndexedTree(int n_) : n(n_), bit(n_ + 1, 0) {}
+    BinaryIndexedTree(vector<T> const &init) : n(init.size()), bit(init.size() + 1, 0) {
+        for (int i = 1; i <= n; ++i) {
             bit[i] = init[i - 1];
+        }
+        for (int i = 1; i <= n; ++i) {
+            if (i + (i & -i) <= n)
+                bit[i + (i & -i)] += bit[i];
         }
     }
     T sum(int i) {
         i++;
-        T s = bit[0];
+        T s = 0;
         for (int x = i; x > 0; x -= (x & -x))
             s += bit[x];
         return s;
@@ -147,26 +152,29 @@ struct BinaryIndexedTree {
     }
     T query(int l, int r) { return sum(r - 1) - sum(l - 1); }
 };
-#line 9 "test/datastructure/binaryindexedtree.test.cpp"
+#line 8 "test/datastructure/binaryindexedtree.test.cpp"
 
 int main() {
     int n, q;
     cin >> n >> q;
-    vector<lint> a(n);
+    vector<lint> a(n, 0);
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
     BinaryIndexedTree<lint> bit(a);
+    vector<int> t(q), l(q), r(q);
     for (int i = 0; i < q; ++i) {
-        int t, l, r;
-        cin >> t >> l >> r;
-        if (t)
-            cout << bit.query(l, r) << "\n";
-        else
-            bit.add(l, r);
+        cin >> t[i] >> l[i] >> r[i];
+    }
+    for (int i = 0; i < q; ++i) {
+        if (t[i] == 1)
+            cout << bit.query(l[i], r[i]) << endl;
+        else if (t[i] == 0)
+            bit.add(l[i], r[i]);
     }
     return 0;
 }
+
 ```
 {% endraw %}
 
