@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#94df14f08811b32e8e383a2a55f0c6c5">library/datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/datastructure/segmenttree.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-25 23:38:43+09:00
+    - Last commit date: 2020-01-27 00:06:22+09:00
 
 
 
@@ -97,19 +97,18 @@ struct SegmentTree {
     T query(int l, int r) {
         l += n - 1;
         r += n - 1;
-        T ret = UNIT;
+        T retl = UNIT, retr = UNIT;
         while (l < r) {
             if ((l & 1) == 0)
-                ret = func(ret, dat[l]);
+                retl = func(retl, dat[l]);
             if ((r & 1) == 0)
-                ret = func(ret, dat[r - 1]);
+                retr = func(dat[r - 1], retr);
             l = l / 2;
             r = (r - 1) / 2;
         }
-        return ret;
+        return func(retl, retr);
     }
 };
-
 
 ```
 {% endraw %}
@@ -163,19 +162,18 @@ struct SegmentTree {
     T query(int l, int r) {
         l += n - 1;
         r += n - 1;
-        T ret = UNIT;
+        T retl = UNIT, retr = UNIT;
         while (l < r) {
             if ((l & 1) == 0)
-                ret = func(ret, dat[l]);
+                retl = func(retl, dat[l]);
             if ((r & 1) == 0)
-                ret = func(ret, dat[r - 1]);
+                retr = func(dat[r - 1], retr);
             l = l / 2;
             r = (r - 1) / 2;
         }
-        return ret;
+        return func(retl, retr);
     }
 };
-
 
 ```
 {% endraw %}

@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67be68a348da3b850fb7daa10b034528">snippets</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippets/bisect.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 18:42:10+09:00
+    - Last commit date: 2020-01-27 00:06:22+09:00
 
 
 
@@ -47,7 +47,7 @@ auto check = [&](lint mid) {
 
 };
 while (ok + 1 != ng) {
-    lint mid               = (ok + ng);
+    lint mid               = (ok + ng) / 2;
     (check(mid) ? ok : ng) = mid;
 }
 cout << ok << "\n";
@@ -65,7 +65,7 @@ auto check = [&](lint mid) {
 
 };
 while (ok + 1 != ng) {
-    lint mid               = (ok + ng);
+    lint mid               = (ok + ng) / 2;
     (check(mid) ? ok : ng) = mid;
 }
 cout << ok << "\n";

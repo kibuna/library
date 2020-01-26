@@ -30,10 +30,10 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/segmenttree.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 01:04:37+09:00
+    - Last commit date: 2020-01-27 00:06:22+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/staticrmq">https://judge.yosupo.jp/problem/staticrmq</a>
+* see: <a href="https://judge.yosupo.jp/problem/point_set_range_composite">https://judge.yosupo.jp/problem/point_set_range_composite</a>
 
 
 ## Depends on
@@ -46,29 +46,46 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
+#define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 #define CXX "g++"
 
 #include <bits/stdc++.h>
 using namespace std;
-using lint = long long;
+using lint     = long long;
+using pii      = pair<lint, lint>;
+const lint mod = 998244353;
 
 #include "../../library/datastructure/segmenttree.cpp"
 
 int main() {
+    std::cin.tie(0);
+    std::ios_base::sync_with_stdio(false);
     int n, q;
     cin >> n >> q;
-    vector<lint> a(n);
+    vector<pii> a(n);
     for (int i = 0; i < n; ++i) {
-        cin >> a[i];
+        cin >> a[i].first >> a[i].second;
     }
-    auto f          = [](lint l, lint r) { return min(l, r); };
-    const lint unit = 1LL << 60;
-    SegmentTree<lint> sg(a, f, unit);
+    auto f = [](pii l, pii r) {
+        lint a = r.first * l.first % mod;
+        lint b = (r.first * l.second % mod + r.second) % mod;
+        return make_pair(a, b);
+    };
+    const pii unit = {1, 0};
+    SegmentTree<pii> sg(a, f, unit);
     for (int i = 0; i < q; ++i) {
-        int l, r;
-        cin >> l >> r;
-        cout << sg.query(l, r) << "\n";
+        lint t;
+        cin >> t;
+        if (t == 1) {
+            lint l, r, x;
+            cin >> l >> r >> x;
+            auto p = sg.query(l, r);
+            cout << (p.first * x % mod + p.second) % mod << "\n";
+        } else {
+            lint p, c, d;
+            cin >> p >> c >> d;
+            sg.update(p, {c, d});
+        }
     }
     return 0;
 }
@@ -79,12 +96,14 @@ int main() {
 {% raw %}
 ```cpp
 #line 1 "test/datastructure/segmenttree.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
+#define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 #define CXX "g++"
 
 #include <bits/stdc++.h>
 using namespace std;
-using lint = long long;
+using lint     = long long;
+using pii      = pair<lint, lint>;
+const lint mod = 998244353;
 
 #line 1 "test/datastructure/../../library/datastructure/segmenttree.cpp"
 // 0-indexed bottom up Segment Tree
@@ -132,35 +151,49 @@ struct SegmentTree {
     T query(int l, int r) {
         l += n - 1;
         r += n - 1;
-        T ret = UNIT;
+        T retl = UNIT, retr = UNIT;
         while (l < r) {
             if ((l & 1) == 0)
-                ret = func(ret, dat[l]);
+                retl = func(retl, dat[l]);
             if ((r & 1) == 0)
-                ret = func(ret, dat[r - 1]);
+                retr = func(dat[r - 1], retr);
             l = l / 2;
             r = (r - 1) / 2;
         }
-        return ret;
+        return func(retl, retr);
     }
 };
-
-#line 9 "test/datastructure/segmenttree.test.cpp"
+#line 11 "test/datastructure/segmenttree.test.cpp"
 
 int main() {
+    std::cin.tie(0);
+    std::ios_base::sync_with_stdio(false);
     int n, q;
     cin >> n >> q;
-    vector<lint> a(n);
+    vector<pii> a(n);
     for (int i = 0; i < n; ++i) {
-        cin >> a[i];
+        cin >> a[i].first >> a[i].second;
     }
-    auto f          = [](lint l, lint r) { return min(l, r); };
-    const lint unit = 1LL << 60;
-    SegmentTree<lint> sg(a, f, unit);
+    auto f = [](pii l, pii r) {
+        lint a = r.first * l.first % mod;
+        lint b = (r.first * l.second % mod + r.second) % mod;
+        return make_pair(a, b);
+    };
+    const pii unit = {1, 0};
+    SegmentTree<pii> sg(a, f, unit);
     for (int i = 0; i < q; ++i) {
-        int l, r;
-        cin >> l >> r;
-        cout << sg.query(l, r) << "\n";
+        lint t;
+        cin >> t;
+        if (t == 1) {
+            lint l, r, x;
+            cin >> l >> r >> x;
+            auto p = sg.query(l, r);
+            cout << (p.first * x % mod + p.second) % mod << "\n";
+        } else {
+            lint p, c, d;
+            cin >> p >> c >> d;
+            sg.update(p, {c, d});
+        }
     }
     return 0;
 }

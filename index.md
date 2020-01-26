@@ -34,6 +34,17 @@ layout: default
 
 ## Library Files
 
+<div id="26c2ef729e4bca24cf34dda14fedd106"></div>
+
+### library/algebra
+
+* :warning: <a href="library/library/algebra/eratosthenes.cpp.html">library/algebra/eratosthenes.cpp</a>
+* :warning: <a href="library/library/algebra/factors.cpp.html">library/algebra/factors.cpp</a>
+* :heavy_check_mark: <a href="library/library/algebra/gcd.cpp.html">library/algebra/gcd.cpp</a>
+* :heavy_check_mark: <a href="library/library/algebra/mint.cpp.html">library/algebra/mint.cpp</a>
+* :heavy_check_mark: <a href="library/library/algebra/primefactors.cpp.html">library/algebra/primefactors.cpp</a>
+
+
 <div id="94df14f08811b32e8e383a2a55f0c6c5"></div>
 
 ### library/datastructure
@@ -70,6 +81,9 @@ layout: default
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/test/algebra/gcd.test.cpp.html">test/algebra/gcd.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/algebra/mint_pow.test.cpp.html">test/algebra/mint_pow.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/algebra/primefactors.test.cpp.html">test/algebra/primefactors.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/segmenttree.test.cpp.html">test/datastructure/segmenttree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/unionfind.test.cpp.html">test/datastructure/unionfind.test.cpp</a>

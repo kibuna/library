@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/tree/lca.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 18:42:10+09:00
+    - Last commit date: 2020-01-27 00:06:22+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C&lang=jp">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C&lang=jp</a>
@@ -140,19 +140,18 @@ struct SegmentTree {
     T query(int l, int r) {
         l += n - 1;
         r += n - 1;
-        T ret = UNIT;
+        T retl = UNIT, retr = UNIT;
         while (l < r) {
             if ((l & 1) == 0)
-                ret = func(ret, dat[l]);
+                retl = func(retl, dat[l]);
             if ((r & 1) == 0)
-                ret = func(ret, dat[r - 1]);
+                retr = func(dat[r - 1], retr);
             l = l / 2;
             r = (r - 1) / 2;
         }
-        return ret;
+        return func(retl, retr);
     }
 };
-
 #line 2 "test/tree/../../library/tree/lca.cpp"
 
 // get LCA on the tree
