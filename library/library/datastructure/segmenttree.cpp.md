@@ -36,9 +36,15 @@ layout: default
 
 
 
+## Required by
+
+* :heavy_check_mark: <a href="../tree/lca.cpp.html">library/tree/lca.cpp</a>
+
+
 ## Verified with
 
 * :heavy_check_mark: <a href="../../../verify/test/datastructure/segmenttree.test.cpp.html">test/datastructure/segmenttree.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/tree/lca.test.cpp.html">test/tree/lca.test.cpp</a>
 
 
 ## Code
