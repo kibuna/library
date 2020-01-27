@@ -1,0 +1,3 @@
+[submodule "autolibrary_bundle"]
+	path = autolibrary
+	url = git@github.com:kibuna/autolibrary.git

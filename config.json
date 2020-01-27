@@ -1,6 +1,6 @@
 [
 	{
-		"output_file": "out.json",
+		"output_file": "cpp.json",
 		"input_dirs": [
 			"library",
 			"snippets"
