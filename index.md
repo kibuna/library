@@ -54,10 +54,18 @@ layout: default
 * :heavy_check_mark: <a href="library/library/datastructure/unionfind.cpp.html">library/datastructure/unionfind.cpp</a>
 
 
+<div id="c5878b56724fd1eb9362c2254e5c362f"></div>
+
+### library/graph
+
+* :heavy_check_mark: <a href="library/library/graph/warshallfloyd.cpp.html">library/graph/warshallfloyd.cpp</a>
+
+
 <div id="8a0c4935c26bc3f080e3e86e308b2132"></div>
 
 ### library/tree
 
+* :heavy_check_mark: <a href="library/library/tree/kruskal.cpp.html">library/tree/kruskal.cpp</a>
 * :heavy_check_mark: <a href="library/library/tree/lca.cpp.html">library/tree/lca.cpp</a>
 
 
@@ -87,6 +95,8 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/segmenttree.test.cpp.html">test/datastructure/segmenttree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/unionfind.test.cpp.html">test/datastructure/unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/graph/warshallfloyd.test.cpp.html">test/graph/warshallfloyd.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/tree/kruskal.test.cpp.html">test/tree/kruskal.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/tree/lca.test.cpp.html">test/tree/lca.test.cpp</a>
 
 

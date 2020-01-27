@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67be68a348da3b850fb7daa10b034528">snippets</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippets/main.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 18:42:10+09:00
+    - Last commit date: 2020-01-27 22:25:46+09:00
 
 
 
@@ -41,7 +41,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#include "bits/stdc++.h"
+#include <bits/stdc++.h>
 using namespace std;
 using lint     = long long;
 const lint inf = 1LL << 60;
@@ -71,15 +71,31 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/docs.py", line 342, in write_contents
-    bundler.update(self.file_class.file_path)
-  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/bundle.py", line 179, in update
-    self.update(self._resolve(included, included_from=path))
-  File "/opt/hostedtoolcache/Python/3.8.1/x64/lib/python3.8/site-packages/onlinejudge_verify/bundle.py", line 77, in _resolve
-    raise BundleError(path, -1, "no such header")
-onlinejudge_verify.bundle.BundleError: bits/stdc++.h: line -1: no such header
+#line 1 "snippets/main.cpp"
+#include <bits/stdc++.h>
+using namespace std;
+using lint     = long long;
+const lint inf = 1LL << 60;
+const lint mod = 1000000007;
+template <class T>
+bool chmax(T &a, const T &b) {
+    return (a < b) ? (a = b, 1) : 0;
+}
+template <class T>
+bool chmin(T &a, const T &b) {
+    return (b < a) ? (a = b, 1) : 0;
+}
+struct duck {
+    duck() {
+        cin.tie(nullptr);
+        ios::sync_with_stdio(false);
+    }
+} quack;
 
+int main() {
+    ;
+    return 0;
+}
 ```
 {% endraw %}
 
