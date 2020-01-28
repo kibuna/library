@@ -5,5 +5,7 @@
 "test/datastructure/binaryindexedtree.test.cpp": "2020-01-26 16:04:30 +0900",
 "test/datastructure/segmenttree.test.cpp": "2020-01-27 00:06:22 +0900",
 "test/datastructure/unionfind.test.cpp": "2020-01-26 01:04:37 +0900",
+"test/graph/warshallfloyd.test.cpp": "2020-01-27 01:18:09 +0900",
+"test/tree/kruskal.test.cpp": "2020-01-27 00:53:15 +0900",
 "test/tree/lca.test.cpp": "2020-01-27 00:06:22 +0900"
 }
