@@ -772,6 +772,12 @@
     ],
     "prefix": "lca"
   },
+  "../snippets/all.cpp": {
+    "body": [
+      "$1.begin(), $1.end()"
+    ],
+    "prefix": "all"
+  },
   "../snippets/arrayshuffle.cpp": {
     "body": [
       "template <typename T>",
@@ -836,6 +842,14 @@
       "}"
     ],
     "prefix": "forr"
+  },
+  "../snippets/forrit.cpp": {
+    "body": [
+      "for (auto it = $1.rbegin(); it != $1.rend(); it = next(it)) {",
+      "    $0",
+      "}"
+    ],
+    "prefix": "forrit"
   },
   "../snippets/inside.cpp": {
     "body": [
