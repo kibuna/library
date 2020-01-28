@@ -19,6 +19,6 @@ struct duck {
 } quack;
 
 int main() {
-    ;
+    $0;
     return 0;
 }
