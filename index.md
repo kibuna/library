@@ -86,6 +86,7 @@ layout: default
 
 ### snippets
 
+* :warning: <a href="library/snippets/all.cpp.html">snippets/all.cpp</a>
 * :warning: <a href="library/snippets/arrayshuffle.cpp.html">snippets/arrayshuffle.cpp</a>
 * :warning: <a href="library/snippets/bisect.cpp.html">snippets/bisect.cpp</a>
 * :warning: <a href="library/snippets/cout.cpp.html">snippets/cout.cpp</a>
@@ -93,6 +94,7 @@ layout: default
 * :warning: <a href="library/snippets/for.cpp.html">snippets/for.cpp</a>
 * :warning: <a href="library/snippets/forea.cpp.html">snippets/forea.cpp</a>
 * :warning: <a href="library/snippets/forr.cpp.html">snippets/forr.cpp</a>
+* :warning: <a href="library/snippets/forrit.cpp.html">snippets/forrit.cpp</a>
 * :warning: <a href="library/snippets/inside.cpp.html">snippets/inside.cpp</a>
 * :warning: <a href="library/snippets/main.cpp.html">snippets/main.cpp</a>
 * :warning: <a href="library/snippets/orderedstruct.cpp.html">snippets/orderedstruct.cpp</a>
