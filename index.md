@@ -38,6 +38,8 @@ layout: default
 
 ### library/algebra
 
+* :warning: <a href="library/library/algebra/combination.cpp.html">library/algebra/combination.cpp</a>
+* :warning: <a href="library/library/algebra/combinationprob.cpp.html">library/algebra/combinationprob.cpp</a>
 * :warning: <a href="library/library/algebra/eratosthenes.cpp.html">library/algebra/eratosthenes.cpp</a>
 * :warning: <a href="library/library/algebra/factors.cpp.html">library/algebra/factors.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/gcd.cpp.html">library/algebra/gcd.cpp</a>
@@ -58,7 +60,17 @@ layout: default
 
 ### library/graph
 
+* :heavy_check_mark: <a href="library/library/graph/bellmanford.cpp.html">library/graph/bellmanford.cpp</a>
+* :heavy_check_mark: <a href="library/library/graph/dijkstra.cpp.html">library/graph/dijkstra.cpp</a>
+* :warning: <a href="library/library/graph/dijkstrarestore.cpp.html">library/graph/dijkstrarestore.cpp</a>
 * :heavy_check_mark: <a href="library/library/graph/warshallfloyd.cpp.html">library/graph/warshallfloyd.cpp</a>
+
+
+<div id="7c4d7dea78114de72b5d81eacef966cd"></div>
+
+### library/string
+
+* :heavy_check_mark: <a href="library/library/string/zalgorithm.cpp.html">library/string/zalgorithm.cpp</a>
 
 
 <div id="8a0c4935c26bc3f080e3e86e308b2132"></div>
@@ -95,7 +107,10 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/segmenttree.test.cpp.html">test/datastructure/segmenttree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/unionfind.test.cpp.html">test/datastructure/unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/graph/bellmanford.test.cpp.html">test/graph/bellmanford.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/graph/dijkstra.test.cpp.html">test/graph/dijkstra.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/warshallfloyd.test.cpp.html">test/graph/warshallfloyd.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/string/zalgorithm.test.cpp.html">test/string/zalgorithm.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/tree/kruskal.test.cpp.html">test/tree/kruskal.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/tree/lca.test.cpp.html">test/tree/lca.test.cpp</a>
 
