@@ -50,6 +50,7 @@ cout << $1 << "\n";
 ```cpp
 #line 1 "snippets/cout.cpp"
 cout << $1 << "\n";
+
 ```
 {% endraw %}
 

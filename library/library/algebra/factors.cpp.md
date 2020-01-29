@@ -72,6 +72,7 @@ set<T> factors(T a) {
     }
     return facs;
 }
+
 ```
 {% endraw %}
 

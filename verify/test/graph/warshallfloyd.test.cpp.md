@@ -134,7 +134,8 @@ void warshallFloyd(vector<vector<T>> &dist, T inf) {
             }
         }
     }
-}#line 13 "test/graph/warshallfloyd.test.cpp"
+}
+#line 13 "test/graph/warshallfloyd.test.cpp"
 
 signed main() {
     cin.tie(0);
@@ -176,6 +177,7 @@ signed main() {
     }
     return 0;
 }
+
 ```
 {% endraw %}
 

@@ -131,7 +131,8 @@ struct TopologicalSort {
         }
         return p;
     }
-};#line 9 "test/graph/topologicalsort.test_.cpp"
+};
+#line 9 "test/graph/topologicalsort.test_.cpp"
 
 int main() {
     std::cin.tie(0);
@@ -151,6 +152,7 @@ int main() {
     cout << flush;
     return 0;
 }
+
 ```
 {% endraw %}
 
