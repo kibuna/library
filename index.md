@@ -45,6 +45,7 @@ layout: default
 * :heavy_check_mark: <a href="library/library/algebra/gcd.cpp.html">library/algebra/gcd.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/mint.cpp.html">library/algebra/mint.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/primefactors.cpp.html">library/algebra/primefactors.cpp</a>
+* :warning: <a href="library/library/algebra/squarematrix.cpp.html">library/algebra/squarematrix.cpp</a>
 
 
 <div id="94df14f08811b32e8e383a2a55f0c6c5"></div>
