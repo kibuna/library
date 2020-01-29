@@ -53,7 +53,6 @@ layout: default
 
 * :heavy_check_mark: <a href="library/library/datastructure/binaryindexedtree.cpp.html">library/datastructure/binaryindexedtree.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/segmenttree.cpp.html">library/datastructure/segmenttree.cpp</a>
-* :heavy_check_mark: <a href="library/library/datastructure/segmenttreelazy.cpp.html">library/datastructure/segmenttreelazy.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/unionfind.cpp.html">library/datastructure/unionfind.cpp</a>
 
 
@@ -117,7 +116,6 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/algebra/primefactors.test.cpp.html">test/algebra/primefactors.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/segmenttree.test.cpp.html">test/datastructure/segmenttree.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/datastructure/segmenttreelazy_rmq.test.cpp.html">test/datastructure/segmenttreelazy_rmq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/unionfind.test.cpp.html">test/datastructure/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/bellmanford.test.cpp.html">test/graph/bellmanford.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/dijkstra.test.cpp.html">test/graph/dijkstra.test.cpp</a>
