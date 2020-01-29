@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: snippets/bisect.cpp
+# :warning: snippets/chmin.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#67be68a348da3b850fb7daa10b034528">snippets</a>
-* <a href="{{ site.github.repository_url }}/blob/master/snippets/bisect.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-29 21:32:14+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/snippets/chmin.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-01-29 21:10:23+09:00
 
 
 
@@ -41,16 +41,14 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-lint ok    = 0;
-lint ng    = inf;
-auto check = [&](lint mid) {
-
-};
-while (abs(ok - ng) != 1) {
-    lint mid               = (ok + ng) / 2;
-    (check(mid) ? ok : ng) = mid;
+template <class T>
+bool chmax(T &a, const T &b) {
+    return (a < b) ? (a = b, 1) : 0;
 }
-cout << ok << "\n";
+template <class T>
+bool chmin(T &a, const T &b) {
+    return (b < a) ? (a = b, 1) : 0;
+}
 
 ```
 {% endraw %}
@@ -58,17 +56,15 @@ cout << ok << "\n";
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "snippets/bisect.cpp"
-lint ok    = 0;
-lint ng    = inf;
-auto check = [&](lint mid) {
-
-};
-while (abs(ok - ng) != 1) {
-    lint mid               = (ok + ng) / 2;
-    (check(mid) ? ok : ng) = mid;
+#line 1 "snippets/chmin.cpp"
+template <class T>
+bool chmax(T &a, const T &b) {
+    return (a < b) ? (a = b, 1) : 0;
 }
-cout << ok << "\n";
+template <class T>
+bool chmin(T &a, const T &b) {
+    return (b < a) ? (a = b, 1) : 0;
+}
 
 ```
 {% endraw %}

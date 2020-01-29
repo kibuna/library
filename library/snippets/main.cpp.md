@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67be68a348da3b850fb7daa10b034528">snippets</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippets/main.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-28 21:55:45+09:00
+    - Last commit date: 2020-01-29 21:10:23+09:00
 
 
 
@@ -46,22 +46,10 @@ using namespace std;
 using lint     = long long;
 const lint inf = 1LL << 60;
 const lint mod = 1000000007;
-template <class T>
-bool chmax(T &a, const T &b) {
-    return (a < b) ? (a = b, 1) : 0;
-}
-template <class T>
-bool chmin(T &a, const T &b) {
-    return (b < a) ? (a = b, 1) : 0;
-}
-struct duck {
-    duck() {
-        cin.tie(nullptr);
-        ios::sync_with_stdio(false);
-    }
-} quack;
 
 int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
     $0;
     return 0;
 }
@@ -77,22 +65,10 @@ using namespace std;
 using lint     = long long;
 const lint inf = 1LL << 60;
 const lint mod = 1000000007;
-template <class T>
-bool chmax(T &a, const T &b) {
-    return (a < b) ? (a = b, 1) : 0;
-}
-template <class T>
-bool chmin(T &a, const T &b) {
-    return (b < a) ? (a = b, 1) : 0;
-}
-struct duck {
-    duck() {
-        cin.tie(nullptr);
-        ios::sync_with_stdio(false);
-    }
-} quack;
 
 int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
     $0;
     return 0;
 }
