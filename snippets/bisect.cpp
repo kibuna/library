@@ -3,7 +3,7 @@ lint ng    = inf;
 auto check = [&](lint mid) {
 
 };
-while (ok + 1 != ng) {
+while (abs(ok - ng) != 1) {
     lint mid               = (ok + ng) / 2;
     (check(mid) ? ok : ng) = mid;
 }
