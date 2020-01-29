@@ -103,6 +103,7 @@ vector<T> slideMin(const vector<T> &seq, int w) {
     }
     return ret;
 }
+
 ```
 {% endraw %}
 

@@ -50,6 +50,7 @@ $1.begin(), $1.end()
 ```cpp
 #line 1 "snippets/all.cpp"
 $1.begin(), $1.end()
+
 ```
 {% endraw %}
 

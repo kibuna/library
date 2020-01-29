@@ -99,6 +99,7 @@ T lcm(T m, T n) {
         return 0;
     return ((m / gcd(m, n)) * n);
 }
+
 ```
 {% endraw %}
 

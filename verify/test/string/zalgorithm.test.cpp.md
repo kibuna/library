@@ -97,7 +97,8 @@ vector<int> ZAlgorithm(const T &s) {
     }
     prefix[0] = ns;
     return prefix;
-}#line 8 "test/string/zalgorithm.test.cpp"
+}
+#line 8 "test/string/zalgorithm.test.cpp"
 
 int main() {
     string s;
@@ -111,6 +112,7 @@ int main() {
     cout << endl;
     return 0;
 }
+
 ```
 {% endraw %}
 

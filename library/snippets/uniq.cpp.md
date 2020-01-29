@@ -52,6 +52,7 @@ $1.erase(unique($1.begin(), $1.end()), $1.end());
 #line 1 "snippets/uniq.cpp"
 sort($1.begin(), $1.end());
 $1.erase(unique($1.begin(), $1.end()), $1.end());
+
 ```
 {% endraw %}
 

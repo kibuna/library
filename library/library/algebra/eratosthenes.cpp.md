@@ -80,6 +80,7 @@ struct Sieve {
     }
     bool operator()(size_t n) { return isPrime[n]; }
 };
+
 ```
 {% endraw %}
 

@@ -50,6 +50,7 @@ sort($1.begin(), $1.end()%2);
 ```cpp
 #line 1 "snippets/sort.cpp"
 sort($1.begin(), $1.end()%2);
+
 ```
 {% endraw %}
 

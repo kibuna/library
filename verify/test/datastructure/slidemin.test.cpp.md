@@ -110,7 +110,8 @@ vector<T> slideMin(const vector<T> &seq, int w) {
         ret.push_back(seq[q.front()]);
     }
     return ret;
-}#line 8 "test/datastructure/slidemin.test.cpp"
+}
+#line 8 "test/datastructure/slidemin.test.cpp"
 
 int main() {
     cin.tie(nullptr);
@@ -130,6 +131,7 @@ int main() {
     cout << endl;
     return 0;
 }
+
 ```
 {% endraw %}
 

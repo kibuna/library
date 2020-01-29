@@ -104,7 +104,8 @@ T lcm(T m, T n) {
     if ((0 == m) || (0 == n))
         return 0;
     return ((m / gcd(m, n)) * n);
-}#line 8 "test/algebra/gcd.test.cpp"
+}
+#line 8 "test/algebra/gcd.test.cpp"
 
 int main() {
     lint n;

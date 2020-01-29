@@ -96,7 +96,8 @@ void primeFactors(T a, map<T, int> &facs) {
     if (a > sqrtA)
         facs[a]++;
     return;
-}#line 8 "test/algebra/primefactors.test.cpp"
+}
+#line 8 "test/algebra/primefactors.test.cpp"
 
 int main() {
     lint n;
