@@ -132,7 +132,6 @@ signed main() {
     cout << flush;
     return 0;
 }
-
 ```
 {% endraw %}
 

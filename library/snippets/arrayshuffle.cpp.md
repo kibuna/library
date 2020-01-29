@@ -64,7 +64,6 @@ void array_shuffle(vector<T> &arr) {
         swap(arr[i - 1], arr[rand() % i]);
     }
 }
-
 ```
 {% endraw %}
 

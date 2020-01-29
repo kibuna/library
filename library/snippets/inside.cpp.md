@@ -50,7 +50,6 @@ auto inside = [&](int y, int x) { return 0 <= y && y < h && 0 <= x && x < w; };
 ```cpp
 #line 1 "snippets/inside.cpp"
 auto inside = [&](int y, int x) { return 0 <= y && y < h && 0 <= x && x < w; };
-
 ```
 {% endraw %}
 

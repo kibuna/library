@@ -89,7 +89,6 @@ vector<int> ZAlgorithm(const T &s) {
     prefix[0] = ns;
     return prefix;
 }
-
 ```
 {% endraw %}
 

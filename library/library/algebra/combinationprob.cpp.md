@@ -82,7 +82,6 @@ struct CombinationProb {
     }
     long double operator()(int n, int k) { return fac[n][k]; }
 };
-
 ```
 {% endraw %}
 

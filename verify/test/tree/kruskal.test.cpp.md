@@ -161,7 +161,6 @@ int main() {
     cout << tr.build() << "\n";
     return 0;
 }
-
 ```
 {% endraw %}
 

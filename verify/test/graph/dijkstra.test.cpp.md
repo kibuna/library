@@ -114,8 +114,7 @@ vector<T> dijkstra(int s, vector<vector<pair<int, T>>> &G) {
         }
     }
     return d;
-}
-#line 8 "test/graph/dijkstra.test.cpp"
+}#line 8 "test/graph/dijkstra.test.cpp"
 
 int main() {
     cin.tie(0);
@@ -138,7 +137,6 @@ int main() {
     }
     return 0;
 }
-
 ```
 {% endraw %}
 

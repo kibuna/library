@@ -81,7 +81,6 @@ void primeFactors(T a, map<T, int> &facs) {
         facs[a]++;
     return;
 }
-
 ```
 {% endraw %}
 
