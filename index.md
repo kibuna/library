@@ -41,7 +41,7 @@ layout: default
 * :warning: <a href="library/library/algebra/combination.cpp.html">library/algebra/combination.cpp</a>
 * :warning: <a href="library/library/algebra/combinationprob.cpp.html">library/algebra/combinationprob.cpp</a>
 * :warning: <a href="library/library/algebra/eratosthenes.cpp.html">library/algebra/eratosthenes.cpp</a>
-* :warning: <a href="library/library/algebra/factors.cpp.html">library/algebra/factors.cpp</a>
+* :heavy_check_mark: <a href="library/library/algebra/factors.cpp.html">library/algebra/factors.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/gcd.cpp.html">library/algebra/gcd.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/mint.cpp.html">library/algebra/mint.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/primefactors.cpp.html">library/algebra/primefactors.cpp</a>
@@ -74,7 +74,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/library/graph/bellmanford.cpp.html">library/graph/bellmanford.cpp</a>
 * :heavy_check_mark: <a href="library/library/graph/dijkstra.cpp.html">library/graph/dijkstra.cpp</a>
-* :warning: <a href="library/library/graph/dijkstrarestore.cpp.html">library/graph/dijkstrarestore.cpp</a>
+* :heavy_check_mark: <a href="library/library/graph/dijkstrarestore.cpp.html">library/graph/dijkstrarestore.cpp</a>
 * :warning: <a href="library/library/graph/topologicalsort.cpp.html">library/graph/topologicalsort.cpp</a>
 * :heavy_check_mark: <a href="library/library/graph/warshallfloyd.cpp.html">library/graph/warshallfloyd.cpp</a>
 
@@ -125,6 +125,7 @@ layout: default
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/test/algebra/factors.test.cpp.html">test/algebra/factors.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/gcd.test.cpp.html">test/algebra/gcd.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/mint_pow.test.cpp.html">test/algebra/mint_pow.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/primefactors.test.cpp.html">test/algebra/primefactors.test.cpp</a>
@@ -139,6 +140,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/flow/dinic.test.cpp.html">test/flow/dinic.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/bellmanford.test.cpp.html">test/graph/bellmanford.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/dijkstra.test.cpp.html">test/graph/dijkstra.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/graph/dijkstrarestore.test.cpp.html">test/graph/dijkstrarestore.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/warshallfloyd.test.cpp.html">test/graph/warshallfloyd.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/string/rollinghash.test.cpp.html">test/string/rollinghash.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/string/zalgorithm.test.cpp.html">test/string/zalgorithm.test.cpp</a>

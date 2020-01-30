@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: library/algebra/factors.cpp
+# :heavy_check_mark: library/algebra/factors.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2020-01-27 00:09:13+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/algebra/factors.test.cpp.html">test/algebra/factors.test.cpp</a>
 
 
 ## Code
