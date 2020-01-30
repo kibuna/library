@@ -103,8 +103,10 @@ layout: default
 * :warning: <a href="library/snippets/arrayshuffle.cpp.html">snippets/arrayshuffle.cpp</a>
 * :warning: <a href="library/snippets/bisect.cpp.html">snippets/bisect.cpp</a>
 * :warning: <a href="library/snippets/chmin.cpp.html">snippets/chmin.cpp</a>
+* :warning: <a href="library/snippets/cornerif.cpp.html">snippets/cornerif.cpp</a>
 * :warning: <a href="library/snippets/cout.cpp.html">snippets/cout.cpp</a>
 * :warning: <a href="library/snippets/dx4.cpp.html">snippets/dx4.cpp</a>
+* :warning: <a href="library/snippets/edges.cpp.html">snippets/edges.cpp</a>
 * :warning: <a href="library/snippets/for.cpp.html">snippets/for.cpp</a>
 * :warning: <a href="library/snippets/forea.cpp.html">snippets/forea.cpp</a>
 * :warning: <a href="library/snippets/forr.cpp.html">snippets/forr.cpp</a>
@@ -112,8 +114,15 @@ layout: default
 * :warning: <a href="library/snippets/inside.cpp.html">snippets/inside.cpp</a>
 * :warning: <a href="library/snippets/main.cpp.html">snippets/main.cpp</a>
 * :warning: <a href="library/snippets/orderedstruct.cpp.html">snippets/orderedstruct.cpp</a>
+* :warning: <a href="library/snippets/pii.cpp.html">snippets/pii.cpp</a>
+* :warning: <a href="library/snippets/pil.cpp.html">snippets/pil.cpp</a>
+* :warning: <a href="library/snippets/pll.cpp.html">snippets/pll.cpp</a>
 * :warning: <a href="library/snippets/sort.cpp.html">snippets/sort.cpp</a>
 * :warning: <a href="library/snippets/uniq.cpp.html">snippets/uniq.cpp</a>
+* :warning: <a href="library/snippets/vd.cpp.html">snippets/vd.cpp</a>
+* :warning: <a href="library/snippets/vl.cpp.html">snippets/vl.cpp</a>
+* :warning: <a href="library/snippets/vvl.cpp.html">snippets/vvl.cpp</a>
+* :warning: <a href="library/snippets/wedges.cpp.html">snippets/wedges.cpp</a>
 
 
 <div id="baa37bfd168b079b758c0db816f7295f"></div>
