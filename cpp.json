@@ -192,6 +192,68 @@
     ],
     "prefix": "primefactors"
   },
+  "../library/algebra/squarematrix.cpp": {
+    "body": [
+      "template <size_t N, typename R>",
+      "struct SquareMatrix {",
+      "    using arr = array<R, N>;",
+      "    using mat = array<arr, N>;",
+      "    mat dat;",
+      "",
+      "    SquareMatrix() {",
+      "        for (size_t i = 0; i < N; i++)",
+      "            for (size_t j = 0; j < N; j++)",
+      "                dat[i][j] = R::add_identity();",
+      "    }",
+      "    SquareMatrix &operator=(const SquareMatrix &a) {",
+      "        dat = a.dat;",
+      "        return (*this);",
+      "    }",
+      "    bool operator==(const SquareMatrix &a) const { return dat == a.dat; }",
+      "",
+      "    size_t size() const { return N; };",
+      "    arr &operator[](size_t k) { return dat[k]; };",
+      "    const arr &operator[](size_t k) const { return dat[k]; };",
+      "",
+      "    static SquareMatrix add_identity() { return SquareMatrix(); }",
+      "    static SquareMatrix mul_identity() {",
+      "        SquareMatrix res;",
+      "        for (size_t i = 0; i < N; i++)",
+      "            res[i][i] = R::mul_identity();",
+      "        return res;",
+      "    }",
+      "",
+      "    SquareMatrix operator*(const SquareMatrix &B) const {",
+      "        SquareMatrix res;",
+      "        for (size_t i = 0; i < N; i++)",
+      "            for (size_t j = 0; j < N; j++)",
+      "                for (size_t k = 0; k < N; k++)",
+      "                    res[i][j] = res[i][j] + (dat[i][k] * B[k][j]);",
+      "        return res;",
+      "    }",
+      "",
+      "    SquareMatrix operator+(const SquareMatrix &B) const {",
+      "        SquareMatrix res;",
+      "        for (size_t i = 0; i < N; i++)",
+      "            for (size_t j = 0; j < N; j++)",
+      "                res[i][j] = dat[i][j] + B[i][j];",
+      "        return res;",
+      "    }",
+      "",
+      "    SquareMatrix pow(long long n) const {",
+      "        SquareMatrix a = *this, res = mul_identity();",
+      "        while (n) {",
+      "            if (n & 1)",
+      "                res = res * a;",
+      "            a = a * a;",
+      "            n >>= 1;",
+      "        }",
+      "        return res;",
+      "    }",
+      "};"
+    ],
+    "prefix": "squarematrix"
+  },
   "../library/datastructure/binaryindexedtree.cpp": {
     "body": [
       "// Binary Indexed Tree / Fenwick tree",
@@ -1196,6 +1258,18 @@
     ],
     "prefix": "chmin"
   },
+  "../snippets/cornerif.cpp": {
+    "body": [
+      "template <typename T>",
+      "void cornerif(bool cond, const T &ret) {",
+      "    if (cond) {",
+      "        cout << ret << \"\\n\";",
+      "        exit(0);",
+      "    }",
+      "}"
+    ],
+    "prefix": "cornerif"
+  },
   "../snippets/cout.cpp": {
     "body": [
       "cout << $1 << \"\\n\";"
@@ -1208,6 +1282,12 @@
       "const int dy[4] = {0, 0, -1, 1};"
     ],
     "prefix": "dx4"
+  },
+  "../snippets/edges.cpp": {
+    "body": [
+      "vector<vector<int>> edges(n);"
+    ],
+    "prefix": "edges"
   },
   "../snippets/for.cpp": {
     "body": [
@@ -1273,6 +1353,24 @@
     ],
     "prefix": "orderedstruct"
   },
+  "../snippets/pii.cpp": {
+    "body": [
+      "pair<int, int>"
+    ],
+    "prefix": "pii"
+  },
+  "../snippets/pil.cpp": {
+    "body": [
+      "pair<int, lint>"
+    ],
+    "prefix": "pil"
+  },
+  "../snippets/pll.cpp": {
+    "body": [
+      "pair<lint, lint>"
+    ],
+    "prefix": "pll"
+  },
   "../snippets/sort.cpp": {
     "body": [
       "sort($1.begin(), $1.end()%2);"
@@ -1285,5 +1383,29 @@
       "$1.erase(unique($1.begin(), $1.end()), $1.end());"
     ],
     "prefix": "uniq"
+  },
+  "../snippets/vd.cpp": {
+    "body": [
+      "vector<double>"
+    ],
+    "prefix": "vd"
+  },
+  "../snippets/vl.cpp": {
+    "body": [
+      "vector<lint>"
+    ],
+    "prefix": "vl"
+  },
+  "../snippets/vvl.cpp": {
+    "body": [
+      "vector<vector<lint>>"
+    ],
+    "prefix": "vvl"
+  },
+  "../snippets/wedges.cpp": {
+    "body": [
+      "vector<vector<pair<int, lint>>> edges(n);"
+    ],
+    "prefix": "wedges"
   }
 }
