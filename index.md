@@ -38,7 +38,7 @@ layout: default
 
 ### library/algebra
 
-* :warning: <a href="library/library/algebra/combination.cpp.html">library/algebra/combination.cpp</a>
+* :heavy_check_mark: <a href="library/library/algebra/combination.cpp.html">library/algebra/combination.cpp</a>
 * :warning: <a href="library/library/algebra/combinationprob.cpp.html">library/algebra/combinationprob.cpp</a>
 * :warning: <a href="library/library/algebra/eratosthenes.cpp.html">library/algebra/eratosthenes.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/factors.cpp.html">library/algebra/factors.cpp</a>
@@ -134,6 +134,7 @@ layout: default
 
 ## Verify Files
 
+* :heavy_check_mark: <a href="verify/test/algebra/combination.test.cpp.html">test/algebra/combination.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/factors.test.cpp.html">test/algebra/factors.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/gcd.test.cpp.html">test/algebra/gcd.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/mint_pow.test.cpp.html">test/algebra/mint_pow.test.cpp</a>

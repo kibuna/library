@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: library/algebra/combination.cpp
+# :heavy_check_mark: library/algebra/combination.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -34,6 +34,11 @@ layout: default
     - Last commit date: 2020-01-28 21:57:08+09:00
 
 
+
+
+## Verified with
+
+* :heavy_check_mark: <a href="../../../verify/test/algebra/combination.test.cpp.html">test/algebra/combination.test.cpp</a>
 
 
 ## Code
