@@ -1,16 +1,14 @@
 // @see https://ei1333.github.io/luzhiled/snippets/graph/lowlink.html
 struct LowLink {
     int n;
-    vector<int> used, ord, low;
-    vector<int> articulation;
+    vector<int> used, ord, low, articulation;
     vector<pair<int, int>> bridge;
     vector<vector<int>> edges;
     LowLink(const vector<vector<int>> &edges) : n(edges.size()), used(n, 0), ord(n, 0), low(n, 0), edges(edges) {}
 
     int dfs(int c, int p, int i) {
-        used[c]              = true;
-        ord[c]               = i++;
-        low[c]               = ord[c];
+        used[c] = true;
+        ord[c] = low[c]      = i++;
         bool is_articulation = false;
         int cnt              = 0;
         for (auto &v : edges[c]) {
