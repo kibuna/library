@@ -884,6 +884,53 @@
     ],
     "prefix": "dijkstrarestore"
   },
+  "../library/graph/lowlink.cpp": {
+    "body": [
+      "// @see https://ei1333.github.io/luzhiled/snippets/graph/lowlink.html",
+      "struct LowLink {",
+      "    int n;",
+      "    vector<int> used, ord, low;",
+      "    vector<int> articulation;",
+      "    vector<pair<int, int>> bridge;",
+      "    vector<vector<int>> edges;",
+      "    LowLink(const vector<vector<int>> &edges) : n(edges.size()), used(n, 0), ord(n, 0), low(n, 0), edges(edges) {}",
+      "",
+      "    int dfs(int c, int p, int i) {",
+      "        used[c]              = true;",
+      "        ord[c]               = i++;",
+      "        low[c]               = ord[c];",
+      "        bool is_articulation = false;",
+      "        int cnt              = 0;",
+      "        for (auto &v : edges[c]) {",
+      "            if (v == p)",
+      "                continue;",
+      "            if (!used[v]) {",
+      "                cnt++;",
+      "                i      = dfs(v, c, i);",
+      "                low[c] = min(low[c], low[v]);",
+      "                is_articulation |= ~p && low[v] >= ord[c];",
+      "                if (ord[c] < low[v])",
+      "                    bridge.emplace_back(min(c, v), max(c, v));",
+      "            } else {",
+      "                low[c] = min(low[c], ord[v]);",
+      "            }",
+      "        }",
+      "        is_articulation |= p == -1 && cnt > 1;",
+      "        if (is_articulation)",
+      "            articulation.push_back(c);",
+      "        return i;",
+      "    }",
+      "    void build() {",
+      "        int k = 0;",
+      "        for (int i = 0; i < n; ++i) {",
+      "            if (!used[i])",
+      "                k = dfs(i, -1, k);",
+      "        }",
+      "    }",
+      "};"
+    ],
+    "prefix": "lowlink"
+  },
   "../library/graph/topologicalsort.cpp": {
     "body": [
       "// topologically sort the directed graph",
@@ -1289,6 +1336,19 @@
     ],
     "prefix": "edges"
   },
+  "../snippets/edgesin.cpp": {
+    "body": [
+      "vector<vector<int>> edges(n);",
+      "for (int i = 0; i < ${1:n-1}; ++i) {",
+      "    int u, v;",
+      "    cin >> u >> v;",
+      "    // u--, v--;",
+      "    edges[u].emplace_back(v);",
+      "    edges[v].emplace_back(u);",
+      "}"
+    ],
+    "prefix": "edgesin"
+  },
   "../snippets/for.cpp": {
     "body": [
       "for (int $1 = 0; $1 < $2; ++$1) {",
@@ -1390,11 +1450,23 @@
     ],
     "prefix": "vd"
   },
+  "../snippets/vi.cpp": {
+    "body": [
+      "vector<int>"
+    ],
+    "prefix": "vi"
+  },
   "../snippets/vl.cpp": {
     "body": [
       "vector<lint>"
     ],
     "prefix": "vl"
+  },
+  "../snippets/vvi.cpp": {
+    "body": [
+      "vector<vector<int>>"
+    ],
+    "prefix": "vvi"
   },
   "../snippets/vvl.cpp": {
     "body": [
@@ -1407,5 +1479,19 @@
       "vector<vector<pair<int, lint>>> edges(n);"
     ],
     "prefix": "wedges"
+  },
+  "../snippets/wedgesin.cpp": {
+    "body": [
+      "vector<vector<pair<int, lint>>> edges(n);",
+      "for (int i = 0; i < ${1 : n - 1}; ++i) {",
+      "    int u, v;",
+      "    lint w;",
+      "    cin >> u >> v >> w;",
+      "    // u--, v--;",
+      "    edges[u].emplace_back(v, w);",
+      "    edges[v].emplace_back(u, w);",
+      "}"
+    ],
+    "prefix": "wedgesin"
   }
 }
