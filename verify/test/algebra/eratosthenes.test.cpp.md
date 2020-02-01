@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: library/algebra/eratosthenes.cpp
+# :heavy_check_mark: test/algebra/eratosthenes.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#26c2ef729e4bca24cf34dda14fedd106">library/algebra</a>
-* <a href="{{ site.github.repository_url }}/blob/master/library/algebra/eratosthenes.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-27 00:09:13+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/algebra/eratosthenes.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-02-01 11:43:48+09:00
 
 
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1276">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1276</a>
 
 
-## Verified with
+## Depends on
 
-* :heavy_check_mark: <a href="../../../verify/test/algebra/eratosthenes.test.cpp.html">test/algebra/eratosthenes.test.cpp</a>
+* :heavy_check_mark: <a href="../../../library/library/algebra/eratosthenes.cpp.html">library/algebra/eratosthenes.cpp</a>
 
 
 ## Code
@@ -46,29 +46,45 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-// Eratosthenes's sieve
-// create list of prime numbers in O(N)
-// check if the given number is prime in O(1)
-struct Sieve {
-    vector<bool> isPrime;
-    Sieve(size_t max) : isPrime(max + 1, true) {
-        isPrime[0] = false;
-        isPrime[1] = false;
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1276"
 
-        for (size_t i = 2; i * i <= max; ++i)
-            if (isPrime[i])
-                for (size_t j = 2; i * j <= max; ++j)
-                    isPrime[i * j] = false;
+#include <bits/stdc++.h>
+using namespace std;
+using lint = long long;
+
+#include "../../library/algebra/eratosthenes.cpp"
+
+int main() {
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+    Sieve isPrime(2000000);
+    int n;
+    while (cin >> n) {
+        if (n == 0)
+            break;
+        int l = n, r = n;
+        while (!isPrime(l))
+            l--;
+        while (!isPrime(r))
+            r++;
+        cout << r - l << "\n";
     }
-    bool operator()(size_t n) { return isPrime[n]; }
-};
+    return 0;
+}
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "library/algebra/eratosthenes.cpp"
+#line 1 "test/algebra/eratosthenes.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1276"
+
+#include <bits/stdc++.h>
+using namespace std;
+using lint = long long;
+
+#line 1 "test/algebra/../../library/algebra/eratosthenes.cpp"
 // Eratosthenes's sieve
 // create list of prime numbers in O(N)
 // check if the given number is prime in O(1)
@@ -85,6 +101,25 @@ struct Sieve {
     }
     bool operator()(size_t n) { return isPrime[n]; }
 };
+#line 8 "test/algebra/eratosthenes.test.cpp"
+
+int main() {
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+    Sieve isPrime(2000000);
+    int n;
+    while (cin >> n) {
+        if (n == 0)
+            break;
+        int l = n, r = n;
+        while (!isPrime(l))
+            l--;
+        while (!isPrime(r))
+            r++;
+        cout << r - l << "\n";
+    }
+    return 0;
+}
 
 ```
 {% endraw %}

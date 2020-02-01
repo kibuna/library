@@ -40,7 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/library/algebra/combination.cpp.html">library/algebra/combination.cpp</a>
 * :warning: <a href="library/library/algebra/combinationprob.cpp.html">library/algebra/combinationprob.cpp</a>
-* :warning: <a href="library/library/algebra/eratosthenes.cpp.html">library/algebra/eratosthenes.cpp</a>
+* :heavy_check_mark: <a href="library/library/algebra/eratosthenes.cpp.html">library/algebra/eratosthenes.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/factors.cpp.html">library/algebra/factors.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/gcd.cpp.html">library/algebra/gcd.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/mint.cpp.html">library/algebra/mint.cpp</a>
@@ -120,7 +120,9 @@ layout: default
 * :warning: <a href="library/snippets/sort.cpp.html">snippets/sort.cpp</a>
 * :warning: <a href="library/snippets/uniq.cpp.html">snippets/uniq.cpp</a>
 * :warning: <a href="library/snippets/vd.cpp.html">snippets/vd.cpp</a>
+* :warning: <a href="library/snippets/vi.cpp.html">snippets/vi.cpp</a>
 * :warning: <a href="library/snippets/vl.cpp.html">snippets/vl.cpp</a>
+* :warning: <a href="library/snippets/vvi.cpp.html">snippets/vvi.cpp</a>
 * :warning: <a href="library/snippets/vvl.cpp.html">snippets/vvl.cpp</a>
 * :warning: <a href="library/snippets/wedges.cpp.html">snippets/wedges.cpp</a>
 
@@ -135,6 +137,7 @@ layout: default
 ## Verify Files
 
 * :heavy_check_mark: <a href="verify/test/algebra/combination.test.cpp.html">test/algebra/combination.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/algebra/eratosthenes.test.cpp.html">test/algebra/eratosthenes.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/factors.test.cpp.html">test/algebra/factors.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/gcd.test.cpp.html">test/algebra/gcd.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/mint_pow.test.cpp.html">test/algebra/mint_pow.test.cpp</a>
