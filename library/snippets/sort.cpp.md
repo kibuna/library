@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67be68a348da3b850fb7daa10b034528">snippets</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippets/sort.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-26 18:42:10+09:00
+    - Last commit date: 2020-02-01 23:15:14+09:00
 
 
 
@@ -41,7 +41,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-sort($1.begin(), $1.end()%2);
+sort($1.begin(), $1.end());
 ```
 {% endraw %}
 
@@ -49,7 +49,7 @@ sort($1.begin(), $1.end()%2);
 {% raw %}
 ```cpp
 #line 1 "snippets/sort.cpp"
-sort($1.begin(), $1.end()%2);
+sort($1.begin(), $1.end());
 
 ```
 {% endraw %}
