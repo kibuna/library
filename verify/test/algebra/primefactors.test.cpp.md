@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/algebra/primefactors.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-27 00:09:13+09:00
+    - Last commit date: 2020-02-01 16:31:48+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A</a>
@@ -59,10 +59,10 @@ int main() {
     cin >> n;
     map<lint, int> facs;
     primeFactors(n, facs);
-    cout << n << ": ";
+    cout << n << ":";
     for (auto &p : facs) {
         for (int i = 0; i < p.second; ++i) {
-            cout << p.first << " ";
+            cout << " " << p.first;
         }
     }
     cout << endl;
@@ -104,10 +104,10 @@ int main() {
     cin >> n;
     map<lint, int> facs;
     primeFactors(n, facs);
-    cout << n << ": ";
+    cout << n << ":";
     for (auto &p : facs) {
         for (int i = 0; i < p.second; ++i) {
-            cout << p.first << " ";
+            cout << " " << p.first;
         }
     }
     cout << endl;

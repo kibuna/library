@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#c5878b56724fd1eb9362c2254e5c362f">library/graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/graph/lowlink.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-01 12:28:51+09:00
+    - Last commit date: 2020-02-01 14:32:37+09:00
 
 
 * see: <a href="https://ei1333.github.io/luzhiled/snippets/graph/lowlink.html">https://ei1333.github.io/luzhiled/snippets/graph/lowlink.html</a>
@@ -51,16 +51,14 @@ layout: default
 // @see https://ei1333.github.io/luzhiled/snippets/graph/lowlink.html
 struct LowLink {
     int n;
-    vector<int> used, ord, low;
-    vector<int> articulation;
+    vector<int> used, ord, low, articulation;
     vector<pair<int, int>> bridge;
     vector<vector<int>> edges;
     LowLink(const vector<vector<int>> &edges) : n(edges.size()), used(n, 0), ord(n, 0), low(n, 0), edges(edges) {}
 
     int dfs(int c, int p, int i) {
-        used[c]              = true;
-        ord[c]               = i++;
-        low[c]               = ord[c];
+        used[c] = true;
+        ord[c] = low[c]      = i++;
         bool is_articulation = false;
         int cnt              = 0;
         for (auto &v : edges[c]) {
@@ -101,16 +99,14 @@ struct LowLink {
 // @see https://ei1333.github.io/luzhiled/snippets/graph/lowlink.html
 struct LowLink {
     int n;
-    vector<int> used, ord, low;
-    vector<int> articulation;
+    vector<int> used, ord, low, articulation;
     vector<pair<int, int>> bridge;
     vector<vector<int>> edges;
     LowLink(const vector<vector<int>> &edges) : n(edges.size()), used(n, 0), ord(n, 0), low(n, 0), edges(edges) {}
 
     int dfs(int c, int p, int i) {
-        used[c]              = true;
-        ord[c]               = i++;
-        low[c]               = ord[c];
+        used[c] = true;
+        ord[c] = low[c]      = i++;
         bool is_articulation = false;
         int cnt              = 0;
         for (auto &v : edges[c]) {

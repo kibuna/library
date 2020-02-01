@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/graph/lowlink_bridge.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-01 12:28:51+09:00
+    - Last commit date: 2020-02-01 14:32:37+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B</a>
@@ -92,16 +92,14 @@ using lint = long long;
 // @see https://ei1333.github.io/luzhiled/snippets/graph/lowlink.html
 struct LowLink {
     int n;
-    vector<int> used, ord, low;
-    vector<int> articulation;
+    vector<int> used, ord, low, articulation;
     vector<pair<int, int>> bridge;
     vector<vector<int>> edges;
     LowLink(const vector<vector<int>> &edges) : n(edges.size()), used(n, 0), ord(n, 0), low(n, 0), edges(edges) {}
 
     int dfs(int c, int p, int i) {
-        used[c]              = true;
-        ord[c]               = i++;
-        low[c]               = ord[c];
+        used[c] = true;
+        ord[c] = low[c]      = i++;
         bool is_articulation = false;
         int cnt              = 0;
         for (auto &v : edges[c]) {

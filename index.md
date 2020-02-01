@@ -44,6 +44,7 @@ layout: default
 * :heavy_check_mark: <a href="library/library/algebra/factors.cpp.html">library/algebra/factors.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/gcd.cpp.html">library/algebra/gcd.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/mint.cpp.html">library/algebra/mint.cpp</a>
+* :heavy_check_mark: <a href="library/library/algebra/ntt.cpp.html">library/algebra/ntt.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/primefactors.cpp.html">library/algebra/primefactors.cpp</a>
 * :warning: <a href="library/library/algebra/squarematrix.cpp.html">library/algebra/squarematrix.cpp</a>
 
@@ -76,6 +77,7 @@ layout: default
 * :heavy_check_mark: <a href="library/library/graph/dijkstra.cpp.html">library/graph/dijkstra.cpp</a>
 * :heavy_check_mark: <a href="library/library/graph/dijkstrarestore.cpp.html">library/graph/dijkstrarestore.cpp</a>
 * :heavy_check_mark: <a href="library/library/graph/lowlink.cpp.html">library/graph/lowlink.cpp</a>
+* :heavy_check_mark: <a href="library/library/graph/stronglyconnectedcomponents.cpp.html">library/graph/stronglyconnectedcomponents.cpp</a>
 * :warning: <a href="library/library/graph/topologicalsort.cpp.html">library/graph/topologicalsort.cpp</a>
 * :heavy_check_mark: <a href="library/library/graph/warshallfloyd.cpp.html">library/graph/warshallfloyd.cpp</a>
 
@@ -144,6 +146,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/algebra/factors.test.cpp.html">test/algebra/factors.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/gcd.test.cpp.html">test/algebra/gcd.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/mint_pow.test.cpp.html">test/algebra/mint_pow.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/algebra/ntt.test.cpp.html">test/algebra/ntt.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/primefactors.test.cpp.html">test/algebra/primefactors.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/potentialunionfind.test.cpp.html">test/datastructure/potentialunionfind.test.cpp</a>
@@ -159,6 +162,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/graph/dijkstrarestore.test.cpp.html">test/graph/dijkstrarestore.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/lowlink_articulation.test.cpp.html">test/graph/lowlink_articulation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/lowlink_bridge.test.cpp.html">test/graph/lowlink_bridge.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/graph/stronglyconnectedcomponents.test.cpp.html">test/graph/stronglyconnectedcomponents.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/warshallfloyd.test.cpp.html">test/graph/warshallfloyd.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/string/rollinghash.test.cpp.html">test/string/rollinghash.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/string/zalgorithm.test.cpp.html">test/string/zalgorithm.test.cpp</a>
