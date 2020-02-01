@@ -11,10 +11,10 @@ int main() {
     cin >> n;
     map<lint, int> facs;
     primeFactors(n, facs);
-    cout << n << ": ";
+    cout << n << ":";
     for (auto &p : facs) {
         for (int i = 0; i < p.second; ++i) {
-            cout << p.first << " ";
+            cout << " " << p.first;
         }
     }
     cout << endl;
