@@ -15,6 +15,7 @@
 "test/datastructure/slidemin.test.cpp": "2020-01-29 21:32:59 +0900",
 "test/datastructure/unionfind.test.cpp": "2020-01-26 01:04:37 +0900",
 "test/flow/dinic.test.cpp": "2020-01-29 21:37:14 +0900",
+"test/flow/primaldual.test.cpp": "2020-02-01 23:15:14 +0900",
 "test/graph/bellmanford.test.cpp": "2020-01-28 21:56:13 +0900",
 "test/graph/dijkstra.test.cpp": "2020-01-28 21:55:45 +0900",
 "test/graph/dijkstrarestore.test.cpp": "2020-01-30 20:35:55 +0900",
