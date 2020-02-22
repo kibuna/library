@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67be68a348da3b850fb7daa10b034528">snippets</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippets/wedgesin.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-01 12:28:51+09:00
+    - Last commit date: 2020-02-22 11:58:29+09:00
 
 
 
@@ -42,11 +42,11 @@ layout: default
 {% raw %}
 ```cpp
 vector<vector<pair<int, lint>>> edges(n);
-for (int i = 0; i < ${1 : n - 1}; ++i) {
+for (int i = 0; i < ${1:n-1}; ++i) {
     int u, v;
     lint w;
     cin >> u >> v >> w;
-    // u--, v--;
+    u--, v--;
     edges[u].emplace_back(v, w);
     edges[v].emplace_back(u, w);
 }
@@ -59,11 +59,11 @@ for (int i = 0; i < ${1 : n - 1}; ++i) {
 ```cpp
 #line 1 "snippets/wedgesin.cpp"
 vector<vector<pair<int, lint>>> edges(n);
-for (int i = 0; i < ${1 : n - 1}; ++i) {
+for (int i = 0; i < ${1:n-1}; ++i) {
     int u, v;
     lint w;
     cin >> u >> v >> w;
-    // u--, v--;
+    u--, v--;
     edges[u].emplace_back(v, w);
     edges[v].emplace_back(u, w);
 }

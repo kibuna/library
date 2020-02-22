@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67be68a348da3b850fb7daa10b034528">snippets</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippets/edgesin.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-01 12:28:51+09:00
+    - Last commit date: 2020-02-22 11:58:29+09:00
 
 
 
@@ -45,7 +45,7 @@ vector<vector<int>> edges(n);
 for (int i = 0; i < ${1:n-1}; ++i) {
     int u, v;
     cin >> u >> v;
-    // u--, v--;
+    u--, v--;
     edges[u].emplace_back(v);
     edges[v].emplace_back(u);
 }
@@ -61,7 +61,7 @@ vector<vector<int>> edges(n);
 for (int i = 0; i < ${1:n-1}; ++i) {
     int u, v;
     cin >> u >> v;
-    // u--, v--;
+    u--, v--;
     edges[u].emplace_back(v);
     edges[v].emplace_back(u);
 }
