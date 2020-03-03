@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#8a0c4935c26bc3f080e3e86e308b2132">library/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/tree/lca.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-27 00:06:22+09:00
+    - Last commit date: 2020-03-03 23:32:38+09:00
 
 
 
@@ -58,13 +58,11 @@ layout: default
 // addEdge:
 // build: after adding all edge, build Euler tour and seg tree
 struct LCA {
-    int n;
-    int k;
-    vector<int> depth;
-    vector<int> eulerTour;
-    vector<int> firstVisit;
+    int n, k;
+    vector<int> depth, eulerTour, firstVisit;
     vector<vector<int>> edges;
     SegmentTree<pair<int, int>> segTree;
+    bool isbuilt;
     static pair<int, int> pairComp(pair<int, int> a, pair<int, int> b) {
         if (a.first < b.first)
             return a;
@@ -73,7 +71,7 @@ struct LCA {
     }
     LCA(int n)
         : n(n), k(0), depth(2 * n - 1), eulerTour(2 * n - 1), firstVisit(n), edges(n),
-          segTree(2 * n, pairComp, make_pair(numeric_limits<int>::max(), 0)){};
+          segTree(2 * n, pairComp, make_pair(numeric_limits<int>::max(), 0)), isbuilt(false){};
     void addEdge(int from, int to) {
         edges[from].push_back(to);
         edges[to].push_back(from);
@@ -95,9 +93,11 @@ struct LCA {
         for (int i = 0; i < 2 * n - 1; ++i) {
             segTree.update(i, make_pair(depth[i], eulerTour[i]));
         }
+        isbuilt = true;
     }
     // return LCA node of l and r
     int operator()(int l, int r) {
+        assert(isbuilt);
         int left  = firstVisit[l];
         int right = firstVisit[r];
         if (left > right)
@@ -178,13 +178,11 @@ struct SegmentTree {
 // addEdge:
 // build: after adding all edge, build Euler tour and seg tree
 struct LCA {
-    int n;
-    int k;
-    vector<int> depth;
-    vector<int> eulerTour;
-    vector<int> firstVisit;
+    int n, k;
+    vector<int> depth, eulerTour, firstVisit;
     vector<vector<int>> edges;
     SegmentTree<pair<int, int>> segTree;
+    bool isbuilt;
     static pair<int, int> pairComp(pair<int, int> a, pair<int, int> b) {
         if (a.first < b.first)
             return a;
@@ -193,7 +191,7 @@ struct LCA {
     }
     LCA(int n)
         : n(n), k(0), depth(2 * n - 1), eulerTour(2 * n - 1), firstVisit(n), edges(n),
-          segTree(2 * n, pairComp, make_pair(numeric_limits<int>::max(), 0)){};
+          segTree(2 * n, pairComp, make_pair(numeric_limits<int>::max(), 0)), isbuilt(false){};
     void addEdge(int from, int to) {
         edges[from].push_back(to);
         edges[to].push_back(from);
@@ -215,9 +213,11 @@ struct LCA {
         for (int i = 0; i < 2 * n - 1; ++i) {
             segTree.update(i, make_pair(depth[i], eulerTour[i]));
         }
+        isbuilt = true;
     }
     // return LCA node of l and r
     int operator()(int l, int r) {
+        assert(isbuilt);
         int left  = firstVisit[l];
         int right = firstVisit[r];
         if (left > right)
