@@ -6,11 +6,22 @@ struct Point {
     double x, y;
     Point() {}
     Point(double x, double y) : x(x), y(y) {}
-    Point operator+(const Point &p) { return Point(x + p.x, y + p.y); }
-    Point operator-(const Point &p) { return Point(x - p.x, y - p.y); }
-    Point operator*(double k) { return Point(x * k, y * k); }
-    Point operator/(double k) { return Point(x / k, y / k); }
+    Point operator+(const Point &p) const { return Point(x + p.x, y + p.y); }
+    Point operator-(const Point &p) const { return Point(x - p.x, y - p.y); }
+    Point operator*(double k) const { return Point(x * k, y * k); }
+    Point operator/(double k) const { return Point(x / k, y / k); }
 };
+istream &operator>>(istream &is, Point &p) {
+    is >> p.x >> p.y;
+    return is;
+}
+ostream &operator<<(ostream &os, Point p) {
+    os << fixed << setprecision(10) << p.x << " " << p.y;
+    return os;
+}
+bool sort_x(Point a, Point b) { return a.x != b.x ? a.x < b.x : a.y < b.y; }
+bool sort_y(Point a, Point b) { return a.y != b.y ? a.y < b.y : a.x < b.x; }
+bool sort_t(Point a, Point b) { return atan2(a.y, a.x) < atan2(b.y, a.y); }
 Point rotate(double theta, const Point &p) {
     return Point(cos(theta) * p.x - sin(theta) * p.y, sin(theta) * p.x + cos(theta) * p.y);
 }
@@ -29,6 +40,11 @@ struct Line {
         else
             a = Point(0, C / B), b = Point(C / A, 0);
     }
+    Point vec() const { return b - a; }
+};
+struct Segment : Line {
+    Segment() {}
+    Segment(Point a, Point b) : Line(a, b) {}
 };
 
 struct Circle {
@@ -42,8 +58,114 @@ double abs(const Point &a) { return sqrt(norm(a)); }
 double cross(const Point &a, const Point &b) { return a.x * b.y - a.y * b.x; }
 double dot(const Point &a, const Point &b) { return a.x * b.x + a.y * b.y; }
 
-Point projection(Line l, Point p) {
+Point project(Line l, Point p) {
     double t = dot(p - l.a, l.a - l.b) / norm(l.a - l.b);
     return l.a + (l.a - l.b) * t;
 }
-Point reflect(Line l, Point p) { return p + (projection(l, p) - p) * 2; }
+Point reflect(Line l, Point p) { return p + (project(l, p) - p) * 2; }
+bool parallel(Line a, Line b) { return eq(cross(a.vec(), b.vec()), 0.0); }
+bool orthogonal(Line a, Line b) { return eq(dot(a.vec(), b.vec()), 0.0); }
+int ccw(const Point &a, Point b, Point c) {
+    b = b - a, c = c - a;
+    if (cross(b, c) > eps)
+        return +1; // "COUNTER_CLOCKWISE"
+    if (cross(b, c) < -eps)
+        return -1; // "CLOCKWISE"
+    if (dot(b, c) < 0)
+        return +2; // "ONLINE_BACK"
+    if (norm(b) < norm(c))
+        return -2; // "ONLINE_FRONT"
+    return 0;      // "ON_SEGMENT"
+}
+bool intersect(const Line &l, const Point &p) { return abs(ccw(l.a, l.b, p)) != 1; }
+bool intersect(const Line &l, const Line &m) { return !parallel(l, m) || abs(cross(l.vec(), m.b - l.a)) < eps; }
+bool intersect(const Segment &s, const Point &p) { return ccw(s.a, s.b, p) == 0; }
+bool intersect(const Line &l, const Segment &s) { return cross(l.vec(), s.a - l.a) * cross(l.vec(), s.b - l.a) < eps; }
+double distance(const Line &l, const Point &p);
+bool intersect(const Circle &c, const Line &l) { return distance(l, c.p) <= c.r + eps; }
+bool intersect(const Circle &c, const Point &p) { return abs(abs(p - c.p) - c.r) < eps; }
+bool intersect(const Segment &s, const Segment &t) {
+    return ccw(s.a, s.b, t.a) * ccw(s.a, s.b, t.b) <= 0 && ccw(t.a, t.b, s.a) * ccw(t.a, t.b, s.b) <= 0;
+}
+int intersect(const Circle &c, const Segment &l) {
+    if (norm(project(l, c.p) - c.p) - c.r * c.r > eps)
+        return 0;
+    auto d1 = abs(c.p - l.a), d2 = abs(c.p - l.b);
+    if (d1 < c.r + eps && d2 < c.r + eps)
+        return 0;
+    if ((d1 < c.r - eps && d2 > c.r + eps) || (d1 > c.r + eps && d2 < c.r - eps))
+        return 1;
+    const Point h = project(l, c.p);
+    if (dot(l.a - h, l.b - h) < 0)
+        return 2;
+    return 0;
+}
+int intersect(Circle c1, Circle c2) {
+    if (c1.r < c2.r)
+        swap(c1, c2);
+    double d = abs(c1.p - c2.p);
+    if (c1.r + c2.r < d)
+        return 4; // do not cross
+    if (eq(c1.r + c2.r, d))
+        return 3; // circumscribed
+    if (c1.r - c2.r < d)
+        return 2; // intersect
+    if (eq(c1.r - c2.r, d))
+        return 1; // inscribed
+    return 0;     // one circle includes another
+}
+
+double distance(const Point &a, const Point &b) { return abs(a - b); }
+double distance(const Line &l, const Point &p) { return abs(p - project(l, p)); }
+double distance(const Line &l, const Line &m) { return intersect(l, m) ? 0 : distance(l, m.a); }
+double distance(const Segment &s, const Point &p) {
+    Point r = project(s, p);
+    if (intersect(s, r))
+        return abs(r - p);
+    return min(abs(s.a - p), abs(s.b - p));
+}
+double distance(const Segment &a, const Segment &b) {
+    if (intersect(a, b))
+        return 0;
+    return min({distance(a, b.a), distance(a, b.b), distance(b, a.a), distance(b, a.b)});
+}
+double distance(const Line &l, const Segment &s) {
+    if (intersect(l, s))
+        return 0;
+    return min(distance(l, s.a), distance(l, s.b));
+}
+Point crosspoint(const Line &l, const Line &m) {
+    double A = cross(l.vec(), m.vec());
+    double B = cross(l.vec(), l.b - m.a);
+    if (eq(abs(A), 0.0) && eq(abs(B), 0.0))
+        return m.a;
+    return m.a + (m.b - m.a) * B / A;
+}
+Point crosspoint(const Segment &l, const Segment &m) { return crosspoint(Line(l), Line(m)); }
+pair<Point, Point> crosspoint(const Circle &c, const Line l) {
+    Point pr = project(l, c.p);
+    Point e  = (l.b - l.a) / abs(l.b - l.a);
+    if (eq(distance(l, c.p), c.r))
+        return {pr, pr};
+    double base = sqrt(c.r * c.r - norm(pr - c.p));
+    return {pr - e * base, pr + e * base};
+}
+pair<Point, Point> crosspoint(const Circle &c, const Segment &l) {
+    Line aa = Line(l.a, l.b);
+    if (intersect(c, l) == 2)
+        return crosspoint(c, aa);
+    auto ret = crosspoint(c, aa);
+    if (dot(l.a - ret.first, l.b - ret.first) < 0)
+        ret.second = ret.first;
+    else
+        ret.first = ret.second;
+    return ret;
+}
+pair<Point, Point> crosspoint(const Circle &c1, const Circle &c2) {
+    double d = abs(c1.p - c2.p);
+    double a = acos((c1.r * c1.r + d * d - c2.r * c2.r) / (2 * c1.r * d));
+    double t = atan2(c2.p.y - c1.p.y, c2.p.x - c1.p.x);
+    Point p1 = c1.p + Point(cos(t + a) * c1.r, sin(t + a) * c1.r);
+    Point p2 = c1.p + Point(cos(t - a) * c1.r, sin(t - a) * c1.r);
+    return {p1, p2};
+}
