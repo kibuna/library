@@ -25,7 +25,7 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: library/geometry/geometry.cpp
+# :heavy_check_mark: library/geometry/geometry.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
@@ -36,15 +36,15 @@ layout: default
 
 
 
-## Required by
+## Verified with
 
-* :warning: <a href="../../test/geometry/crosspoint.cpp.html">test/geometry/crosspoint.cpp</a>
-* :warning: <a href="../../test/geometry/distance.cpp.html">test/geometry/distance.cpp</a>
-* :warning: <a href="../../test/geometry/intersection.cpp.html">test/geometry/intersection.cpp</a>
-* :warning: <a href="../../test/geometry/intersection_circles.cpp.html">test/geometry/intersection_circles.cpp</a>
-* :warning: <a href="../../test/geometry/parallel_orthogonal.cpp.html">test/geometry/parallel_orthogonal.cpp</a>
-* :warning: <a href="../../test/geometry/projection.cpp.html">test/geometry/projection.cpp</a>
-* :warning: <a href="../../test/geometry/reflection.cpp.html">test/geometry/reflection.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/crosspoint.test.cpp.html">test/geometry/crosspoint.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/intersection.test.cpp.html">test/geometry/intersection.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/intersection_circles.test.cpp.html">test/geometry/intersection_circles.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/parallel_orthogonal.test.cpp.html">test/geometry/parallel_orthogonal.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/projection.test.cpp.html">test/geometry/projection.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/reflection.test.cpp.html">test/geometry/reflection.test.cpp</a>
 
 
 ## Code

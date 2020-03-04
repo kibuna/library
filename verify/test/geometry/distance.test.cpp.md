@@ -25,21 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/geometry/intersection.cpp
+# :heavy_check_mark: test/geometry/distance.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#6f6f0638f7867790eb83eef8fd5b53f2">test/geometry</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/intersection.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-04 21:44:02+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/distance.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-04 21:54:42+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B</a>
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_D</a>
 
 
 ## Depends on
 
-* :warning: <a href="../../library/geometry/geometry.cpp.html">library/geometry/geometry.cpp</a>
+* :heavy_check_mark: <a href="../../../library/library/geometry/geometry.cpp.html">library/geometry/geometry.cpp</a>
 
 
 ## Code
@@ -47,7 +46,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_D"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -68,10 +67,7 @@ int main() {
         t.emplace_back(c, d);
     }
     for (int i = 0; i < q; ++i) {
-        if (intersect(f[i], t[i]))
-            cout << 1 << "\n";
-        else
-            cout << 0 << "\n";
+        cout << fixed << setprecision(10) << distance(f[i], t[i]) << "\n";
     }
     return 0;
 }
@@ -81,8 +77,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/geometry/intersection.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B"
+#line 1 "test/geometry/distance.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_D"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -260,7 +256,7 @@ pair<Point, Point> crosspoint(const Circle &c1, const Circle &c2) {
     Point p2 = c1.p + Point(cos(t - a) * c1.r, sin(t - a) * c1.r);
     return {p1, p2};
 }
-#line 8 "test/geometry/intersection.cpp"
+#line 8 "test/geometry/distance.test.cpp"
 
 int main() {
     cin.tie(nullptr);
@@ -275,10 +271,7 @@ int main() {
         t.emplace_back(c, d);
     }
     for (int i = 0; i < q; ++i) {
-        if (intersect(f[i], t[i]))
-            cout << 1 << "\n";
-        else
-            cout << 0 << "\n";
+        cout << fixed << setprecision(10) << distance(f[i], t[i]) << "\n";
     }
     return 0;
 }

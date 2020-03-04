@@ -25,13 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/geometry/intersection_circles.cpp
+# :heavy_check_mark: test/geometry/intersection_circles.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#6f6f0638f7867790eb83eef8fd5b53f2">test/geometry</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/intersection_circles.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-04 21:44:02+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/intersection_circles.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-04 21:54:42+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_A</a>
@@ -39,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :warning: <a href="../../library/geometry/geometry.cpp.html">library/geometry/geometry.cpp</a>
+* :heavy_check_mark: <a href="../../../library/library/geometry/geometry.cpp.html">library/geometry/geometry.cpp</a>
 
 
 ## Code
@@ -70,7 +69,7 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/geometry/intersection_circles.cpp"
+#line 1 "test/geometry/intersection_circles.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_A"
 
 #include <bits/stdc++.h>
@@ -249,7 +248,7 @@ pair<Point, Point> crosspoint(const Circle &c1, const Circle &c2) {
     Point p2 = c1.p + Point(cos(t - a) * c1.r, sin(t - a) * c1.r);
     return {p1, p2};
 }
-#line 8 "test/geometry/intersection_circles.cpp"
+#line 8 "test/geometry/intersection_circles.test.cpp"
 
 int main() {
     cin.tie(nullptr);

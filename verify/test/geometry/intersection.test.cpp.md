@@ -25,21 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/geometry/reflection.cpp
+# :heavy_check_mark: test/geometry/intersection.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#6f6f0638f7867790eb83eef8fd5b53f2">test/geometry</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/reflection.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-04 21:44:02+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/intersection.test.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-04 21:54:42+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B</a>
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B</a>
 
 
 ## Depends on
 
-* :warning: <a href="../../library/geometry/geometry.cpp.html">library/geometry/geometry.cpp</a>
+* :heavy_check_mark: <a href="../../../library/library/geometry/geometry.cpp.html">library/geometry/geometry.cpp</a>
 
 
 ## Code
@@ -47,7 +46,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -56,22 +55,24 @@ using lint = long long;
 #include "../../library/geometry/geometry.cpp"
 
 int main() {
-    cin.tie(0);
+    cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    Point p1, p2;
-    cin >> p1.x >> p1.y >> p2.x >> p2.y;
-    Line base(p1, p2);
     int q;
     cin >> q;
-    vector<Point> r(q);
+    vector<Segment> f, t;
     for (int i = 0; i < q; ++i) {
-        cin >> r[i].x >> r[i].y;
+        Point a, b, c, d;
+        cin >> a >> b >> c >> d;
+        f.emplace_back(a, b);
+        t.emplace_back(c, d);
     }
-    cout << fixed << setprecision(10);
     for (int i = 0; i < q; ++i) {
-        Point ret = reflect(base, r[i]);
-        cout << ret.x << " " << ret.y << "\n";
+        if (intersect(f[i], t[i]))
+            cout << 1 << "\n";
+        else
+            cout << 0 << "\n";
     }
+    return 0;
 }
 ```
 {% endraw %}
@@ -79,8 +80,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/geometry/reflection.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B"
+#line 1 "test/geometry/intersection.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -258,25 +259,27 @@ pair<Point, Point> crosspoint(const Circle &c1, const Circle &c2) {
     Point p2 = c1.p + Point(cos(t - a) * c1.r, sin(t - a) * c1.r);
     return {p1, p2};
 }
-#line 8 "test/geometry/reflection.cpp"
+#line 8 "test/geometry/intersection.test.cpp"
 
 int main() {
-    cin.tie(0);
+    cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    Point p1, p2;
-    cin >> p1.x >> p1.y >> p2.x >> p2.y;
-    Line base(p1, p2);
     int q;
     cin >> q;
-    vector<Point> r(q);
+    vector<Segment> f, t;
     for (int i = 0; i < q; ++i) {
-        cin >> r[i].x >> r[i].y;
+        Point a, b, c, d;
+        cin >> a >> b >> c >> d;
+        f.emplace_back(a, b);
+        t.emplace_back(c, d);
     }
-    cout << fixed << setprecision(10);
     for (int i = 0; i < q; ++i) {
-        Point ret = reflect(base, r[i]);
-        cout << ret.x << " " << ret.y << "\n";
+        if (intersect(f[i], t[i]))
+            cout << 1 << "\n";
+        else
+            cout << 0 << "\n";
     }
+    return 0;
 }
 
 ```

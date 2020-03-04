@@ -76,7 +76,7 @@ layout: default
 
 ### library/geometry
 
-* :warning: <a href="library/library/geometry/geometry.cpp.html">library/geometry/geometry.cpp</a>
+* :heavy_check_mark: <a href="library/library/geometry/geometry.cpp.html">library/geometry/geometry.cpp</a>
 
 
 <div id="c5878b56724fd1eb9362c2254e5c362f"></div>
@@ -125,6 +125,7 @@ layout: default
 * :warning: <a href="library/snippets/chmin.cpp.html">snippets/chmin.cpp</a>
 * :warning: <a href="library/snippets/cornerif.cpp.html">snippets/cornerif.cpp</a>
 * :warning: <a href="library/snippets/cout.cpp.html">snippets/cout.cpp</a>
+* :warning: <a href="library/snippets/coutd.cpp.html">snippets/coutd.cpp</a>
 * :warning: <a href="library/snippets/dx4.cpp.html">snippets/dx4.cpp</a>
 * :warning: <a href="library/snippets/edges.cpp.html">snippets/edges.cpp</a>
 * :warning: <a href="library/snippets/edgesin.cpp.html">snippets/edgesin.cpp</a>
@@ -147,19 +148,6 @@ layout: default
 * :warning: <a href="library/snippets/vvl.cpp.html">snippets/vvl.cpp</a>
 * :warning: <a href="library/snippets/wedges.cpp.html">snippets/wedges.cpp</a>
 * :warning: <a href="library/snippets/wedgesin.cpp.html">snippets/wedgesin.cpp</a>
-
-
-<div id="6f6f0638f7867790eb83eef8fd5b53f2"></div>
-
-### test/geometry
-
-* :warning: <a href="library/test/geometry/crosspoint.cpp.html">test/geometry/crosspoint.cpp</a>
-* :warning: <a href="library/test/geometry/distance.cpp.html">test/geometry/distance.cpp</a>
-* :warning: <a href="library/test/geometry/intersection.cpp.html">test/geometry/intersection.cpp</a>
-* :warning: <a href="library/test/geometry/intersection_circles.cpp.html">test/geometry/intersection_circles.cpp</a>
-* :warning: <a href="library/test/geometry/parallel_orthogonal.cpp.html">test/geometry/parallel_orthogonal.cpp</a>
-* :warning: <a href="library/test/geometry/projection.cpp.html">test/geometry/projection.cpp</a>
-* :warning: <a href="library/test/geometry/reflection.cpp.html">test/geometry/reflection.cpp</a>
 
 
 <div id="baa37bfd168b079b758c0db816f7295f"></div>
@@ -188,6 +176,13 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/datastructure/unionfind.test.cpp.html">test/datastructure/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/flow/dinic.test.cpp.html">test/flow/dinic.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/flow/primaldual.test.cpp.html">test/flow/primaldual.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/crosspoint.test.cpp.html">test/geometry/crosspoint.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/intersection.test.cpp.html">test/geometry/intersection.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/intersection_circles.test.cpp.html">test/geometry/intersection_circles.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/parallel_orthogonal.test.cpp.html">test/geometry/parallel_orthogonal.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/projection.test.cpp.html">test/geometry/projection.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/reflection.test.cpp.html">test/geometry/reflection.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/bellmanford.test.cpp.html">test/graph/bellmanford.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/dijkstra.test.cpp.html">test/graph/dijkstra.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/dijkstrarestore.test.cpp.html">test/graph/dijkstrarestore.test.cpp</a>
