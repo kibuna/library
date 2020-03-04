@@ -26,5 +26,5 @@
 "test/string/rollinghash.test.cpp": "2020-01-29 21:32:14 +0900",
 "test/string/zalgorithm.test.cpp": "2020-01-28 21:56:32 +0900",
 "test/tree/kruskal.test.cpp": "2020-01-27 00:53:15 +0900",
-"test/tree/lca.test.cpp": "2020-01-27 00:06:22 +0900"
+"test/tree/lca.test.cpp": "2020-03-03 23:32:38 +0900"
 }
