@@ -25,16 +25,16 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :warning: test/geometry/projection.cpp
+# :warning: test/geometry/reflection.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#6f6f0638f7867790eb83eef8fd5b53f2">test/geometry</a>
-* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/projection.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/reflection.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-04 21:44:02+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A</a>
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B</a>
 
 
 ## Depends on
@@ -47,7 +47,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -69,7 +69,7 @@ int main() {
     }
     cout << fixed << setprecision(10);
     for (int i = 0; i < q; ++i) {
-        Point ret = project(base, r[i]);
+        Point ret = reflect(base, r[i]);
         cout << ret.x << " " << ret.y << "\n";
     }
 }
@@ -79,8 +79,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/geometry/projection.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A"
+#line 1 "test/geometry/reflection.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -258,7 +258,7 @@ pair<Point, Point> crosspoint(const Circle &c1, const Circle &c2) {
     Point p2 = c1.p + Point(cos(t - a) * c1.r, sin(t - a) * c1.r);
     return {p1, p2};
 }
-#line 8 "test/geometry/projection.cpp"
+#line 8 "test/geometry/reflection.cpp"
 
 int main() {
     cin.tie(0);
@@ -274,7 +274,7 @@ int main() {
     }
     cout << fixed << setprecision(10);
     for (int i = 0; i < q; ++i) {
-        Point ret = project(base, r[i]);
+        Point ret = reflect(base, r[i]);
         cout << ret.x << " " << ret.y << "\n";
     }
 }

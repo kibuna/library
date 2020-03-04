@@ -153,7 +153,13 @@ layout: default
 
 ### test/geometry
 
+* :warning: <a href="library/test/geometry/crosspoint.cpp.html">test/geometry/crosspoint.cpp</a>
+* :warning: <a href="library/test/geometry/distance.cpp.html">test/geometry/distance.cpp</a>
+* :warning: <a href="library/test/geometry/intersection.cpp.html">test/geometry/intersection.cpp</a>
+* :warning: <a href="library/test/geometry/intersection_circles.cpp.html">test/geometry/intersection_circles.cpp</a>
+* :warning: <a href="library/test/geometry/parallel_orthogonal.cpp.html">test/geometry/parallel_orthogonal.cpp</a>
 * :warning: <a href="library/test/geometry/projection.cpp.html">test/geometry/projection.cpp</a>
+* :warning: <a href="library/test/geometry/reflection.cpp.html">test/geometry/reflection.cpp</a>
 
 
 <div id="baa37bfd168b079b758c0db816f7295f"></div>
