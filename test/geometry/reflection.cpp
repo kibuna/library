@@ -1,4 +1,4 @@
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -20,7 +20,7 @@ int main() {
     }
     cout << fixed << setprecision(10);
     for (int i = 0; i < q; ++i) {
-        Point ret = project(base, r[i]);
+        Point ret = reflect(base, r[i]);
         cout << ret.x << " " << ret.y << "\n";
     }
 }
