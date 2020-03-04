@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/geometry/projection.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-04 21:54:42+09:00
+    - Last commit date: 2020-03-04 22:54:09+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A</a>
@@ -256,6 +256,23 @@ pair<Point, Point> crosspoint(const Circle &c1, const Circle &c2) {
     Point p1 = c1.p + Point(cos(t + a) * c1.r, sin(t + a) * c1.r);
     Point p2 = c1.p + Point(cos(t - a) * c1.r, sin(t - a) * c1.r);
     return {p1, p2};
+}
+vector<Point> convex_hull(vector<Point> &p) {
+    int n = (int)p.size(), k = 0;
+    if (n <= 2)
+        return p;
+    sort(p.begin(), p.end(), sort_x);
+    vector<Point> ch(2 * n);
+    for (int i = 0; i < n; ch[k++] = p[i++]) {
+        while (k >= 2 && cross(ch[k - 1] - ch[k - 2], p[i] - ch[k - 1]) < -eps)
+            --k;
+    }
+    for (int i = n - 2, t = k + 1; i >= 0; ch[k++] = p[i--]) {
+        while (k >= t && cross(ch[k - 1] - ch[k - 2], p[i] - ch[k - 1]) < -eps)
+            --k;
+    }
+    ch.resize(k - 1);
+    return ch;
 }
 #line 8 "test/geometry/projection.test.cpp"
 

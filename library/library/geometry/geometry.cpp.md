@@ -31,13 +31,16 @@ layout: default
 
 * category: <a href="../../../index.html#1a4ce6642786277d76dc97dbc3cc79c6">library/geometry</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/geometry/geometry.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-04 21:44:02+09:00
+    - Last commit date: 2020-03-04 22:54:09+09:00
 
 
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../../verify/test/geometry/convex_hull.test.cpp.html">test/geometry/convex_hull.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/cross_circle_line.test.cpp.html">test/geometry/cross_circle_line.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/cross_two_circles.test.cpp.html">test/geometry/cross_two_circles.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/crosspoint.test.cpp.html">test/geometry/crosspoint.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/intersection.test.cpp.html">test/geometry/intersection.test.cpp</a>
@@ -223,7 +226,23 @@ pair<Point, Point> crosspoint(const Circle &c1, const Circle &c2) {
     Point p2 = c1.p + Point(cos(t - a) * c1.r, sin(t - a) * c1.r);
     return {p1, p2};
 }
-
+vector<Point> convex_hull(vector<Point> &p) {
+    int n = (int)p.size(), k = 0;
+    if (n <= 2)
+        return p;
+    sort(p.begin(), p.end(), sort_x);
+    vector<Point> ch(2 * n);
+    for (int i = 0; i < n; ch[k++] = p[i++]) {
+        while (k >= 2 && cross(ch[k - 1] - ch[k - 2], p[i] - ch[k - 1]) < -eps)
+            --k;
+    }
+    for (int i = n - 2, t = k + 1; i >= 0; ch[k++] = p[i--]) {
+        while (k >= t && cross(ch[k - 1] - ch[k - 2], p[i] - ch[k - 1]) < -eps)
+            --k;
+    }
+    ch.resize(k - 1);
+    return ch;
+}
 ```
 {% endraw %}
 
@@ -401,6 +420,23 @@ pair<Point, Point> crosspoint(const Circle &c1, const Circle &c2) {
     Point p1 = c1.p + Point(cos(t + a) * c1.r, sin(t + a) * c1.r);
     Point p2 = c1.p + Point(cos(t - a) * c1.r, sin(t - a) * c1.r);
     return {p1, p2};
+}
+vector<Point> convex_hull(vector<Point> &p) {
+    int n = (int)p.size(), k = 0;
+    if (n <= 2)
+        return p;
+    sort(p.begin(), p.end(), sort_x);
+    vector<Point> ch(2 * n);
+    for (int i = 0; i < n; ch[k++] = p[i++]) {
+        while (k >= 2 && cross(ch[k - 1] - ch[k - 2], p[i] - ch[k - 1]) < -eps)
+            --k;
+    }
+    for (int i = n - 2, t = k + 1; i >= 0; ch[k++] = p[i--]) {
+        while (k >= t && cross(ch[k - 1] - ch[k - 2], p[i] - ch[k - 1]) < -eps)
+            --k;
+    }
+    ch.resize(k - 1);
+    return ch;
 }
 
 ```

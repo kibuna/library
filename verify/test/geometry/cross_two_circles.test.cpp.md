@@ -25,15 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/geometry/intersection.test.cpp
+# :heavy_check_mark: test/geometry/cross_two_circles.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/intersection.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/cross_two_circles.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-04 22:54:09+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B</a>
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E</a>
 
 
 ## Depends on
@@ -46,7 +46,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E"
+#define ERROR 1e-6
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -57,21 +58,15 @@ using lint = long long;
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    int q;
-    cin >> q;
-    vector<Segment> f, t;
-    for (int i = 0; i < q; ++i) {
-        Point a, b, c, d;
-        cin >> a >> b >> c >> d;
-        f.emplace_back(a, b);
-        t.emplace_back(c, d);
-    }
-    for (int i = 0; i < q; ++i) {
-        if (intersect(f[i], t[i]))
-            cout << 1 << "\n";
-        else
-            cout << 0 << "\n";
-    }
+    Point p1, p2;
+    double r1, r2;
+    cin >> p1 >> r1;
+    cin >> p2 >> r2;
+    Circle c1(p1, r1), c2(p2, r2);
+    auto ret = crosspoint(c1, c2);
+    if (!sort_x(ret.first, ret.second))
+        swap(ret.first, ret.second);
+    cout << fixed << setprecision(8) << ret.first << " " << ret.second << endl;
     return 0;
 }
 ```
@@ -80,8 +75,9 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/geometry/intersection.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B"
+#line 1 "test/geometry/cross_two_circles.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_E"
+#define ERROR 1e-6
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -276,26 +272,20 @@ vector<Point> convex_hull(vector<Point> &p) {
     ch.resize(k - 1);
     return ch;
 }
-#line 8 "test/geometry/intersection.test.cpp"
+#line 9 "test/geometry/cross_two_circles.test.cpp"
 
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    int q;
-    cin >> q;
-    vector<Segment> f, t;
-    for (int i = 0; i < q; ++i) {
-        Point a, b, c, d;
-        cin >> a >> b >> c >> d;
-        f.emplace_back(a, b);
-        t.emplace_back(c, d);
-    }
-    for (int i = 0; i < q; ++i) {
-        if (intersect(f[i], t[i]))
-            cout << 1 << "\n";
-        else
-            cout << 0 << "\n";
-    }
+    Point p1, p2;
+    double r1, r2;
+    cin >> p1 >> r1;
+    cin >> p2 >> r2;
+    Circle c1(p1, r1), c2(p2, r2);
+    auto ret = crosspoint(c1, c2);
+    if (!sort_x(ret.first, ret.second))
+        swap(ret.first, ret.second);
+    cout << fixed << setprecision(8) << ret.first << " " << ret.second << endl;
     return 0;
 }
 

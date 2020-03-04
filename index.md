@@ -176,6 +176,9 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/datastructure/unionfind.test.cpp.html">test/datastructure/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/flow/dinic.test.cpp.html">test/flow/dinic.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/flow/primaldual.test.cpp.html">test/flow/primaldual.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/convex_hull.test.cpp.html">test/geometry/convex_hull.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/cross_circle_line.test.cpp.html">test/geometry/cross_circle_line.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/cross_two_circles.test.cpp.html">test/geometry/cross_two_circles.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/crosspoint.test.cpp.html">test/geometry/crosspoint.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/intersection.test.cpp.html">test/geometry/intersection.test.cpp</a>

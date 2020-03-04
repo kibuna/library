@@ -25,15 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/geometry/intersection.test.cpp
+# :heavy_check_mark: test/geometry/convex_hull.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/intersection.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/convex_hull.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-04 22:54:09+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B</a>
+* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A</a>
 
 
 ## Depends on
@@ -46,7 +46,8 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A"
+#define ERROR 1e-6
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -57,20 +58,21 @@ using lint = long long;
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    int q;
-    cin >> q;
-    vector<Segment> f, t;
-    for (int i = 0; i < q; ++i) {
-        Point a, b, c, d;
-        cin >> a >> b >> c >> d;
-        f.emplace_back(a, b);
-        t.emplace_back(c, d);
+    int n;
+    cin >> n;
+    vector<Point> x(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> x[i];
     }
-    for (int i = 0; i < q; ++i) {
-        if (intersect(f[i], t[i]))
-            cout << 1 << "\n";
-        else
-            cout << 0 << "\n";
+    auto ret = convex_hull(x);
+    cout << ret.size() << "\n";
+    int idx = 0;
+    for (int i = 1; i < (int)ret.size(); ++i) {
+        if (ret[idx].y > ret[i].y || (eq(ret[idx].y, ret[i].y) && ret[idx].x > ret[idx].x))
+            idx = i;
+    }
+    for (int i = 0; i < (int)ret.size(); ++i) {
+        cout << ret[(idx + i) % int(ret.size())] << "\n";
     }
     return 0;
 }
@@ -80,8 +82,9 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/geometry/intersection.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B"
+#line 1 "test/geometry/convex_hull.test.cpp"
+#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A"
+#define ERROR 1e-6
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -276,25 +279,26 @@ vector<Point> convex_hull(vector<Point> &p) {
     ch.resize(k - 1);
     return ch;
 }
-#line 8 "test/geometry/intersection.test.cpp"
+#line 9 "test/geometry/convex_hull.test.cpp"
 
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    int q;
-    cin >> q;
-    vector<Segment> f, t;
-    for (int i = 0; i < q; ++i) {
-        Point a, b, c, d;
-        cin >> a >> b >> c >> d;
-        f.emplace_back(a, b);
-        t.emplace_back(c, d);
+    int n;
+    cin >> n;
+    vector<Point> x(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> x[i];
     }
-    for (int i = 0; i < q; ++i) {
-        if (intersect(f[i], t[i]))
-            cout << 1 << "\n";
-        else
-            cout << 0 << "\n";
+    auto ret = convex_hull(x);
+    cout << ret.size() << "\n";
+    int idx = 0;
+    for (int i = 1; i < (int)ret.size(); ++i) {
+        if (ret[idx].y > ret[i].y || (eq(ret[idx].y, ret[i].y) && ret[idx].x > ret[idx].x))
+            idx = i;
+    }
+    for (int i = 0; i < (int)ret.size(); ++i) {
+        cout << ret[(idx + i) % int(ret.size())] << "\n";
     }
     return 0;
 }
