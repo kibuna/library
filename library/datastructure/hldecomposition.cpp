@@ -110,7 +110,7 @@ class HLDecomposition {
                 v   = par[head[v]];
             } else {
                 if (u != v)
-                    ret = f(ret, f(vid[u] + 1, vid[v] + 1));
+                    ret = f(ret, segTree.query(vid[u] + 1, vid[v] + 1));
                 return ret;
             }
         }
