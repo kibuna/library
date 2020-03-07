@@ -42,10 +42,10 @@ layout: default
 * :warning: <a href="library/library/algebra/combinationprob.cpp.html">library/algebra/combinationprob.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/eratosthenes.cpp.html">library/algebra/eratosthenes.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/factors.cpp.html">library/algebra/factors.cpp</a>
-* :heavy_check_mark: <a href="library/library/algebra/gcd.cpp.html">library/algebra/gcd.cpp</a>
 * :warning: <a href="library/library/algebra/lagrangeinterpolation.cpp.html">library/algebra/lagrangeinterpolation.cpp</a>
 * :warning: <a href="library/library/algebra/lagrangeinterpolationarithmetic.cpp.html">library/algebra/lagrangeinterpolationarithmetic.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/mint.cpp.html">library/algebra/mint.cpp</a>
+* :heavy_check_mark: <a href="library/library/algebra/mygcd.cpp.html">library/algebra/mygcd.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/ntt.cpp.html">library/algebra/ntt.cpp</a>
 * :heavy_check_mark: <a href="library/library/algebra/primefactors.cpp.html">library/algebra/primefactors.cpp</a>
 * :warning: <a href="library/library/algebra/squarematrix.cpp.html">library/algebra/squarematrix.cpp</a>
@@ -56,6 +56,7 @@ layout: default
 ### library/datastructure
 
 * :heavy_check_mark: <a href="library/library/datastructure/binaryindexedtree.cpp.html">library/datastructure/binaryindexedtree.cpp</a>
+* :heavy_check_mark: <a href="library/library/datastructure/hldecomposition.cpp.html">library/datastructure/hldecomposition.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/segmenttree.cpp.html">library/datastructure/segmenttree.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/segmenttreelazy.cpp.html">library/datastructure/segmenttreelazy.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/segmenttreelazyadd.cpp.html">library/datastructure/segmenttreelazyadd.cpp</a>
@@ -133,6 +134,7 @@ layout: default
 * :warning: <a href="library/snippets/forea.cpp.html">snippets/forea.cpp</a>
 * :warning: <a href="library/snippets/forr.cpp.html">snippets/forr.cpp</a>
 * :warning: <a href="library/snippets/forrit.cpp.html">snippets/forrit.cpp</a>
+* :warning: <a href="library/snippets/gridbfs.cpp.html">snippets/gridbfs.cpp</a>
 * :warning: <a href="library/snippets/inside.cpp.html">snippets/inside.cpp</a>
 * :warning: <a href="library/snippets/main.cpp.html">snippets/main.cpp</a>
 * :warning: <a href="library/snippets/orderedstruct.cpp.html">snippets/orderedstruct.cpp</a>
@@ -174,18 +176,20 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/datastructure/segmenttreelazyadd_rsq.test.cpp.html">test/datastructure/segmenttreelazyadd_rsq.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/slidemin.test.cpp.html">test/datastructure/slidemin.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/unionfind.test.cpp.html">test/datastructure/unionfind.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/datastructure/vertesaddpathsum.test.cpp.html">test/datastructure/vertesaddpathsum.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/flow/dinic.test.cpp.html">test/flow/dinic.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/flow/primaldual.test.cpp.html">test/flow/primaldual.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/argsort.test.cpp.html">test/geometry/argsort.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/convex_hull.test.cpp.html">test/geometry/convex_hull.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/cross_circle_line.test.cpp.html">test/geometry/cross_circle_line.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/cross_two_circles.test.cpp.html">test/geometry/cross_two_circles.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/crosspoint.test.cpp.html">test/geometry/crosspoint.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
+* :x: <a href="verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/intersection.test.cpp.html">test/geometry/intersection.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/intersection_circles.test.cpp.html">test/geometry/intersection_circles.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/parallel_orthogonal.test.cpp.html">test/geometry/parallel_orthogonal.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/geometry/projection.test.cpp.html">test/geometry/projection.test.cpp</a>
-* :heavy_check_mark: <a href="verify/test/geometry/reflection.test.cpp.html">test/geometry/reflection.test.cpp</a>
+* :x: <a href="verify/test/geometry/projection.test.cpp.html">test/geometry/projection.test.cpp</a>
+* :x: <a href="verify/test/geometry/reflection.test.cpp.html">test/geometry/reflection.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/bellmanford.test.cpp.html">test/graph/bellmanford.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/dijkstra.test.cpp.html">test/graph/dijkstra.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/dijkstrarestore.test.cpp.html">test/graph/dijkstrarestore.test.cpp</a>

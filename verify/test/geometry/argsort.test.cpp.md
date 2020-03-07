@@ -25,15 +25,15 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/geometry/parallel_orthogonal.test.cpp
+# :heavy_check_mark: test/geometry/argsort.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/parallel_orthogonal.test.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/geometry/argsort.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-07 14:45:20+09:00
 
 
-* see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A</a>
+* see: <a href="https://judge.yosupo.jp/problem/sort_points_by_argument">https://judge.yosupo.jp/problem/sort_points_by_argument</a>
 
 
 ## Depends on
@@ -46,7 +46,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A"
+#define PROBLEM "https://judge.yosupo.jp/problem/sort_points_by_argument"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -57,22 +57,15 @@ using lint = long long;
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    int q;
-    cin >> q;
-    vector<Segment> f, t;
-    for (int i = 0; i < q; ++i) {
-        Point a, b, c, d;
-        cin >> a >> b >> c >> d;
-        f.emplace_back(a, b);
-        t.emplace_back(c, d);
+    int n;
+    cin >> n;
+    vector<Point> x(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> x[i];
     }
-    for (int i = 0; i < q; ++i) {
-        if (parallel(f[i], t[i]))
-            cout << 2 << "\n";
-        else if (orthogonal(f[i], t[i]))
-            cout << 1 << "\n";
-        else
-            cout << 0 << "\n";
+    sort(x.begin(), x.end(), sort_t);
+    for (int i = 0; i < n; ++i) {
+        cout << int(x[i].x) << " " << int(x[i].y) << "\n";
     }
     return 0;
 }
@@ -82,8 +75,8 @@ int main() {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/geometry/parallel_orthogonal.test.cpp"
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A"
+#line 1 "test/geometry/argsort.test.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/sort_points_by_argument"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -286,27 +279,20 @@ vector<Point> convex_hull(vector<Point> &p) {
     ch.resize(k - 1);
     return ch;
 }
-#line 8 "test/geometry/parallel_orthogonal.test.cpp"
+#line 8 "test/geometry/argsort.test.cpp"
 
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    int q;
-    cin >> q;
-    vector<Segment> f, t;
-    for (int i = 0; i < q; ++i) {
-        Point a, b, c, d;
-        cin >> a >> b >> c >> d;
-        f.emplace_back(a, b);
-        t.emplace_back(c, d);
+    int n;
+    cin >> n;
+    vector<Point> x(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> x[i];
     }
-    for (int i = 0; i < q; ++i) {
-        if (parallel(f[i], t[i]))
-            cout << 2 << "\n";
-        else if (orthogonal(f[i], t[i]))
-            cout << 1 << "\n";
-        else
-            cout << 0 << "\n";
+    sort(x.begin(), x.end(), sort_t);
+    for (int i = 0; i < n; ++i) {
+        cout << int(x[i].x) << " " << int(x[i].y) << "\n";
     }
     return 0;
 }

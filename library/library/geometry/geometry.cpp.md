@@ -31,23 +31,24 @@ layout: default
 
 * category: <a href="../../../index.html#1a4ce6642786277d76dc97dbc3cc79c6">library/geometry</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/geometry/geometry.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-04 22:54:09+09:00
+    - Last commit date: 2020-03-07 14:45:20+09:00
 
 
 
 
 ## Verified with
 
+* :heavy_check_mark: <a href="../../../verify/test/geometry/argsort.test.cpp.html">test/geometry/argsort.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/convex_hull.test.cpp.html">test/geometry/convex_hull.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/cross_circle_line.test.cpp.html">test/geometry/cross_circle_line.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/cross_two_circles.test.cpp.html">test/geometry/cross_two_circles.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/crosspoint.test.cpp.html">test/geometry/crosspoint.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
+* :x: <a href="../../../verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/intersection.test.cpp.html">test/geometry/intersection.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/intersection_circles.test.cpp.html">test/geometry/intersection_circles.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/parallel_orthogonal.test.cpp.html">test/geometry/parallel_orthogonal.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/geometry/projection.test.cpp.html">test/geometry/projection.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/geometry/reflection.test.cpp.html">test/geometry/reflection.test.cpp</a>
+* :x: <a href="../../../verify/test/geometry/projection.test.cpp.html">test/geometry/projection.test.cpp</a>
+* :x: <a href="../../../verify/test/geometry/reflection.test.cpp.html">test/geometry/reflection.test.cpp</a>
 
 
 ## Code
@@ -55,18 +56,19 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-const double eps = 1e-10;
-inline bool eq(double a, double b) { return fabs(a - b) < eps; }
-const double pi = acos(-1);
+using Real     = long double;
+const Real eps = 1e-10;
+inline bool eq(Real a, Real b) { return fabs(a - b) < eps; }
+const Real pi = acos(-1.0L);
 
 struct Point {
-    double x, y;
+    Real x, y;
     Point() {}
-    Point(double x, double y) : x(x), y(y) {}
+    Point(Real x, Real y) : x(x), y(y) {}
     Point operator+(const Point &p) const { return Point(x + p.x, y + p.y); }
     Point operator-(const Point &p) const { return Point(x - p.x, y - p.y); }
-    Point operator*(double k) const { return Point(x * k, y * k); }
-    Point operator/(double k) const { return Point(x / k, y / k); }
+    Point operator*(Real k) const { return Point(x * k, y * k); }
+    Point operator/(Real k) const { return Point(x / k, y / k); }
 };
 istream &operator>>(istream &is, Point &p) {
     is >> p.x >> p.y;
@@ -78,18 +80,25 @@ ostream &operator<<(ostream &os, Point p) {
 }
 bool sort_x(Point a, Point b) { return a.x != b.x ? a.x < b.x : a.y < b.y; }
 bool sort_y(Point a, Point b) { return a.y != b.y ? a.y < b.y : a.x < b.x; }
-bool sort_t(Point a, Point b) { return atan2(a.y, a.x) < atan2(b.y, a.y); }
-Point rotate(double theta, const Point &p) {
+bool sort_t(Point a, Point b) { return atan2(a.y, a.x) < atan2(b.y, b.x); }
+Point rotate(Real theta, const Point &p) {
     return Point(cos(theta) * p.x - sin(theta) * p.y, sin(theta) * p.x + cos(theta) * p.y);
 }
-double radian_to_degree(double r) { return (r * 180.0 / pi); }
-double degree_to_radian(double d) { return (d * pi / 180.0); }
-
+Real radian_to_degree(Real r) { return (r * 180.0 / pi); }
+Real degree_to_radian(Real d) { return (d * pi / 180.0); }
+Real get_angle(const Point &a, const Point &b, const Point &c) {
+    const Point v(b - a), w(c - b);
+    Real alpha = atan2(v.y, v.x), beta = atan2(w.y, w.x);
+    if (alpha > beta)
+        swap(alpha, beta);
+    Real theta = (beta - alpha);
+    return min(theta, 2 * pi - theta);
+}
 struct Line {
     Point a, b;
     Line() {}
     Line(Point a, Point b) : a(a), b(b) {}
-    Line(double A, double B, double C) { // Ax + By = C
+    Line(Real A, Real B, Real C) { // Ax + By = C
         if (eq(A, 0))
             a = Point(0, C / B), b = Point(1, C / B);
         else if (eq(B, 0))
@@ -106,17 +115,17 @@ struct Segment : Line {
 
 struct Circle {
     Point p;
-    double r;
+    Real r;
     Circle() {}
-    Circle(Point p, double r) : p(p), r(r) {}
+    Circle(Point p, Real r) : p(p), r(r) {}
 };
-double norm(const Point &a) { return a.x * a.x + a.y * a.y; }
-double abs(const Point &a) { return sqrt(norm(a)); }
-double cross(const Point &a, const Point &b) { return a.x * b.y - a.y * b.x; }
-double dot(const Point &a, const Point &b) { return a.x * b.x + a.y * b.y; }
+Real norm(const Point &a) { return a.x * a.x + a.y * a.y; }
+Real abs(const Point &a) { return sqrt(norm(a)); }
+Real cross(const Point &a, const Point &b) { return a.x * b.y - a.y * b.x; }
+Real dot(const Point &a, const Point &b) { return a.x * b.x + a.y * b.y; }
 
 Point project(Line l, Point p) {
-    double t = dot(p - l.a, l.a - l.b) / norm(l.a - l.b);
+    Real t = dot(p - l.a, l.a - l.b) / norm(l.a - l.b);
     return l.a + (l.a - l.b) * t;
 }
 Point reflect(Line l, Point p) { return p + (project(l, p) - p) * 2; }
@@ -138,7 +147,7 @@ bool intersect(const Line &l, const Point &p) { return abs(ccw(l.a, l.b, p)) != 
 bool intersect(const Line &l, const Line &m) { return !parallel(l, m) || abs(cross(l.vec(), m.b - l.a)) < eps; }
 bool intersect(const Segment &s, const Point &p) { return ccw(s.a, s.b, p) == 0; }
 bool intersect(const Line &l, const Segment &s) { return cross(l.vec(), s.a - l.a) * cross(l.vec(), s.b - l.a) < eps; }
-double distance(const Line &l, const Point &p);
+Real distance(const Line &l, const Point &p);
 bool intersect(const Circle &c, const Line &l) { return distance(l, c.p) <= c.r + eps; }
 bool intersect(const Circle &c, const Point &p) { return abs(abs(p - c.p) - c.r) < eps; }
 bool intersect(const Segment &s, const Segment &t) {
@@ -160,7 +169,7 @@ int intersect(const Circle &c, const Segment &l) {
 int intersect(Circle c1, Circle c2) {
     if (c1.r < c2.r)
         swap(c1, c2);
-    double d = abs(c1.p - c2.p);
+    Real d = abs(c1.p - c2.p);
     if (c1.r + c2.r < d)
         return 4; // do not cross
     if (eq(c1.r + c2.r, d))
@@ -172,28 +181,28 @@ int intersect(Circle c1, Circle c2) {
     return 0;     // one circle includes another
 }
 
-double distance(const Point &a, const Point &b) { return abs(a - b); }
-double distance(const Line &l, const Point &p) { return abs(p - project(l, p)); }
-double distance(const Line &l, const Line &m) { return intersect(l, m) ? 0 : distance(l, m.a); }
-double distance(const Segment &s, const Point &p) {
+Real distance(const Point &a, const Point &b) { return abs(a - b); }
+Real distance(const Line &l, const Point &p) { return abs(p - project(l, p)); }
+Real distance(const Line &l, const Line &m) { return intersect(l, m) ? 0 : distance(l, m.a); }
+Real distance(const Segment &s, const Point &p) {
     Point r = project(s, p);
     if (intersect(s, r))
         return abs(r - p);
     return min(abs(s.a - p), abs(s.b - p));
 }
-double distance(const Segment &a, const Segment &b) {
+Real distance(const Segment &a, const Segment &b) {
     if (intersect(a, b))
         return 0;
     return min({distance(a, b.a), distance(a, b.b), distance(b, a.a), distance(b, a.b)});
 }
-double distance(const Line &l, const Segment &s) {
+Real distance(const Line &l, const Segment &s) {
     if (intersect(l, s))
         return 0;
     return min(distance(l, s.a), distance(l, s.b));
 }
 Point crosspoint(const Line &l, const Line &m) {
-    double A = cross(l.vec(), m.vec());
-    double B = cross(l.vec(), l.b - m.a);
+    Real A = cross(l.vec(), m.vec());
+    Real B = cross(l.vec(), l.b - m.a);
     if (eq(abs(A), 0.0) && eq(abs(B), 0.0))
         return m.a;
     return m.a + (m.b - m.a) * B / A;
@@ -204,7 +213,7 @@ pair<Point, Point> crosspoint(const Circle &c, const Line l) {
     Point e  = (l.b - l.a) / abs(l.b - l.a);
     if (eq(distance(l, c.p), c.r))
         return {pr, pr};
-    double base = sqrt(c.r * c.r - norm(pr - c.p));
+    Real base = sqrt(c.r * c.r - norm(pr - c.p));
     return {pr - e * base, pr + e * base};
 }
 pair<Point, Point> crosspoint(const Circle &c, const Segment &l) {
@@ -219,9 +228,9 @@ pair<Point, Point> crosspoint(const Circle &c, const Segment &l) {
     return ret;
 }
 pair<Point, Point> crosspoint(const Circle &c1, const Circle &c2) {
-    double d = abs(c1.p - c2.p);
-    double a = acos((c1.r * c1.r + d * d - c2.r * c2.r) / (2 * c1.r * d));
-    double t = atan2(c2.p.y - c1.p.y, c2.p.x - c1.p.x);
+    Real d   = abs(c1.p - c2.p);
+    Real a   = acos((c1.r * c1.r + d * d - c2.r * c2.r) / (2 * c1.r * d));
+    Real t   = atan2(c2.p.y - c1.p.y, c2.p.x - c1.p.x);
     Point p1 = c1.p + Point(cos(t + a) * c1.r, sin(t + a) * c1.r);
     Point p2 = c1.p + Point(cos(t - a) * c1.r, sin(t - a) * c1.r);
     return {p1, p2};
@@ -250,18 +259,19 @@ vector<Point> convex_hull(vector<Point> &p) {
 {% raw %}
 ```cpp
 #line 1 "library/geometry/geometry.cpp"
-const double eps = 1e-10;
-inline bool eq(double a, double b) { return fabs(a - b) < eps; }
-const double pi = acos(-1);
+using Real     = long double;
+const Real eps = 1e-10;
+inline bool eq(Real a, Real b) { return fabs(a - b) < eps; }
+const Real pi = acos(-1.0L);
 
 struct Point {
-    double x, y;
+    Real x, y;
     Point() {}
-    Point(double x, double y) : x(x), y(y) {}
+    Point(Real x, Real y) : x(x), y(y) {}
     Point operator+(const Point &p) const { return Point(x + p.x, y + p.y); }
     Point operator-(const Point &p) const { return Point(x - p.x, y - p.y); }
-    Point operator*(double k) const { return Point(x * k, y * k); }
-    Point operator/(double k) const { return Point(x / k, y / k); }
+    Point operator*(Real k) const { return Point(x * k, y * k); }
+    Point operator/(Real k) const { return Point(x / k, y / k); }
 };
 istream &operator>>(istream &is, Point &p) {
     is >> p.x >> p.y;
@@ -273,18 +283,25 @@ ostream &operator<<(ostream &os, Point p) {
 }
 bool sort_x(Point a, Point b) { return a.x != b.x ? a.x < b.x : a.y < b.y; }
 bool sort_y(Point a, Point b) { return a.y != b.y ? a.y < b.y : a.x < b.x; }
-bool sort_t(Point a, Point b) { return atan2(a.y, a.x) < atan2(b.y, a.y); }
-Point rotate(double theta, const Point &p) {
+bool sort_t(Point a, Point b) { return atan2(a.y, a.x) < atan2(b.y, b.x); }
+Point rotate(Real theta, const Point &p) {
     return Point(cos(theta) * p.x - sin(theta) * p.y, sin(theta) * p.x + cos(theta) * p.y);
 }
-double radian_to_degree(double r) { return (r * 180.0 / pi); }
-double degree_to_radian(double d) { return (d * pi / 180.0); }
-
+Real radian_to_degree(Real r) { return (r * 180.0 / pi); }
+Real degree_to_radian(Real d) { return (d * pi / 180.0); }
+Real get_angle(const Point &a, const Point &b, const Point &c) {
+    const Point v(b - a), w(c - b);
+    Real alpha = atan2(v.y, v.x), beta = atan2(w.y, w.x);
+    if (alpha > beta)
+        swap(alpha, beta);
+    Real theta = (beta - alpha);
+    return min(theta, 2 * pi - theta);
+}
 struct Line {
     Point a, b;
     Line() {}
     Line(Point a, Point b) : a(a), b(b) {}
-    Line(double A, double B, double C) { // Ax + By = C
+    Line(Real A, Real B, Real C) { // Ax + By = C
         if (eq(A, 0))
             a = Point(0, C / B), b = Point(1, C / B);
         else if (eq(B, 0))
@@ -301,17 +318,17 @@ struct Segment : Line {
 
 struct Circle {
     Point p;
-    double r;
+    Real r;
     Circle() {}
-    Circle(Point p, double r) : p(p), r(r) {}
+    Circle(Point p, Real r) : p(p), r(r) {}
 };
-double norm(const Point &a) { return a.x * a.x + a.y * a.y; }
-double abs(const Point &a) { return sqrt(norm(a)); }
-double cross(const Point &a, const Point &b) { return a.x * b.y - a.y * b.x; }
-double dot(const Point &a, const Point &b) { return a.x * b.x + a.y * b.y; }
+Real norm(const Point &a) { return a.x * a.x + a.y * a.y; }
+Real abs(const Point &a) { return sqrt(norm(a)); }
+Real cross(const Point &a, const Point &b) { return a.x * b.y - a.y * b.x; }
+Real dot(const Point &a, const Point &b) { return a.x * b.x + a.y * b.y; }
 
 Point project(Line l, Point p) {
-    double t = dot(p - l.a, l.a - l.b) / norm(l.a - l.b);
+    Real t = dot(p - l.a, l.a - l.b) / norm(l.a - l.b);
     return l.a + (l.a - l.b) * t;
 }
 Point reflect(Line l, Point p) { return p + (project(l, p) - p) * 2; }
@@ -333,7 +350,7 @@ bool intersect(const Line &l, const Point &p) { return abs(ccw(l.a, l.b, p)) != 
 bool intersect(const Line &l, const Line &m) { return !parallel(l, m) || abs(cross(l.vec(), m.b - l.a)) < eps; }
 bool intersect(const Segment &s, const Point &p) { return ccw(s.a, s.b, p) == 0; }
 bool intersect(const Line &l, const Segment &s) { return cross(l.vec(), s.a - l.a) * cross(l.vec(), s.b - l.a) < eps; }
-double distance(const Line &l, const Point &p);
+Real distance(const Line &l, const Point &p);
 bool intersect(const Circle &c, const Line &l) { return distance(l, c.p) <= c.r + eps; }
 bool intersect(const Circle &c, const Point &p) { return abs(abs(p - c.p) - c.r) < eps; }
 bool intersect(const Segment &s, const Segment &t) {
@@ -355,7 +372,7 @@ int intersect(const Circle &c, const Segment &l) {
 int intersect(Circle c1, Circle c2) {
     if (c1.r < c2.r)
         swap(c1, c2);
-    double d = abs(c1.p - c2.p);
+    Real d = abs(c1.p - c2.p);
     if (c1.r + c2.r < d)
         return 4; // do not cross
     if (eq(c1.r + c2.r, d))
@@ -367,28 +384,28 @@ int intersect(Circle c1, Circle c2) {
     return 0;     // one circle includes another
 }
 
-double distance(const Point &a, const Point &b) { return abs(a - b); }
-double distance(const Line &l, const Point &p) { return abs(p - project(l, p)); }
-double distance(const Line &l, const Line &m) { return intersect(l, m) ? 0 : distance(l, m.a); }
-double distance(const Segment &s, const Point &p) {
+Real distance(const Point &a, const Point &b) { return abs(a - b); }
+Real distance(const Line &l, const Point &p) { return abs(p - project(l, p)); }
+Real distance(const Line &l, const Line &m) { return intersect(l, m) ? 0 : distance(l, m.a); }
+Real distance(const Segment &s, const Point &p) {
     Point r = project(s, p);
     if (intersect(s, r))
         return abs(r - p);
     return min(abs(s.a - p), abs(s.b - p));
 }
-double distance(const Segment &a, const Segment &b) {
+Real distance(const Segment &a, const Segment &b) {
     if (intersect(a, b))
         return 0;
     return min({distance(a, b.a), distance(a, b.b), distance(b, a.a), distance(b, a.b)});
 }
-double distance(const Line &l, const Segment &s) {
+Real distance(const Line &l, const Segment &s) {
     if (intersect(l, s))
         return 0;
     return min(distance(l, s.a), distance(l, s.b));
 }
 Point crosspoint(const Line &l, const Line &m) {
-    double A = cross(l.vec(), m.vec());
-    double B = cross(l.vec(), l.b - m.a);
+    Real A = cross(l.vec(), m.vec());
+    Real B = cross(l.vec(), l.b - m.a);
     if (eq(abs(A), 0.0) && eq(abs(B), 0.0))
         return m.a;
     return m.a + (m.b - m.a) * B / A;
@@ -399,7 +416,7 @@ pair<Point, Point> crosspoint(const Circle &c, const Line l) {
     Point e  = (l.b - l.a) / abs(l.b - l.a);
     if (eq(distance(l, c.p), c.r))
         return {pr, pr};
-    double base = sqrt(c.r * c.r - norm(pr - c.p));
+    Real base = sqrt(c.r * c.r - norm(pr - c.p));
     return {pr - e * base, pr + e * base};
 }
 pair<Point, Point> crosspoint(const Circle &c, const Segment &l) {
@@ -414,9 +431,9 @@ pair<Point, Point> crosspoint(const Circle &c, const Segment &l) {
     return ret;
 }
 pair<Point, Point> crosspoint(const Circle &c1, const Circle &c2) {
-    double d = abs(c1.p - c2.p);
-    double a = acos((c1.r * c1.r + d * d - c2.r * c2.r) / (2 * c1.r * d));
-    double t = atan2(c2.p.y - c1.p.y, c2.p.x - c1.p.x);
+    Real d   = abs(c1.p - c2.p);
+    Real a   = acos((c1.r * c1.r + d * d - c2.r * c2.r) / (2 * c1.r * d));
+    Real t   = atan2(c2.p.y - c1.p.y, c2.p.x - c1.p.x);
     Point p1 = c1.p + Point(cos(t + a) * c1.r, sin(t + a) * c1.r);
     Point p2 = c1.p + Point(cos(t - a) * c1.r, sin(t - a) * c1.r);
     return {p1, p2};

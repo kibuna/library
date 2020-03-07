@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: library/algebra/gcd.cpp
+# :heavy_check_mark: library/algebra/mygcd.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#26c2ef729e4bca24cf34dda14fedd106">library/algebra</a>
-* <a href="{{ site.github.repository_url }}/blob/master/library/algebra/gcd.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-27 00:09:13+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/library/algebra/mygcd.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-03-07 14:45:20+09:00
 
 
 
@@ -75,7 +75,7 @@ T lcm(T m, T n) {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "library/algebra/gcd.cpp"
+#line 1 "library/algebra/mygcd.cpp"
 // greatest common divisor and least common multiple
 // gcd is calculated by Euclidean Algorithm
 // lcm = m * n / gcd(m,n)

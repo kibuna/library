@@ -30,7 +30,7 @@ layout: default
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/algebra/gcd.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-27 00:09:13+09:00
+    - Last commit date: 2020-03-07 14:45:20+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_C">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_C</a>
@@ -38,7 +38,7 @@ layout: default
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/library/algebra/gcd.cpp.html">library/algebra/gcd.cpp</a>
+* :heavy_check_mark: <a href="../../../library/library/algebra/mygcd.cpp.html">library/algebra/mygcd.cpp</a>
 
 
 ## Code
@@ -52,7 +52,7 @@ layout: default
 using namespace std;
 using lint = long long;
 
-#include "../../library/algebra/gcd.cpp"
+#include "../../library/algebra/mygcd.cpp"
 
 int main() {
     lint n;
@@ -81,7 +81,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/algebra/../../library/algebra/gcd.cpp"
+#line 1 "test/algebra/../../library/algebra/mygcd.cpp"
 // greatest common divisor and least common multiple
 // gcd is calculated by Euclidean Algorithm
 // lcm = m * n / gcd(m,n)
