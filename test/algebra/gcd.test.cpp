@@ -4,7 +4,7 @@
 using namespace std;
 using lint = long long;
 
-#include "../../library/algebra/gcd.cpp"
+#include "../../library/algebra/mygcd.cpp"
 
 int main() {
     lint n;
