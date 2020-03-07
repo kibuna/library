@@ -1,4 +1,5 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_D"
+#define ERROR 1e-8
 
 #include <bits/stdc++.h>
 using namespace std;
