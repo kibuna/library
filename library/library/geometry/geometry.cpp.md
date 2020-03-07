@@ -43,12 +43,12 @@ layout: default
 * :heavy_check_mark: <a href="../../../verify/test/geometry/cross_circle_line.test.cpp.html">test/geometry/cross_circle_line.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/cross_two_circles.test.cpp.html">test/geometry/cross_two_circles.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/crosspoint.test.cpp.html">test/geometry/crosspoint.test.cpp</a>
-* :x: <a href="../../../verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/intersection.test.cpp.html">test/geometry/intersection.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/intersection_circles.test.cpp.html">test/geometry/intersection_circles.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/geometry/parallel_orthogonal.test.cpp.html">test/geometry/parallel_orthogonal.test.cpp</a>
-* :x: <a href="../../../verify/test/geometry/projection.test.cpp.html">test/geometry/projection.test.cpp</a>
-* :x: <a href="../../../verify/test/geometry/reflection.test.cpp.html">test/geometry/reflection.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/projection.test.cpp.html">test/geometry/projection.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/geometry/reflection.test.cpp.html">test/geometry/reflection.test.cpp</a>
 
 
 ## Code

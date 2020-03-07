@@ -169,6 +169,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/algebra/ntt.test.cpp.html">test/algebra/ntt.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/algebra/primefactors.test.cpp.html">test/algebra/primefactors.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/binaryindexedtree.test.cpp.html">test/datastructure/binaryindexedtree.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/datastructure/pathmultiply_edge.test.cpp.html">test/datastructure/pathmultiply_edge.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/potentialunionfind.test.cpp.html">test/datastructure/potentialunionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/segmenttree.test.cpp.html">test/datastructure/segmenttree.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/segmenttreelazy_rmq.test.cpp.html">test/datastructure/segmenttreelazy_rmq.test.cpp</a>
@@ -184,12 +185,12 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/geometry/cross_circle_line.test.cpp.html">test/geometry/cross_circle_line.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/cross_two_circles.test.cpp.html">test/geometry/cross_two_circles.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/crosspoint.test.cpp.html">test/geometry/crosspoint.test.cpp</a>
-* :x: <a href="verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/distance.test.cpp.html">test/geometry/distance.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/intersection.test.cpp.html">test/geometry/intersection.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/intersection_circles.test.cpp.html">test/geometry/intersection_circles.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/parallel_orthogonal.test.cpp.html">test/geometry/parallel_orthogonal.test.cpp</a>
-* :x: <a href="verify/test/geometry/projection.test.cpp.html">test/geometry/projection.test.cpp</a>
-* :x: <a href="verify/test/geometry/reflection.test.cpp.html">test/geometry/reflection.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/projection.test.cpp.html">test/geometry/projection.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/geometry/reflection.test.cpp.html">test/geometry/reflection.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/bellmanford.test.cpp.html">test/graph/bellmanford.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/dijkstra.test.cpp.html">test/graph/dijkstra.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/dijkstrarestore.test.cpp.html">test/graph/dijkstrarestore.test.cpp</a>

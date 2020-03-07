@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/geometry/distance.test.cpp
+# :heavy_check_mark: test/geometry/distance.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * <a href="{{ site.github.repository_url }}/blob/master/test/geometry/distance.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-07 14:45:20+09:00
+    - Last commit date: 2020-03-07 15:17:41+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_D">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_D</a>
@@ -47,6 +47,7 @@ layout: default
 {% raw %}
 ```cpp
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_D"
+#define ERROR 1e-8
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -79,6 +80,7 @@ int main() {
 ```cpp
 #line 1 "test/geometry/distance.test.cpp"
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_D"
+#define ERROR 1e-8
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -281,7 +283,7 @@ vector<Point> convex_hull(vector<Point> &p) {
     ch.resize(k - 1);
     return ch;
 }
-#line 8 "test/geometry/distance.test.cpp"
+#line 9 "test/geometry/distance.test.cpp"
 
 int main() {
     cin.tie(nullptr);

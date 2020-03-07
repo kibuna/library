@@ -25,26 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: library/datastructure/hldecomposition.cpp
+# :heavy_check_mark: test/datastructure/pathmultiply_edge.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* category: <a href="../../../index.html#94df14f08811b32e8e383a2a55f0c6c5">library/datastructure</a>
-* <a href="{{ site.github.repository_url }}/blob/master/library/datastructure/hldecomposition.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/pathmultiply_edge.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-07 15:03:57+09:00
 
 
+* see: <a href="https://www.hackerrank.com/contests/yfkpo3-1/challenges/bananas-multiplier-hard">https://www.hackerrank.com/contests/yfkpo3-1/challenges/bananas-multiplier-hard</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="segmenttree.cpp.html">library/datastructure/segmenttree.cpp</a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/datastructure/pathmultiply_edge.test.cpp.html">test/datastructure/pathmultiply_edge.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/datastructure/vertesaddpathsum.test.cpp.html">test/datastructure/vertesaddpathsum.test.cpp</a>
+* :heavy_check_mark: <a href="../../../library/library/algebra/mint.cpp.html">library/algebra/mint.cpp</a>
+* :heavy_check_mark: <a href="../../../library/library/datastructure/hldecomposition.cpp.html">library/datastructure/hldecomposition.cpp</a>
+* :heavy_check_mark: <a href="../../../library/library/datastructure/segmenttree.cpp.html">library/datastructure/segmenttree.cpp</a>
 
 
 ## Code
@@ -52,132 +48,128 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#include "segmenttree.cpp"
-template <typename T = lint>
-class HLDecomposition {
-    using F = function<T(T, T)>;
-    void dfs_sz(int v) {
-        for (int &u : edges[v])
-            if (u == par[v])
-                swap(u, edges[v].back());
-        if (~par[v])
-            edges[v].pop_back();
+#define PROBLEM "https://www.hackerrank.com/contests/yfkpo3-1/challenges/bananas-multiplier-hard"
 
-        for (int &u : edges[v]) {
-            par[u] = v;
-            dep[u] = dep[v] + 1;
-            dfs_sz(u);
-            sub[v] += sub[u];
-            if (sub[u] > sub[edges[v][0]])
-                swap(u, edges[v][0]);
-        }
+#include <bits/stdc++.h>
+using namespace std;
+using lint     = long long;
+const lint mod = 1e9 + 7;
+
+#include "../../library/algebra/mint.cpp"
+#include "../../library/datastructure/hldecomposition.cpp"
+
+int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    int n;
+    cin >> n;
+    auto f    = [](mint l, mint r) { return l * r; };
+    mint unit = 1;
+    HLDecomposition<mint> tree(n, f, unit);
+    vector<vector<pair<int, lint>>> edges(n);
+    for (int i = 0; i < n - 1; ++i) {
+        int u, v;
+        lint w;
+        cin >> u >> v >> w;
+        u--, v--;
+        edges[u].emplace_back(v, w);
+        edges[v].emplace_back(u, w);
+        tree.add_edge(u, v);
     }
-    void dfs_hld(int v, int c, int &pos) {
-        vid[v]      = pos++;
-        inv[vid[v]] = v;
-        type[v]     = c;
-        for (int u : edges[v]) {
-            if (u == par[v])
+    tree.build();
+    vector<mint> cs(n, unit);
+    function<void(int, int)> dfs = [&](int c, int p) {
+        for (auto &v : edges[c]) {
+            if (v.first == p)
                 continue;
-            head[u] = (u == edges[v][0] ? head[v] : u);
-            dfs_hld(u, c, pos);
+            cs[v.first] = v.second;
+            dfs(v.first, c);
         }
+    };
+    dfs(0, -1);
+    tree.assign(cs);
+    int q;
+    cin >> q;
+    for (int i = 0; i < q; ++i) {
+        int m, p, x;
+        cin >> m >> p >> x;
+        m--, p--;
+        mint ret = tree.query_edge(m, p) * x;
+        cout << ret << "\n";
     }
-    bool built;
-
-  public:
-    vector<vector<int>> edges;
-    vector<int> vid, head, sub, par, dep, inv, type;
-    F f;
-    T unit;
-    SegmentTree<T> segTree;
-
-    HLDecomposition(int n, F f, T unit)
-        : built(false), edges(n), vid(n, -1), head(n), sub(n, 1), par(n, -1), dep(n, 0), inv(n), type(n), f(f),
-          unit(unit), segTree(n, f, unit) {}
-
-    void add_edge(int u, int v) {
-        edges[u].emplace_back(v);
-        edges[v].emplace_back(u);
-    }
-
-    void build(vector<int> rs = {0}) {
-        int c = 0, pos = 0;
-        for (int r : rs) {
-            dfs_sz(r);
-            head[r] = r;
-            dfs_hld(r, c++, pos);
-        }
-        built = true;
-    }
-
-    void assign(vector<T> nodes) {
-        assert(nodes.size() == vid.size());
-        vector<T> v(nodes.size());
-        for (int i = 0; i < (int)nodes.size(); ++i) {
-            v[vid[i]] = nodes[i];
-        }
-        segTree = SegmentTree<T>(v, f, unit);
-    }
-
-    int lca(int u, int v) {
-        assert(built);
-        while (1) {
-            if (vid[u] > vid[v])
-                swap(u, v);
-            if (head[u] == head[v])
-                return u;
-            v = par[head[v]];
-        }
-    }
-
-    int distance(int u, int v) { return dep[u] + dep[v] - 2 * dep[lca(u, v)]; }
-
-    void update(int k, T x) { segTree.update(vid[k], x); }
-
-    // query for each vertex
-    // [l, r] <- attention!! closed section (path) on the tree
-    T query(int u, int v) {
-        assert(built);
-        T ret = unit;
-        while (1) {
-            if (vid[u] > vid[v])
-                swap(u, v);
-            ret = f(ret, segTree.query(max(vid[u], vid[head[v]]), vid[v] + 1));
-            if (head[u] != head[v])
-                v = par[head[v]];
-            else
-                return ret;
-        }
-    }
-
-    // query for each edge: exclude lca's value
-    // [l, r] <- attention!! closed section (path) on the tree
-    T query_edge(int u, int v) {
-        assert(built);
-        T ret = unit;
-        while (1) {
-            if (vid[u] > vid[v])
-                swap(u, v);
-            if (head[u] != head[v]) {
-                ret = f(ret, segTree.query(vid[head[v]], vid[v] + 1));
-                v   = par[head[v]];
-            } else {
-                if (u != v)
-                    ret = f(ret, segTree.query(vid[u] + 1, vid[v] + 1));
-                return ret;
-            }
-        }
-    }
-};
-
+    return 0;
+}
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "library/datastructure/segmenttree.cpp"
+#line 1 "test/datastructure/pathmultiply_edge.test.cpp"
+#define PROBLEM "https://www.hackerrank.com/contests/yfkpo3-1/challenges/bananas-multiplier-hard"
+
+#include <bits/stdc++.h>
+using namespace std;
+using lint     = long long;
+const lint mod = 1e9 + 7;
+
+#line 1 "test/datastructure/../../library/algebra/mint.cpp"
+struct mint {
+    lint v;
+    lint _mod;
+    mint() : v(0) {}
+    mint(signed v, lint _mod = mod) : v(v), _mod(_mod) {}
+    mint(lint t, lint _mod = mod) : _mod(_mod) {
+        v = t % _mod;
+        if (v < 0)
+            v += _mod;
+    }
+
+    mint pow(lint k) {
+        mint res(1), tmp(v);
+        while (k) {
+            if (k & 1)
+                res *= tmp;
+            tmp *= tmp;
+            k >>= 1;
+        }
+        return res;
+    }
+    static mint add_identity() { return mint(0); }
+    static mint mul_identity() { return mint(1); }
+    mint inv() { return pow(_mod - 2); }
+
+    mint &operator+=(mint a) {
+        v += a.v;
+        if (v >= _mod)
+            v -= _mod;
+        return *this;
+    }
+    mint &operator-=(mint a) {
+        v += _mod - a.v;
+        if (v >= _mod)
+            v -= _mod;
+        return *this;
+    }
+    mint &operator*=(mint a) {
+        v = v * a.v % _mod;
+        return *this;
+    }
+    mint &operator/=(mint a) { return (*this) *= a.inv(); }
+
+    mint operator+(mint a) const { return mint(v) += a; };
+    mint operator-(mint a) const { return mint(v) -= a; };
+    mint operator*(mint a) const { return mint(v) *= a; };
+    mint operator/(mint a) const { return mint(v) /= a; };
+
+    mint operator-() const { return v ? mint(_mod - v) : mint(v); }
+
+    bool operator==(const mint a) const { return v == a.v; }
+    bool operator!=(const mint a) const { return v != a.v; }
+    bool operator<(const mint a) const { return v < a.v; }
+};
+ostream &operator<<(ostream &os, mint m) { return os << m.v; }
+#line 1 "test/datastructure/../../library/datastructure/segmenttree.cpp"
 // 0-indexed bottom up Segment Tree
 // UNIT is the identity element of operation func
 template <typename T = int>
@@ -235,7 +227,7 @@ struct SegmentTree {
         return func(retl, retr);
     }
 };
-#line 2 "library/datastructure/hldecomposition.cpp"
+#line 2 "test/datastructure/../../library/datastructure/hldecomposition.cpp"
 template <typename T = lint>
 class HLDecomposition {
     using F = function<T(T, T)>;
@@ -353,6 +345,49 @@ class HLDecomposition {
         }
     }
 };
+#line 10 "test/datastructure/pathmultiply_edge.test.cpp"
+
+int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    int n;
+    cin >> n;
+    auto f    = [](mint l, mint r) { return l * r; };
+    mint unit = 1;
+    HLDecomposition<mint> tree(n, f, unit);
+    vector<vector<pair<int, lint>>> edges(n);
+    for (int i = 0; i < n - 1; ++i) {
+        int u, v;
+        lint w;
+        cin >> u >> v >> w;
+        u--, v--;
+        edges[u].emplace_back(v, w);
+        edges[v].emplace_back(u, w);
+        tree.add_edge(u, v);
+    }
+    tree.build();
+    vector<mint> cs(n, unit);
+    function<void(int, int)> dfs = [&](int c, int p) {
+        for (auto &v : edges[c]) {
+            if (v.first == p)
+                continue;
+            cs[v.first] = v.second;
+            dfs(v.first, c);
+        }
+    };
+    dfs(0, -1);
+    tree.assign(cs);
+    int q;
+    cin >> q;
+    for (int i = 0; i < q; ++i) {
+        int m, p, x;
+        cin >> m >> p >> x;
+        m--, p--;
+        mint ret = tree.query_edge(m, p) * x;
+        cout << ret << "\n";
+    }
+    return 0;
+}
 
 ```
 {% endraw %}
