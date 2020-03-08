@@ -57,6 +57,7 @@ layout: default
 
 * :heavy_check_mark: <a href="library/library/datastructure/binaryindexedtree.cpp.html">library/datastructure/binaryindexedtree.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/hldecomposition.cpp.html">library/datastructure/hldecomposition.cpp</a>
+* :heavy_check_mark: <a href="library/library/datastructure/hldnoncommutative.cpp.html">library/datastructure/hldnoncommutative.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/segmenttree.cpp.html">library/datastructure/segmenttree.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/segmenttreelazy.cpp.html">library/datastructure/segmenttreelazy.cpp</a>
 * :heavy_check_mark: <a href="library/library/datastructure/segmenttreelazyadd.cpp.html">library/datastructure/segmenttreelazyadd.cpp</a>
@@ -185,6 +186,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/datastructure/slidemin.test.cpp.html">test/datastructure/slidemin.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/unionfind.test.cpp.html">test/datastructure/unionfind.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/datastructure/vertesaddpathsum.test.cpp.html">test/datastructure/vertesaddpathsum.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/datastructure/vertexsetpathcomposite.test.cpp.html">test/datastructure/vertexsetpathcomposite.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/flow/dinic.test.cpp.html">test/flow/dinic.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/flow/primaldual.test.cpp.html">test/flow/primaldual.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/geometry/argsort.test.cpp.html">test/geometry/argsort.test.cpp</a>

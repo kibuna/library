@@ -40,6 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="../../../verify/test/algebra/mint_pow.test.cpp.html">test/algebra/mint_pow.test.cpp</a>
 * :heavy_check_mark: <a href="../../../verify/test/datastructure/pathmultiply_edge.test.cpp.html">test/datastructure/pathmultiply_edge.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/datastructure/vertexsetpathcomposite.test.cpp.html">test/datastructure/vertexsetpathcomposite.test.cpp</a>
 
 
 ## Code
