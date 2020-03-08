@@ -16,6 +16,7 @@
 "test/datastructure/slidemin.test.cpp": "2020-01-29 21:32:59 +0900",
 "test/datastructure/unionfind.test.cpp": "2020-01-26 01:04:37 +0900",
 "test/datastructure/vertesaddpathsum.test.cpp": "2020-03-08 09:34:37 +0900",
+"test/datastructure/vertexsetpathcomposite.test.cpp": "2020-03-08 11:30:58 +0900",
 "test/flow/dinic.test.cpp": "2020-01-29 21:37:14 +0900",
 "test/flow/primaldual.test.cpp": "2020-02-01 23:15:14 +0900",
 "test/geometry/argsort.test.cpp": "2020-03-07 14:45:20 +0900",
