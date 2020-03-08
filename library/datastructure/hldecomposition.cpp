@@ -1,4 +1,5 @@
 #include "segmenttree.cpp"
+
 template <typename T = lint>
 class HLDecomposition {
     using F = function<T(T, T)>;
@@ -28,18 +29,19 @@ class HLDecomposition {
             head[u] = (u == edges[v][0] ? head[v] : u);
             dfs_hld(u, c, pos);
         }
+        out[v] = pos;
     }
     bool built;
 
   public:
     vector<vector<int>> edges;
-    vector<int> vid, head, sub, par, dep, inv, type;
+    vector<int> vid, head, sub, par, dep, inv, type, out;
     F f;
     T unit;
     SegmentTree<T> segTree;
 
     HLDecomposition(int n, F f, T unit)
-        : built(false), edges(n), vid(n, -1), head(n), sub(n, 1), par(n, -1), dep(n, 0), inv(n), type(n), f(f),
+        : built(false), edges(n), vid(n, -1), head(n), sub(n, 1), par(n, -1), dep(n, 0), inv(n), type(n), out(n), f(f),
           unit(unit), segTree(n, f, unit) {}
 
     void add_edge(int u, int v) {
@@ -95,6 +97,12 @@ class HLDecomposition {
             else
                 return ret;
         }
+    }
+
+    // query for subtree whose root is u
+    T query_subtree(int u) {
+        assert(built);
+        return segTree.query(vid[u], out[u]);
     }
 
     // query for each edge: exclude lca's value
