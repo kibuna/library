@@ -25,21 +25,22 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: test/datastructure/vertesaddpathsum.test.cpp
+# :warning: test/datastructure/vertexaddsubtreesum.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
-* <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/vertesaddpathsum.test.cpp">View this file on GitHub</a>
+* category: <a href="../../../index.html#dd2863e470d2af8ee92181d6e8c27bbc">test/datastructure</a>
+* <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/vertexaddsubtreesum.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-08 09:34:37+09:00
 
 
-* see: <a href="https://judge.yosupo.jp/problem/vertex_add_path_sum">https://judge.yosupo.jp/problem/vertex_add_path_sum</a>
+* see: <a href="https://judge.yosupo.jp/problem/vertex_add_subtree_sum">https://judge.yosupo.jp/problem/vertex_add_subtree_sum</a>
 
 
 ## Depends on
 
-* :heavy_check_mark: <a href="../../../library/library/datastructure/hldecomposition.cpp.html">library/datastructure/hldecomposition.cpp</a>
-* :heavy_check_mark: <a href="../../../library/library/datastructure/segmenttree.cpp.html">library/datastructure/segmenttree.cpp</a>
+* :heavy_check_mark: <a href="../../library/datastructure/hldecomposition.cpp.html">library/datastructure/hldecomposition.cpp</a>
+* :heavy_check_mark: <a href="../../library/datastructure/segmenttree.cpp.html">library/datastructure/segmenttree.cpp</a>
 
 
 ## Code
@@ -47,7 +48,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
+#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_subtree_sum"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -64,36 +65,40 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
-    auto f    = [](lint l, lint r) { return l + r; };
-    lint unit = 0;
+    auto f          = [](lint l, lint r) { return l + r; };
+    const lint unit = 0;
     HLDecomposition<lint> tree(n, f, unit);
-    for (int i = 0; i < n - 1; ++i) {
-        int u, v;
-        cin >> u >> v;
-        tree.add_edge(u, v);
+    for (int i = 1; i < n; ++i) {
+        int p;
+        cin >> p;
+        tree.add_edge(i, p);
     }
     tree.build();
     tree.assign(a);
     for (int i = 0; i < q; ++i) {
-        lint k, u, v;
-        cin >> k >> u >> v;
+        int k;
+        cin >> k;
         if (k == 0) {
-            v += tree.query(u, u);
-            tree.update(u, v);
-        } else if (k == 1) {
-            cout << tree.query(u, v) << "\n";
+            int u, x;
+            cin >> u >> x;
+            tree.update(u, tree.query(u, u) + x);
+        } else {
+            int u;
+            cin >> u;
+            cout << tree.query_subtree(u) << "\n";
         }
     }
     return 0;
 }
+
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "test/datastructure/vertesaddpathsum.test.cpp"
-#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_path_sum"
+#line 1 "test/datastructure/vertexaddsubtreesum.cpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/vertex_add_subtree_sum"
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -283,7 +288,7 @@ class HLDecomposition {
         }
     }
 };
-#line 8 "test/datastructure/vertesaddpathsum.test.cpp"
+#line 8 "test/datastructure/vertexaddsubtreesum.cpp"
 
 int main() {
     cin.tie(nullptr);
@@ -294,24 +299,27 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> a[i];
     }
-    auto f    = [](lint l, lint r) { return l + r; };
-    lint unit = 0;
+    auto f          = [](lint l, lint r) { return l + r; };
+    const lint unit = 0;
     HLDecomposition<lint> tree(n, f, unit);
-    for (int i = 0; i < n - 1; ++i) {
-        int u, v;
-        cin >> u >> v;
-        tree.add_edge(u, v);
+    for (int i = 1; i < n; ++i) {
+        int p;
+        cin >> p;
+        tree.add_edge(i, p);
     }
     tree.build();
     tree.assign(a);
     for (int i = 0; i < q; ++i) {
-        lint k, u, v;
-        cin >> k >> u >> v;
+        int k;
+        cin >> k;
         if (k == 0) {
-            v += tree.query(u, u);
-            tree.update(u, v);
-        } else if (k == 1) {
-            cout << tree.query(u, v) << "\n";
+            int u, x;
+            cin >> u >> x;
+            tree.update(u, tree.query(u, u) + x);
+        } else {
+            int u;
+            cin >> u;
+            cout << tree.query_subtree(u) << "\n";
         }
     }
     return 0;

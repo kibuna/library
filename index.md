@@ -152,6 +152,13 @@ layout: default
 * :warning: <a href="library/snippets/wedgesin.cpp.html">snippets/wedgesin.cpp</a>
 
 
+<div id="dd2863e470d2af8ee92181d6e8c27bbc"></div>
+
+### test/datastructure
+
+* :warning: <a href="library/test/datastructure/vertexaddsubtreesum.cpp.html">test/datastructure/vertexaddsubtreesum.cpp</a>
+
+
 <div id="baa37bfd168b079b758c0db816f7295f"></div>
 
 ### test/graph

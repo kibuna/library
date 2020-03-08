@@ -40,6 +40,7 @@ layout: default
 
 * :heavy_check_mark: <a href="hldecomposition.cpp.html">library/datastructure/hldecomposition.cpp</a>
 * :heavy_check_mark: <a href="../tree/lca.cpp.html">library/tree/lca.cpp</a>
+* :warning: <a href="../../test/datastructure/vertexaddsubtreesum.cpp.html">test/datastructure/vertexaddsubtreesum.cpp</a>
 
 
 ## Verified with
