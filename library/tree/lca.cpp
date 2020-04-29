@@ -19,6 +19,11 @@ struct LCA {
     LCA(int n)
         : n(n), k(0), depth(2 * n - 1), eulerTour(2 * n - 1), firstVisit(n), edges(n),
           segTree(2 * n, pairComp, make_pair(numeric_limits<int>::max(), 0)), isbuilt(false){};
+    LCA(vector<vector<int>> &edges, int root = 0)
+        : n(edges.size()), k(0), depth(2 * n - 1), eulerTour(2 * n - 1), firstVisit(n), edges(edges),
+          segTree(2 * n, pairComp, make_pair(numeric_limits<int>::max(), 0)), isbuilt(false) {
+        build(root);
+    };
     void addEdge(int from, int to) {
         edges[from].push_back(to);
         edges[to].push_back(from);
@@ -52,4 +57,5 @@ struct LCA {
         return segTree.query(left, right + 1).second;
     }
     int getDepth(int k) { return depth[firstVisit[k]]; }
+    int dist(int l, int r) { return getDepth(l) + getDepth(r) - 2 * getDepth(operator()(l, r)); }
 };
