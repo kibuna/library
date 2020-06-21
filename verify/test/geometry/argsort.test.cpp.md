@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#6f6f0638f7867790eb83eef8fd5b53f2">test/geometry</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/geometry/argsort.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-07 14:45:20+09:00
 
@@ -82,7 +83,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/geometry/../../library/geometry/geometry.cpp"
+#line 1 "library/geometry/geometry.cpp"
 using Real     = long double;
 const Real eps = 1e-10;
 inline bool eq(Real a, Real b) { return fabs(a - b) < eps; }

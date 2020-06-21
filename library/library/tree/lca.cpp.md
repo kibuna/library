@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#8a0c4935c26bc3f080e3e86e308b2132">library/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/tree/lca.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-03-03 23:32:38+09:00
+    - Last commit date: 2020-04-29 10:16:05+09:00
 
 
 
@@ -72,6 +72,11 @@ struct LCA {
     LCA(int n)
         : n(n), k(0), depth(2 * n - 1), eulerTour(2 * n - 1), firstVisit(n), edges(n),
           segTree(2 * n, pairComp, make_pair(numeric_limits<int>::max(), 0)), isbuilt(false){};
+    LCA(vector<vector<int>> &edges, int root = 0)
+        : n(edges.size()), k(0), depth(2 * n - 1), eulerTour(2 * n - 1), firstVisit(n), edges(edges),
+          segTree(2 * n, pairComp, make_pair(numeric_limits<int>::max(), 0)), isbuilt(false) {
+        build(root);
+    };
     void addEdge(int from, int to) {
         edges[from].push_back(to);
         edges[to].push_back(from);
@@ -105,15 +110,15 @@ struct LCA {
         return segTree.query(left, right + 1).second;
     }
     int getDepth(int k) { return depth[firstVisit[k]]; }
+    int dist(int l, int r) { return getDepth(l) + getDepth(r) - 2 * getDepth(operator()(l, r)); }
 };
-
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "library/tree/../datastructure/segmenttree.cpp"
+#line 1 "library/datastructure/segmenttree.cpp"
 // 0-indexed bottom up Segment Tree
 // UNIT is the identity element of operation func
 template <typename T = int>
@@ -192,6 +197,11 @@ struct LCA {
     LCA(int n)
         : n(n), k(0), depth(2 * n - 1), eulerTour(2 * n - 1), firstVisit(n), edges(n),
           segTree(2 * n, pairComp, make_pair(numeric_limits<int>::max(), 0)), isbuilt(false){};
+    LCA(vector<vector<int>> &edges, int root = 0)
+        : n(edges.size()), k(0), depth(2 * n - 1), eulerTour(2 * n - 1), firstVisit(n), edges(edges),
+          segTree(2 * n, pairComp, make_pair(numeric_limits<int>::max(), 0)), isbuilt(false) {
+        build(root);
+    };
     void addEdge(int from, int to) {
         edges[from].push_back(to);
         edges[to].push_back(from);
@@ -225,6 +235,7 @@ struct LCA {
         return segTree.query(left, right + 1).second;
     }
     int getDepth(int k) { return depth[firstVisit[k]]; }
+    int dist(int l, int r) { return getDepth(l) + getDepth(r) - 2 * getDepth(operator()(l, r)); }
 };
 
 ```

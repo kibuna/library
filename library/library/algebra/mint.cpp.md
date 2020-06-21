@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#26c2ef729e4bca24cf34dda14fedd106">library/algebra</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/algebra/mint.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-27 00:09:13+09:00
+    - Last commit date: 2020-06-21 13:48:11+09:00
 
 
 
@@ -48,19 +48,16 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-struct mint {
+template <lint mod>
+struct modint {
     lint v;
-    lint _mod;
-    mint() : v(0) {}
-    mint(signed v, lint _mod = mod) : v(v), _mod(_mod) {}
-    mint(lint t, lint _mod = mod) : _mod(_mod) {
-        v = t % _mod;
+    constexpr modint(lint t = 0) noexcept {
+        v = t % mod;
         if (v < 0)
-            v += _mod;
+            v += mod;
     }
-
-    mint pow(lint k) {
-        mint res(1), tmp(v);
+    constexpr modint pow(lint k) noexcept {
+        modint res(1), tmp(v);
         while (k) {
             if (k & 1)
                 res *= tmp;
@@ -69,41 +66,40 @@ struct mint {
         }
         return res;
     }
-    static mint add_identity() { return mint(0); }
-    static mint mul_identity() { return mint(1); }
-    mint inv() { return pow(_mod - 2); }
+    static modint add_identity() { return modint(0); }
+    static modint mul_identity() { return modint(1); }
+    constexpr modint inv() { return pow(mod - 2); }
 
-    mint &operator+=(mint a) {
+    constexpr modint &operator+=(const modint a) noexcept {
         v += a.v;
-        if (v >= _mod)
-            v -= _mod;
+        if (v >= mod)
+            v -= mod;
         return *this;
     }
-    mint &operator-=(mint a) {
-        v += _mod - a.v;
-        if (v >= _mod)
-            v -= _mod;
+    constexpr modint &operator-=(const modint a) noexcept {
+        v += mod - a.v;
+        if (v >= mod)
+            v -= mod;
         return *this;
     }
-    mint &operator*=(mint a) {
-        v = v * a.v % _mod;
+    constexpr modint &operator*=(const modint a) noexcept {
+        v = v * a.v % mod;
         return *this;
     }
-    mint &operator/=(mint a) { return (*this) *= a.inv(); }
+    constexpr modint &operator/=(const modint a) noexcept { return (*this) *= a.inv(); }
 
-    mint operator+(mint a) const { return mint(v) += a; };
-    mint operator-(mint a) const { return mint(v) -= a; };
-    mint operator*(mint a) const { return mint(v) *= a; };
-    mint operator/(mint a) const { return mint(v) /= a; };
+    constexpr modint operator+(const modint a) const noexcept { return modint(v) += a; };
+    constexpr modint operator-(const modint a) const noexcept { return modint(v) -= a; };
+    constexpr modint operator*(const modint a) const noexcept { return modint(v) *= a; };
+    constexpr modint operator/(const modint a) const noexcept { return modint(v) /= a; };
+    constexpr modint operator-() const noexcept { return v ? modint(mod - v) : modint(v); }
 
-    mint operator-() const { return v ? mint(_mod - v) : mint(v); }
-
-    bool operator==(const mint a) const { return v == a.v; }
-    bool operator!=(const mint a) const { return v != a.v; }
-    bool operator<(const mint a) const { return v < a.v; }
+    constexpr bool operator==(const modint a) const noexcept { return v == a.v; }
+    constexpr bool operator!=(const modint a) const noexcept { return v != a.v; }
+    constexpr bool operator<(const modint a) const noexcept { return v < a.v; }
 };
+using mint = modint<mod>;
 ostream &operator<<(ostream &os, mint m) { return os << m.v; }
-
 ```
 {% endraw %}
 
@@ -111,19 +107,16 @@ ostream &operator<<(ostream &os, mint m) { return os << m.v; }
 {% raw %}
 ```cpp
 #line 1 "library/algebra/mint.cpp"
-struct mint {
+template <lint mod>
+struct modint {
     lint v;
-    lint _mod;
-    mint() : v(0) {}
-    mint(signed v, lint _mod = mod) : v(v), _mod(_mod) {}
-    mint(lint t, lint _mod = mod) : _mod(_mod) {
-        v = t % _mod;
+    constexpr modint(lint t = 0) noexcept {
+        v = t % mod;
         if (v < 0)
-            v += _mod;
+            v += mod;
     }
-
-    mint pow(lint k) {
-        mint res(1), tmp(v);
+    constexpr modint pow(lint k) noexcept {
+        modint res(1), tmp(v);
         while (k) {
             if (k & 1)
                 res *= tmp;
@@ -132,39 +125,39 @@ struct mint {
         }
         return res;
     }
-    static mint add_identity() { return mint(0); }
-    static mint mul_identity() { return mint(1); }
-    mint inv() { return pow(_mod - 2); }
+    static modint add_identity() { return modint(0); }
+    static modint mul_identity() { return modint(1); }
+    constexpr modint inv() { return pow(mod - 2); }
 
-    mint &operator+=(mint a) {
+    constexpr modint &operator+=(const modint a) noexcept {
         v += a.v;
-        if (v >= _mod)
-            v -= _mod;
+        if (v >= mod)
+            v -= mod;
         return *this;
     }
-    mint &operator-=(mint a) {
-        v += _mod - a.v;
-        if (v >= _mod)
-            v -= _mod;
+    constexpr modint &operator-=(const modint a) noexcept {
+        v += mod - a.v;
+        if (v >= mod)
+            v -= mod;
         return *this;
     }
-    mint &operator*=(mint a) {
-        v = v * a.v % _mod;
+    constexpr modint &operator*=(const modint a) noexcept {
+        v = v * a.v % mod;
         return *this;
     }
-    mint &operator/=(mint a) { return (*this) *= a.inv(); }
+    constexpr modint &operator/=(const modint a) noexcept { return (*this) *= a.inv(); }
 
-    mint operator+(mint a) const { return mint(v) += a; };
-    mint operator-(mint a) const { return mint(v) -= a; };
-    mint operator*(mint a) const { return mint(v) *= a; };
-    mint operator/(mint a) const { return mint(v) /= a; };
+    constexpr modint operator+(const modint a) const noexcept { return modint(v) += a; };
+    constexpr modint operator-(const modint a) const noexcept { return modint(v) -= a; };
+    constexpr modint operator*(const modint a) const noexcept { return modint(v) *= a; };
+    constexpr modint operator/(const modint a) const noexcept { return modint(v) /= a; };
+    constexpr modint operator-() const noexcept { return v ? modint(mod - v) : modint(v); }
 
-    mint operator-() const { return v ? mint(_mod - v) : mint(v); }
-
-    bool operator==(const mint a) const { return v == a.v; }
-    bool operator!=(const mint a) const { return v != a.v; }
-    bool operator<(const mint a) const { return v < a.v; }
+    constexpr bool operator==(const modint a) const noexcept { return v == a.v; }
+    constexpr bool operator!=(const modint a) const noexcept { return v != a.v; }
+    constexpr bool operator<(const modint a) const noexcept { return v < a.v; }
 };
+using mint = modint<mod>;
 ostream &operator<<(ostream &os, mint m) { return os << m.v; }
 
 ```

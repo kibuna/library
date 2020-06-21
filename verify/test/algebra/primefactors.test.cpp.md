@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#c499b7fa4489ae69771eea179f185e77">test/algebra</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/algebra/primefactors.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-01 16:31:48+09:00
 
@@ -82,7 +83,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/algebra/../../library/algebra/primefactors.cpp"
+#line 1 "library/algebra/primefactors.cpp"
 // list up all prime factors, including how many times does it have the prime
 template <typename T = int>
 void primeFactors(T a, map<T, int> &facs) {

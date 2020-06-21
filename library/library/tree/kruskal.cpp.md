@@ -86,7 +86,7 @@ struct Kruskal {
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "library/tree/../datastructure/unionfind.cpp"
+#line 1 "library/datastructure/unionfind.cpp"
 struct UnionFind {
     vector<int> rank, parent, size;
 

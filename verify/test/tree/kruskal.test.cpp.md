@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#fbbf052ef5fff5555a3604bb69ffe38a">test/tree</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/tree/kruskal.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-27 00:53:15+09:00
 
@@ -84,7 +85,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/tree/../../library/tree/../datastructure/unionfind.cpp"
+#line 1 "library/datastructure/unionfind.cpp"
 struct UnionFind {
     vector<int> rank, parent, size;
 
@@ -117,7 +118,7 @@ struct UnionFind {
     }
     int getSize(int x) { return size[root(x)]; }
 };
-#line 2 "test/tree/../../library/tree/kruskal.cpp"
+#line 2 "library/tree/kruskal.cpp"
 
 // Kruskal algorithm: build minimum spanning tree
 template <typename T>

@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#baa37bfd168b079b758c0db816f7295f">test/graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/graph/bellmanford.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-28 21:56:13+09:00
 
@@ -95,7 +96,7 @@ using namespace std;
 using lint     = long long;
 const lint inf = 1LL << 60;
 
-#line 1 "test/graph/../../library/graph/bellmanford.cpp"
+#line 1 "library/graph/bellmanford.cpp"
 template <typename T> // T : type of cost
 struct BellmanFord {
     T inf = numeric_limits<T>::max(); // initial value, reused when clear() is called

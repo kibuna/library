@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#e46c0047b1d14ef43eeaaf13f64d385f">test/string</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/string/rollinghash.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-29 21:32:14+09:00
 
@@ -79,7 +80,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/string/../../library/string/rollinghash.cpp"
+#line 1 "library/string/rollinghash.cpp"
 // original: https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
 class RollingHash {
   private:

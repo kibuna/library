@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#dd2863e470d2af8ee92181d6e8c27bbc">test/datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/potentialunionfind.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-29 20:59:58+09:00
 
@@ -94,7 +95,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/datastructure/../../library/datastructure/unionfindpotential.cpp"
+#line 1 "library/datastructure/unionfindpotential.cpp"
 template <class Abel>
 struct UnionFindPotential {
     vector<int> parent, rank;

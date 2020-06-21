@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#e46c0047b1d14ef43eeaaf13f64d385f">test/string</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/string/zalgorithm.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-28 21:56:32+09:00
 
@@ -79,7 +80,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/string/../../library/string/zalgorithm.cpp"
+#line 1 "library/string/zalgorithm.cpp"
 template <typename T>
 vector<int> ZAlgorithm(const T &s) {
     const int ns = s.size();

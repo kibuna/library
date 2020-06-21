@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../../index.html#befd6e878d04dabe98b2fcf892a1574a">library/flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/flow/dinic.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-29 21:37:14+09:00
+    - Last commit date: 2020-06-21 13:48:11+09:00
 
 
 
@@ -84,7 +84,7 @@ struct Dinic {
     T dfs(int v, int t, T f) {
         if (v == t)
             return f;
-        for (int i = iter[v]; i < int(G[v].size()); ++i) {
+        for (int &i = iter[v]; i < int(G[v].size()); ++i) {
             edge &e = G[v][i];
             if (e.cap > 0 && level[v] < level[e.to]) {
                 T d = dfs(e.to, t, min(f, e.cap));
@@ -117,7 +117,6 @@ struct Dinic {
     // returns maximum flow from s to t
     T maxFlow(int s, int t) { return maxFlow(s, t, inf); }
 };
-
 ```
 {% endraw %}
 
@@ -163,7 +162,7 @@ struct Dinic {
     T dfs(int v, int t, T f) {
         if (v == t)
             return f;
-        for (int i = iter[v]; i < int(G[v].size()); ++i) {
+        for (int &i = iter[v]; i < int(G[v].size()); ++i) {
             edge &e = G[v][i];
             if (e.cap > 0 && level[v] < level[e.to]) {
                 T d = dfs(e.to, t, min(f, e.cap));

@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#c499b7fa4489ae69771eea179f185e77">test/algebra</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/algebra/combination.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-30 22:27:39+09:00
 
@@ -93,7 +94,7 @@ using namespace std;
 using lint     = long long;
 const lint mod = 100000007;
 
-#line 1 "test/algebra/../../library/algebra/combination.cpp"
+#line 1 "library/algebra/combination.cpp"
 struct Combination {
     vector<lint> fac, finv, inv;
     Combination(lint maxN) : fac(maxN + 100), finv(maxN + 100), inv(maxN + 100) {

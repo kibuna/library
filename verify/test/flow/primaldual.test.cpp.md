@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#044295dbe38b1bf5a820888b65143052">test/flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/flow/primaldual.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-01 23:15:14+09:00
 
@@ -87,7 +88,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/flow/../../library/flow/primaldual.cpp"
+#line 1 "library/flow/primaldual.cpp"
 // @see https://ei1333.github.io/luzhiled/snippets/graph/primal-dual.html
 template <typename T>
 struct PrimalDual {

@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#dd2863e470d2af8ee92181d6e8c27bbc">test/datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/segmenttreelazy_rmq.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-29 20:59:07+09:00
 
@@ -94,7 +95,7 @@ using namespace std;
 using lint     = long long;
 const lint inf = (1LL << 31) - 1;
 
-#line 1 "test/datastructure/../../library/datastructure/segmenttreelazy.cpp"
+#line 1 "library/datastructure/segmenttreelazy.cpp"
 template <typename T = lint>
 struct SegmentTreeLazy {
   private:

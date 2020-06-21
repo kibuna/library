@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#dd2863e470d2af8ee92181d6e8c27bbc">test/datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/slidemin.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-29 21:32:59+09:00
 
@@ -85,7 +86,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/datastructure/../../library/datastructure/slidemin.cpp"
+#line 1 "library/datastructure/slidemin.cpp"
 // return slide minimum
 // original sequense seq, slide width w
 // return [min[0,w), min[1,1+w), ...]

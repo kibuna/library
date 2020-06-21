@@ -29,8 +29,9 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#044295dbe38b1bf5a820888b65143052">test/flow</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/flow/dinic.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-01-29 21:37:14+09:00
+    - Last commit date: 2020-06-21 13:48:11+09:00
 
 
 * see: <a href="http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp">http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=jp</a>
@@ -81,7 +82,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/flow/../../library/flow/dinic.cpp"
+#line 1 "library/flow/dinic.cpp"
 // ref: https://github.com/beet-aizu/library/blob/master/flow/dinic.cpp
 template <typename T, bool directed>
 struct Dinic {
@@ -120,7 +121,7 @@ struct Dinic {
     T dfs(int v, int t, T f) {
         if (v == t)
             return f;
-        for (int i = iter[v]; i < int(G[v].size()); ++i) {
+        for (int &i = iter[v]; i < int(G[v].size()); ++i) {
             edge &e = G[v][i];
             if (e.cap > 0 && level[v] < level[e.to]) {
                 T d = dfs(e.to, t, min(f, e.cap));

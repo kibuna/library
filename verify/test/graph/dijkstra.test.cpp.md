@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#baa37bfd168b079b758c0db816f7295f">test/graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/graph/dijkstra.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-28 21:55:45+09:00
 
@@ -88,7 +89,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/graph/../../library/graph/dijkstra.cpp"
+#line 1 "library/graph/dijkstra.cpp"
 template <typename T>
 vector<T> dijkstra(int s, vector<vector<pair<int, T>>> &G) {
     const T inf = numeric_limits<T>::max();

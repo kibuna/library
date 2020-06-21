@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#baa37bfd168b079b758c0db816f7295f">test/graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/graph/warshallfloyd.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-27 01:18:09+09:00
 
@@ -117,7 +118,7 @@ bool chmin(T &a, const T &b) {
     return (b < a) ? (a = b, 1) : 0;
 }
 
-#line 1 "test/graph/../../library/graph/warshallfloyd.cpp"
+#line 1 "library/graph/warshallfloyd.cpp"
 // dist is adjacency matrix, no edge = inf
 template <typename T, bool has_negative_edge = false>
 void warshallFloyd(vector<vector<T>> &dist, T inf) {

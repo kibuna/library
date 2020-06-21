@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#dd2863e470d2af8ee92181d6e8c27bbc">test/datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/unionfind.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-26 01:04:37+09:00
 
@@ -81,7 +82,7 @@ signed main() {
 #include <bits/stdc++.h>
 using namespace std;
 
-#line 1 "test/datastructure/../../library/datastructure/unionfind.cpp"
+#line 1 "library/datastructure/unionfind.cpp"
 struct UnionFind {
     vector<int> rank, parent, size;
 

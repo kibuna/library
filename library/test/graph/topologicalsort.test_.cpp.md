@@ -87,7 +87,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/graph/../../library/graph/topologicalsort.cpp"
+#line 1 "library/graph/topologicalsort.cpp"
 // topologically sort the directed graph
 // 0-indexed
 struct TopologicalSort {

@@ -25,27 +25,21 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :heavy_check_mark: library/graph/lowlink.cpp
+# :warning: library/graph/twoedgeconnectedcomponents.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#c5878b56724fd1eb9362c2254e5c362f">library/graph</a>
-* <a href="{{ site.github.repository_url }}/blob/master/library/graph/lowlink.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-01 14:32:37+09:00
+* <a href="{{ site.github.repository_url }}/blob/master/library/graph/twoedgeconnectedcomponents.cpp">View this file on GitHub</a>
+    - Last commit date: 2020-04-29 10:20:45+09:00
 
 
-* see: <a href="https://ei1333.github.io/luzhiled/snippets/graph/lowlink.html">https://ei1333.github.io/luzhiled/snippets/graph/lowlink.html</a>
+* see: <a href="https://ei1333.github.io/luzhiled/snippets/graph/two-edge-connected-components.html">https://ei1333.github.io/luzhiled/snippets/graph/two-edge-connected-components.html</a>
 
 
-## Required by
+## Depends on
 
-* :warning: <a href="twoedgeconnectedcomponents.cpp.html">library/graph/twoedgeconnectedcomponents.cpp</a>
-
-
-## Verified with
-
-* :heavy_check_mark: <a href="../../../verify/test/graph/lowlink_articulation.test.cpp.html">test/graph/lowlink_articulation.test.cpp</a>
-* :heavy_check_mark: <a href="../../../verify/test/graph/lowlink_bridge.test.cpp.html">test/graph/lowlink_bridge.test.cpp</a>
+* :heavy_check_mark: <a href="lowlink.cpp.html">library/graph/lowlink.cpp</a>
 
 
 ## Code
@@ -53,47 +47,38 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-// @see https://ei1333.github.io/luzhiled/snippets/graph/lowlink.html
-struct LowLink {
-    int n;
-    vector<int> used, ord, low, articulation;
-    vector<pair<int, int>> bridge;
-    vector<vector<int>> edges;
-    LowLink(const vector<vector<int>> &edges) : n(edges.size()), used(n, 0), ord(n, 0), low(n, 0), edges(edges) {}
-
-    int dfs(int c, int p, int i) {
-        used[c] = true;
-        ord[c] = low[c]      = i++;
-        bool is_articulation = false;
-        int cnt              = 0;
-        for (auto &v : edges[c]) {
-            if (v == p)
-                continue;
-            if (!used[v]) {
-                cnt++;
-                i      = dfs(v, c, i);
-                low[c] = min(low[c], low[v]);
-                is_articulation |= ~p && low[v] >= ord[c];
-                if (ord[c] < low[v])
-                    bridge.emplace_back(min(c, v), max(c, v));
-            } else {
-                low[c] = min(low[c], ord[v]);
-            }
+#include "lowlink.cpp"
+// @see https://ei1333.github.io/luzhiled/snippets/graph/two-edge-connected-components.html
+struct TwoEdgeConnectedComponents : LowLink {
+    int k;
+    vector<int> comp;
+    vector<vector<int>> bridges;
+    TwoEdgeConnectedComponents(const vector<vector<int>> &edges) : LowLink(edges), k(0) { build(); }
+    int operator[](const int &k) { return comp[k]; }
+    void dfs(int idx, int par, int &k) {
+        if (~par && this->ord[par] >= this->low[idx])
+            comp[idx] = comp[par];
+        else
+            comp[idx] = k++;
+        for (auto &to : this->edges[idx]) {
+            if (comp[to] == -1)
+                dfs(to, idx, k);
         }
-        is_articulation |= p == -1 && cnt > 1;
-        if (is_articulation)
-            articulation.push_back(c);
-        return i;
     }
     void build() {
-        int k = 0;
-        for (int i = 0; i < n; ++i) {
-            if (!used[i])
-                k = dfs(i, -1, k);
+        comp.assign(this->edges.size(), -1);
+        for (int i = 0; i < int(comp.size()); ++i) {
+            if (comp[i] == -1)
+                dfs(i, -1, k);
+        }
+        bridges.resize(k);
+        for (auto &e : this->bridge) {
+            int x = comp[e.first], y = comp[e.second];
+            bridges[x].push_back(y);
+            bridges[y].push_back(x);
         }
     }
 };
-
 ```
 {% endraw %}
 
@@ -138,6 +123,38 @@ struct LowLink {
         for (int i = 0; i < n; ++i) {
             if (!used[i])
                 k = dfs(i, -1, k);
+        }
+    }
+};
+#line 2 "library/graph/twoedgeconnectedcomponents.cpp"
+// @see https://ei1333.github.io/luzhiled/snippets/graph/two-edge-connected-components.html
+struct TwoEdgeConnectedComponents : LowLink {
+    int k;
+    vector<int> comp;
+    vector<vector<int>> bridges;
+    TwoEdgeConnectedComponents(const vector<vector<int>> &edges) : LowLink(edges), k(0) { build(); }
+    int operator[](const int &k) { return comp[k]; }
+    void dfs(int idx, int par, int &k) {
+        if (~par && this->ord[par] >= this->low[idx])
+            comp[idx] = comp[par];
+        else
+            comp[idx] = k++;
+        for (auto &to : this->edges[idx]) {
+            if (comp[to] == -1)
+                dfs(to, idx, k);
+        }
+    }
+    void build() {
+        comp.assign(this->edges.size(), -1);
+        for (int i = 0; i < int(comp.size()); ++i) {
+            if (comp[i] == -1)
+                dfs(i, -1, k);
+        }
+        bridges.resize(k);
+        for (auto &e : this->bridge) {
+            int x = comp[e.first], y = comp[e.second];
+            bridges[x].push_back(y);
+            bridges[y].push_back(x);
         }
     }
 };

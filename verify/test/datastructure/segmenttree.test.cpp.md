@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#dd2863e470d2af8ee92181d6e8c27bbc">test/datastructure</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/datastructure/segmenttree.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-01-27 00:06:22+09:00
 
@@ -105,7 +106,7 @@ using lint     = long long;
 using pii      = pair<lint, lint>;
 const lint mod = 998244353;
 
-#line 1 "test/datastructure/../../library/datastructure/segmenttree.cpp"
+#line 1 "library/datastructure/segmenttree.cpp"
 // 0-indexed bottom up Segment Tree
 // UNIT is the identity element of operation func
 template <typename T = int>

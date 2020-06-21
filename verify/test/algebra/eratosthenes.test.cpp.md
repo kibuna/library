@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#c499b7fa4489ae69771eea179f185e77">test/algebra</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/algebra/eratosthenes.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-02-01 11:43:48+09:00
 
@@ -84,7 +85,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/algebra/../../library/algebra/eratosthenes.cpp"
+#line 1 "library/algebra/eratosthenes.cpp"
 // Eratosthenes's sieve
 // create list of prime numbers in O(N)
 // check if the given number is prime in O(1)

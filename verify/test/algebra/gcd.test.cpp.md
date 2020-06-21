@@ -29,6 +29,7 @@ layout: default
 
 <a href="../../../index.html">Back to top page</a>
 
+* category: <a href="../../../index.html#c499b7fa4489ae69771eea179f185e77">test/algebra</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/algebra/gcd.test.cpp">View this file on GitHub</a>
     - Last commit date: 2020-03-07 14:45:20+09:00
 
@@ -81,7 +82,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/algebra/../../library/algebra/mygcd.cpp"
+#line 1 "library/algebra/mygcd.cpp"
 // greatest common divisor and least common multiple
 // gcd is calculated by Euclidean Algorithm
 // lcm = m * n / gcd(m,n)

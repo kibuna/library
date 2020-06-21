@@ -104,7 +104,7 @@ int main() {
 using namespace std;
 using lint = long long;
 
-#line 1 "test/datastructure/../../library/datastructure/segmenttree.cpp"
+#line 1 "library/datastructure/segmenttree.cpp"
 // 0-indexed bottom up Segment Tree
 // UNIT is the identity element of operation func
 template <typename T = int>
@@ -162,7 +162,7 @@ struct SegmentTree {
         return func(retl, retr);
     }
 };
-#line 2 "test/datastructure/../../library/datastructure/hldecomposition.cpp"
+#line 2 "library/datastructure/hldecomposition.cpp"
 
 template <typename T = lint>
 class HLDecomposition {
