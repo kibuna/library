@@ -1,0 +1,1 @@
+vector<vector<vector<lint>>> $1($2, vector<vector<lint>>($3, vector<lint>($4)));

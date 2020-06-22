@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-using lint     = long long;
-const lint inf = 1LL << 60;
-const lint mod = 1000000007;
+using lint         = long long;
+constexpr lint inf = 1LL << 60;
+constexpr lint mod = 1000000007;
 
 int main() {
     cin.tie(nullptr);

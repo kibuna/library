@@ -1,1 +1,1 @@
-vector<vector<int>>
+vector<vector<int>> $1($2, vector<int>($3));

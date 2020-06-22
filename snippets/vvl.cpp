@@ -1,1 +1,1 @@
-vector<vector<lint>>
+vector<vector<lint>> $1($2, vector<lint>($3));
