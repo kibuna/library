@@ -3,6 +3,7 @@ struct StronglyConnectedComponents {
     vector<vector<int>> edges, rev, dag;
     vector<int> comp, order, used;
     vector<vector<int>> cs; // list of nodes in each component
+    int ndag;
 
     StronglyConnectedComponents(vector<vector<int>> const &g)
         : edges_in(g), edges(g.size()), rev(g.size()), comp(g.size(), -1), used(g.size()), cs(g.size()) {
@@ -31,16 +32,17 @@ struct StronglyConnectedComponents {
         for (auto &v : rev[c])
             rdfs(v, cnt);
     }
-    void build() {
+    int build() {
         for (int i = 0; i < (int)edges.size(); ++i)
             dfs(i);
         reverse(order.begin(), order.end());
-        int ptr = 0;
+        ndag = 0;
         for (auto &i : order) {
             if (comp[i] == -1)
-                rdfs(i, ptr++);
+                rdfs(i, ndag++);
         }
-        dag.resize(ptr);
+        cs.resize(ndag);
+        dag.resize(ndag);
         for (int i = 0; i < (int)edges_in.size(); ++i) {
             int x = comp[i];
             for (auto &v : edges_in[i]) {
@@ -50,5 +52,6 @@ struct StronglyConnectedComponents {
                 dag[x].push_back(y);
             }
         }
+        return ndag;
     }
 };
