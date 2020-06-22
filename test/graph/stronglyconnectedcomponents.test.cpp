@@ -19,7 +19,6 @@ int main() {
         edges[u].emplace_back(v);
     }
     StronglyConnectedComponents scc(edges);
-    scc.build();
     int q;
     cin >> q;
     for (int i = 0; i < q; ++i) {
