@@ -25,13 +25,13 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: test/graph/stronglyconnectedcomponents.test.cpp
+# :heavy_check_mark: test/graph/stronglyconnectedcomponents.test.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#baa37bfd168b079b758c0db816f7295f">test/graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/test/graph/stronglyconnectedcomponents.test.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-29 10:16:05+09:00
+    - Last commit date: 2020-06-22 21:13:14+09:00
 
 
 * see: <a href="https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_C">https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_C</a>
@@ -39,7 +39,7 @@ layout: default
 
 ## Depends on
 
-* :x: <a href="../../../library/library/graph/stronglyconnectedcomponents.cpp.html">library/graph/stronglyconnectedcomponents.cpp</a>
+* :heavy_check_mark: <a href="../../../library/library/graph/stronglyconnectedcomponents.cpp.html">library/graph/stronglyconnectedcomponents.cpp</a>
 
 
 ## Code
@@ -68,7 +68,6 @@ int main() {
         edges[u].emplace_back(v);
     }
     StronglyConnectedComponents scc(edges);
-    scc.build();
     int q;
     cin >> q;
     for (int i = 0; i < q; ++i) {
@@ -100,6 +99,7 @@ struct StronglyConnectedComponents {
     vector<vector<int>> edges, rev, dag;
     vector<int> comp, order, used;
     vector<vector<int>> cs; // list of nodes in each component
+    int ndag;
 
     StronglyConnectedComponents(vector<vector<int>> const &g)
         : edges_in(g), edges(g.size()), rev(g.size()), comp(g.size(), -1), used(g.size()), cs(g.size()) {
@@ -128,16 +128,17 @@ struct StronglyConnectedComponents {
         for (auto &v : rev[c])
             rdfs(v, cnt);
     }
-    void build() {
+    int build() {
         for (int i = 0; i < (int)edges.size(); ++i)
             dfs(i);
         reverse(order.begin(), order.end());
-        int ptr = 0;
+        ndag = 0;
         for (auto &i : order) {
             if (comp[i] == -1)
-                rdfs(i, ptr++);
+                rdfs(i, ndag++);
         }
-        dag.resize(ptr);
+        cs.resize(ndag);
+        dag.resize(ndag);
         for (int i = 0; i < (int)edges_in.size(); ++i) {
             int x = comp[i];
             for (auto &v : edges_in[i]) {
@@ -147,6 +148,7 @@ struct StronglyConnectedComponents {
                 dag[x].push_back(y);
             }
         }
+        return ndag;
     }
 };
 #line 8 "test/graph/stronglyconnectedcomponents.test.cpp"
@@ -164,7 +166,6 @@ int main() {
         edges[u].emplace_back(v);
     }
     StronglyConnectedComponents scc(edges);
-    scc.build();
     int q;
     cin >> q;
     for (int i = 0; i < q; ++i) {

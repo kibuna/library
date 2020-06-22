@@ -25,20 +25,20 @@ layout: default
 <link rel="stylesheet" href="../../../assets/css/copy-button.css" />
 
 
-# :x: library/graph/stronglyconnectedcomponents.cpp
+# :heavy_check_mark: library/graph/stronglyconnectedcomponents.cpp
 
 <a href="../../../index.html">Back to top page</a>
 
 * category: <a href="../../../index.html#c5878b56724fd1eb9362c2254e5c362f">library/graph</a>
 * <a href="{{ site.github.repository_url }}/blob/master/library/graph/stronglyconnectedcomponents.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-04-29 10:16:05+09:00
+    - Last commit date: 2020-06-22 21:13:14+09:00
 
 
 
 
 ## Verified with
 
-* :x: <a href="../../../verify/test/graph/stronglyconnectedcomponents.test.cpp.html">test/graph/stronglyconnectedcomponents.test.cpp</a>
+* :heavy_check_mark: <a href="../../../verify/test/graph/stronglyconnectedcomponents.test.cpp.html">test/graph/stronglyconnectedcomponents.test.cpp</a>
 
 
 ## Code
@@ -51,6 +51,7 @@ struct StronglyConnectedComponents {
     vector<vector<int>> edges, rev, dag;
     vector<int> comp, order, used;
     vector<vector<int>> cs; // list of nodes in each component
+    int ndag;
 
     StronglyConnectedComponents(vector<vector<int>> const &g)
         : edges_in(g), edges(g.size()), rev(g.size()), comp(g.size(), -1), used(g.size()), cs(g.size()) {
@@ -79,16 +80,17 @@ struct StronglyConnectedComponents {
         for (auto &v : rev[c])
             rdfs(v, cnt);
     }
-    void build() {
+    int build() {
         for (int i = 0; i < (int)edges.size(); ++i)
             dfs(i);
         reverse(order.begin(), order.end());
-        int ptr = 0;
+        ndag = 0;
         for (auto &i : order) {
             if (comp[i] == -1)
-                rdfs(i, ptr++);
+                rdfs(i, ndag++);
         }
-        dag.resize(ptr);
+        cs.resize(ndag);
+        dag.resize(ndag);
         for (int i = 0; i < (int)edges_in.size(); ++i) {
             int x = comp[i];
             for (auto &v : edges_in[i]) {
@@ -98,9 +100,9 @@ struct StronglyConnectedComponents {
                 dag[x].push_back(y);
             }
         }
+        return ndag;
     }
 };
-
 ```
 {% endraw %}
 
@@ -113,6 +115,7 @@ struct StronglyConnectedComponents {
     vector<vector<int>> edges, rev, dag;
     vector<int> comp, order, used;
     vector<vector<int>> cs; // list of nodes in each component
+    int ndag;
 
     StronglyConnectedComponents(vector<vector<int>> const &g)
         : edges_in(g), edges(g.size()), rev(g.size()), comp(g.size(), -1), used(g.size()), cs(g.size()) {
@@ -141,16 +144,17 @@ struct StronglyConnectedComponents {
         for (auto &v : rev[c])
             rdfs(v, cnt);
     }
-    void build() {
+    int build() {
         for (int i = 0; i < (int)edges.size(); ++i)
             dfs(i);
         reverse(order.begin(), order.end());
-        int ptr = 0;
+        ndag = 0;
         for (auto &i : order) {
             if (comp[i] == -1)
-                rdfs(i, ptr++);
+                rdfs(i, ndag++);
         }
-        dag.resize(ptr);
+        cs.resize(ndag);
+        dag.resize(ndag);
         for (int i = 0; i < (int)edges_in.size(); ++i) {
             int x = comp[i];
             for (auto &v : edges_in[i]) {
@@ -160,6 +164,7 @@ struct StronglyConnectedComponents {
                 dag[x].push_back(y);
             }
         }
+        return ndag;
     }
 };
 

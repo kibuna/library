@@ -31,7 +31,7 @@ layout: default
 
 * category: <a href="../../index.html#67be68a348da3b850fb7daa10b034528">snippets</a>
 * <a href="{{ site.github.repository_url }}/blob/master/snippets/vvi.cpp">View this file on GitHub</a>
-    - Last commit date: 2020-02-01 11:43:48+09:00
+    - Last commit date: 2020-06-22 21:12:19+09:00
 
 
 
@@ -41,7 +41,7 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-vector<vector<int>>
+vector<vector<int>> $1($2, vector<int>($3));
 ```
 {% endraw %}
 
@@ -49,7 +49,7 @@ vector<vector<int>>
 {% raw %}
 ```cpp
 #line 1 "snippets/vvi.cpp"
-vector<vector<int>>
+vector<vector<int>> $1($2, vector<int>($3));
 
 ```
 {% endraw %}

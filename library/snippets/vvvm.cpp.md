@@ -25,12 +25,12 @@ layout: default
 <link rel="stylesheet" href="../../assets/css/copy-button.css" />
 
 
-# :warning: snippets/vvl.cpp
+# :warning: snippets/vvvm.cpp
 
 <a href="../../index.html">Back to top page</a>
 
 * category: <a href="../../index.html#67be68a348da3b850fb7daa10b034528">snippets</a>
-* <a href="{{ site.github.repository_url }}/blob/master/snippets/vvl.cpp">View this file on GitHub</a>
+* <a href="{{ site.github.repository_url }}/blob/master/snippets/vvvm.cpp">View this file on GitHub</a>
     - Last commit date: 2020-06-22 21:12:19+09:00
 
 
@@ -41,15 +41,15 @@ layout: default
 <a id="unbundled"></a>
 {% raw %}
 ```cpp
-vector<vector<lint>> $1($2, vector<lint>($3));
+vector<vector<vector<mint>>> $1($2, vector<vector<mint>>($3, vector<mint>($4)));
 ```
 {% endraw %}
 
 <a id="bundled"></a>
 {% raw %}
 ```cpp
-#line 1 "snippets/vvl.cpp"
-vector<vector<lint>> $1($2, vector<lint>($3));
+#line 1 "snippets/vvvm.cpp"
+vector<vector<vector<mint>>> $1($2, vector<vector<mint>>($3, vector<mint>($4)));
 
 ```
 {% endraw %}

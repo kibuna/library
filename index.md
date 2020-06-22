@@ -92,7 +92,7 @@ layout: default
 * :heavy_check_mark: <a href="library/library/graph/dijkstra.cpp.html">library/graph/dijkstra.cpp</a>
 * :heavy_check_mark: <a href="library/library/graph/dijkstrarestore.cpp.html">library/graph/dijkstrarestore.cpp</a>
 * :heavy_check_mark: <a href="library/library/graph/lowlink.cpp.html">library/graph/lowlink.cpp</a>
-* :x: <a href="library/library/graph/stronglyconnectedcomponents.cpp.html">library/graph/stronglyconnectedcomponents.cpp</a>
+* :heavy_check_mark: <a href="library/library/graph/stronglyconnectedcomponents.cpp.html">library/graph/stronglyconnectedcomponents.cpp</a>
 * :warning: <a href="library/library/graph/topologicalsort.cpp.html">library/graph/topologicalsort.cpp</a>
 * :warning: <a href="library/library/graph/twoedgeconnectedcomponents.cpp.html">library/graph/twoedgeconnectedcomponents.cpp</a>
 * :heavy_check_mark: <a href="library/library/graph/warshallfloyd.cpp.html">library/graph/warshallfloyd.cpp</a>
@@ -159,8 +159,13 @@ layout: default
 * :warning: <a href="library/snippets/vd.cpp.html">snippets/vd.cpp</a>
 * :warning: <a href="library/snippets/vi.cpp.html">snippets/vi.cpp</a>
 * :warning: <a href="library/snippets/vl.cpp.html">snippets/vl.cpp</a>
+* :warning: <a href="library/snippets/vm.cpp.html">snippets/vm.cpp</a>
 * :warning: <a href="library/snippets/vvi.cpp.html">snippets/vvi.cpp</a>
 * :warning: <a href="library/snippets/vvl.cpp.html">snippets/vvl.cpp</a>
+* :warning: <a href="library/snippets/vvm.cpp.html">snippets/vvm.cpp</a>
+* :warning: <a href="library/snippets/vvvi.cpp.html">snippets/vvvi.cpp</a>
+* :warning: <a href="library/snippets/vvvl.cpp.html">snippets/vvvl.cpp</a>
+* :warning: <a href="library/snippets/vvvm.cpp.html">snippets/vvvm.cpp</a>
 * :warning: <a href="library/snippets/wedges.cpp.html">snippets/wedges.cpp</a>
 * :warning: <a href="library/snippets/wedgesin.cpp.html">snippets/wedgesin.cpp</a>
 
@@ -217,7 +222,7 @@ layout: default
 * :heavy_check_mark: <a href="verify/test/graph/dijkstrarestore.test.cpp.html">test/graph/dijkstrarestore.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/lowlink_articulation.test.cpp.html">test/graph/lowlink_articulation.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/lowlink_bridge.test.cpp.html">test/graph/lowlink_bridge.test.cpp</a>
-* :x: <a href="verify/test/graph/stronglyconnectedcomponents.test.cpp.html">test/graph/stronglyconnectedcomponents.test.cpp</a>
+* :heavy_check_mark: <a href="verify/test/graph/stronglyconnectedcomponents.test.cpp.html">test/graph/stronglyconnectedcomponents.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/graph/warshallfloyd.test.cpp.html">test/graph/warshallfloyd.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/string/rollinghash.test.cpp.html">test/string/rollinghash.test.cpp</a>
 * :heavy_check_mark: <a href="verify/test/string/zalgorithm.test.cpp.html">test/string/zalgorithm.test.cpp</a>
