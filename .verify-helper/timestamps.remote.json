@@ -35,6 +35,7 @@
 "test/graph/dijkstrarestore.test.cpp": "2020-01-30 20:35:55 +0900",
 "test/graph/lowlink_articulation.test.cpp": "2020-02-01 14:32:37 +0900",
 "test/graph/lowlink_bridge.test.cpp": "2020-02-01 14:32:37 +0900",
+"test/graph/stronglyconnectedcomponents.test.cpp": "2020-06-22 21:13:14 +0900",
 "test/graph/warshallfloyd.test.cpp": "2020-01-27 01:18:09 +0900",
 "test/string/rollinghash.test.cpp": "2020-01-29 21:32:14 +0900",
 "test/string/zalgorithm.test.cpp": "2020-01-28 21:56:32 +0900",
